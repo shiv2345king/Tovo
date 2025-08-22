@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Business Console • Video Editor
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="video_editor.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="d-flex">
+   <!-- Sidebar (Shown on lg and above) -->
+   <!-- Manager/Business Role Sidebar (Small Business Owner / Marketing Manager) -->
+   <aside class="d-none d-lg-flex flex-column flex-shrink-0 p-3 text-white" style="width:280px;background-color:#000080;min-height:100vh;">
+    <div class="d-flex align-items-center mb-3">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/64/36';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:36px;width:auto;"/>
+     <span class="fs-6 fw-semibold" style="color:#00FFFF;">
+      Business Console
+     </span>
+    </div>
+    <div class="d-flex align-items-center mb-3 p-2 rounded" style="background-color:rgba(0,255,255,.08);">
+     <img alt="Avatar" class="rounded-circle me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user/40/40';" src="https://via.placeholder.com/40"/>
+     <div>
+      <div class="small">
+       Signed in as
+      </div>
+      <div class="fw-semibold">
+       @brand_account
+      </div>
+      <span class="badge" style="background-color:#00FFFF;color:#000080;">
+       Manager
+      </span>
+     </div>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./content_library.html">
+       <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+       </i>
+       Assets
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./ai_lab.html">
+       <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+       </i>
+       AI Ideas
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a aria-controls="analyticsMenu" aria-expanded="true" class="nav-link text-white" data-bs-toggle="collapse" href="#analyticsMenu" role="button">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics &amp; Reports
+       <i class="fa-solid fa-chevron-down float-end">
+       </i>
+      </a>
+      <div class="collapse show ps-4" id="analyticsMenu">
+       <ul class="list-unstyled">
+        <li class="my-1">
+         <a class="nav-link text-white" href="./analytics_page.html">
+          <i class="fa-solid fa-chart-simple me-2" style="color:#00FFFF;">
+          </i>
+          Dashboard
+         </a>
+        </li>
+        <li class="my-1">
+         <a class="nav-link text-white" href="./analytics_page.html#top-content">
+          <i class="fa-regular fa-star me-2" style="color:#00FFFF;">
+          </i>
+          Top Content
+         </a>
+        </li>
+       </ul>
+      </div>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+    <hr class="border-light opacity-25"/>
+    <div>
+     <a class="btn w-100 mb-2" href="./analytics_page.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-arrow-trend-up me-2">
+      </i>
+      View Analytics
+     </a>
+     <a class="btn btn-outline-info w-100" href="./post_creator.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-calendar-check me-2">
+      </i>
+      Schedule Now
+     </a>
+    </div>
+    <style>
+     aside a.nav-link{border-radius:.5rem;}
+        aside a.nav-link:hover{background-color:rgba(0,255,255,.15);} 
+        aside .collapse .nav-link{font-size:.95rem;}
+    </style>
+   </aside>
+   <!-- Main Content Wrapper -->
+   <div class="flex-grow-1 d-flex flex-column min-vh-100">
+    <!-- Header -->
+    <!-- Manager/Business Role Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000080;">
+     <div class="container-fluid">
+      <button aria-controls="offcanvasSidebarManager" class="btn btn-outline-info d-lg-none me-2" data-bs-target="#offcanvasSidebarManager" data-bs-toggle="offcanvas" style="border-color:#00FFFF;color:#00FFFF;" type="button">
+       <i class="fa-solid fa-bars">
+       </i>
+      </button>
+      <a class="navbar-brand d-flex align-items-center" href="./dashboard_page.html">
+       <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo2/28/28';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:28px;"/>
+       <span>
+        Business Console
+       </span>
+      </a>
+      <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
+       <div class="input-group">
+        <span class="input-group-text" style="background:#fff;border-color:#00FFFF;color:#000080;">
+         <i class="fa-solid fa-magnifying-glass">
+         </i>
+        </span>
+        <input aria-label="Search" class="form-control" placeholder="Search campaigns, posts..." style="border-color:#00FFFF;" type="search"/>
+       </div>
+      </form>
+      <ul class="navbar-nav ms-auto align-items-center">
+       <li class="nav-item me-2 d-none d-md-block">
+        <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+         <i class="fa-solid fa-file-export me-1">
+         </i>
+         Export Report
+        </a>
+       </li>
+       <li class="nav-item me-2 d-none d-md-block">
+        <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+         <i class="fa-solid fa-calendar-plus me-1">
+         </i>
+         Schedule Post
+        </a>
+       </li>
+       <li class="nav-item me-2">
+        <a class="nav-link" href="#" style="color:#00FFFF;">
+         <i class="fa-regular fa-bell">
+         </i>
+        </a>
+       </li>
+       <li class="nav-item me-2">
+        <a class="nav-link" href="#" style="color:#00FFFF;">
+         <i class="fa-regular fa-envelope">
+         </i>
+        </a>
+       </li>
+       <li class="nav-item dropdown">
+        <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button" style="color:#00FFFF;">
+         <img alt="Avatar" class="rounded-circle me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user2/28/28';" src="https://via.placeholder.com/28"/>
+         @brand_account
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+         <li>
+          <a class="dropdown-item" href="./account_settings.html">
+           <i class="fa-solid fa-gear me-2">
+           </i>
+           Settings
+          </a>
+         </li>
+         <li>
+          <a class="dropdown-item" href="./analytics_page.html">
+           <i class="fa-solid fa-chart-line me-2">
+           </i>
+           Analytics
+          </a>
+         </li>
+         <li>
+          <hr class="dropdown-divider"/>
+         </li>
+         <li>
+          <a class="dropdown-item text-danger" href="./login_page.html">
+           <i class="fa-solid fa-right-from-bracket me-2">
+           </i>
+           Logout
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </div>
+    </nav>
+    <!-- Offcanvas Sidebar for mobile (Manager) -->
+    <div aria-labelledby="offcanvasSidebarManagerLabel" class="offcanvas offcanvas-start" id="offcanvasSidebarManager" style="background-color:#000080;color:#fff;" tabindex="-1">
+     <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasSidebarManagerLabel">
+       Navigation
+      </h5>
+      <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+      </button>
+     </div>
+     <div class="offcanvas-body">
+      <ul class="nav nav-pills flex-column mb-auto">
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./dashboard_page.html">
+         <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+         </i>
+         Overview
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./calendar_page.html">
+         <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+         </i>
+         Planner
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./post_creator.html">
+         <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+         </i>
+         Schedule Post
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./content_library.html">
+         <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+         </i>
+         Assets
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./ai_lab.html">
+         <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+         </i>
+         AI Ideas
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./analytics_page.html">
+         <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+         </i>
+         Analytics
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./account_settings.html">
+         <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+         </i>
+         Account Settings
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <!-- Main -->
+    <main class="flex-grow-1">
+     <div class="container-fluid py-3">
+      <!-- Editor Header: Project name and primary actions -->
+      <div class="app-card mb-3 editor-header">
+       <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <div class="d-flex align-items-center gap-2">
+         <i class="fa-solid fa-film text-info">
+         </i>
+         <input aria-label="Project Title" class="form-control form-control-sm" id="projectTitleInput" style="min-width:260px;" type="text" value="Untitled Video Project"/>
+         <span class="text-muted small">
+          Default export name updates as you type
+         </span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+         <button class="btn btn-light btn-sm" data-bs-title="Undo" data-bs-toggle="tooltip" id="btnUndo">
+          <i class="fa-solid fa-rotate-left">
+          </i>
+         </button>
+         <div class="vr d-none d-sm-inline">
+         </div>
+         <button class="btn btn-outline-secondary btn-sm" id="btnExit">
+          <i class="fa-solid fa-arrow-left me-1">
+          </i>
+          Exit
+         </button>
+         <button class="btn btn-info btn-sm text-white" id="btnSave">
+          <i class="fa-regular fa-floppy-disk me-1">
+          </i>
+          Save
+         </button>
+         <button class="btn btn-primary btn-sm" id="btnExport">
+          <i class="fa-solid fa-file-export me-1">
+          </i>
+          Export
+         </button>
+        </div>
+       </div>
+      </div>
+      <!-- Workspace Panels -->
+      <div class="row g-3">
+       <!-- Media Bin (Left) -->
+       <div class="col-12 col-lg-3">
+        <div class="app-card h-100 media-bin">
+         <div class="card-header">
+          <div class="title d-flex align-items-center gap-2">
+           <i class="fa-solid fa-box-open text-info">
+           </i>
+           <span class="widget-title">
+            Media Bin
+           </span>
+          </div>
+          <div class="d-flex gap-2">
+           <button class="btn btn-light btn-sm" id="btnImportFromLibrary">
+            <i class="fa-solid fa-cloud-arrow-down me-1">
+            </i>
+            Import from Library
+           </button>
+           <label class="btn btn-secondary btn-sm mb-0" for="fileUploadInput">
+            <i class="fa-solid fa-upload me-1">
+            </i>
+            Upload Media
+           </label>
+           <input accept="video/mp4,video/quicktime,audio/mpeg" class="visually-hidden" id="fileUploadInput" multiple="" type="file"/>
+          </div>
+         </div>
+         <div class="card-body p-0">
+          <div class="p-2">
+           <div class="input-group input-group-sm mb-2">
+            <span class="input-group-text">
+             <i class="fa-solid fa-magnifying-glass">
+             </i>
+            </span>
+            <input class="form-control" id="assetSearch" placeholder="Search assets" type="text"/>
+           </div>
+           <div class="asset-grid" id="mediaAssetGrid">
+            <!-- Thumbnails appended here -->
+           </div>
+          </div>
+         </div>
+         <div class="card-footer d-flex justify-content-between small">
+          <span id="assetCount">
+           0 assets
+          </span>
+          <a class="text-decoration-none" href="./content_library.html">
+           Open Content Library
+           <i class="fa-solid fa-arrow-up-right-from-square ms-1">
+           </i>
+          </a>
+         </div>
+        </div>
+       </div>
+       <!-- Preview (Center) -->
+       <div class="col-12 col-lg-6">
+        <div class="app-card preview-panel">
+         <div class="card-header">
+          <div class="title d-flex align-items-center gap-2">
+           <i class="fa-solid fa-eye text-info">
+           </i>
+           <span class="widget-title">
+            Preview
+           </span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+           <button class="btn btn-light btn-sm" data-bs-title="Play/Pause" data-bs-toggle="tooltip" id="btnPlayPause">
+            <i class="fa-solid fa-play">
+            </i>
+           </button>
+           <div class="d-flex align-items-center gap-2 small">
+            <i class="fa-regular fa-clock text-muted">
+            </i>
+            <span id="timecode">
+             00:00:00:00
+            </span>
+           </div>
+           <div class="d-none d-sm-flex align-items-center gap-1">
+            <i class="fa-solid fa-volume-high text-muted">
+            </i>
+            <input id="volumeRange" max="1" min="0" step="0.01" type="range" value="1"/>
+           </div>
+          </div>
+         </div>
+         <div class="card-body">
+          <div class="preview-stage ratio ratio-16x9 rounded overflow-hidden">
+           <video crossorigin="anonymous" id="previewVideo" preload="metadata">
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+           </video>
+          </div>
+         </div>
+         <div class="card-footer">
+          <div class="text-muted small">
+           Tip: Click the video to play/pause. Playback reflects the timeline composition.
+          </div>
+         </div>
+        </div>
+        <!-- Toolbar -->
+        <div class="app-card mt-3 toolbar">
+         <div class="card-body d-flex align-items-center gap-2 flex-wrap">
+          <div aria-label="Tools" class="btn-group" role="group">
+           <input autocomplete="off" checked="" class="btn-check" id="toolSelect" name="toolOptions" type="radio"/>
+           <label class="btn btn-light btn-sm" data-bs-title="Select (V)" data-bs-toggle="tooltip" for="toolSelect">
+            <i class="fa-solid fa-arrow-pointer">
+            </i>
+           </label>
+           <input autocomplete="off" class="btn-check" id="toolSplit" name="toolOptions" type="radio"/>
+           <label class="btn btn-light btn-sm" data-bs-title="Split (Razor)" data-bs-toggle="tooltip" for="toolSplit">
+            <i class="fa-solid fa-scissors">
+            </i>
+           </label>
+           <input autocomplete="off" class="btn-check" id="toolText" name="toolOptions" type="radio"/>
+           <label class="btn btn-light btn-sm" data-bs-title="Add Text" data-bs-toggle="tooltip" for="toolText">
+            <i class="fa-solid fa-t">
+            </i>
+           </label>
+          </div>
+          <div class="vr">
+          </div>
+          <div class="d-flex align-items-center gap-2">
+           <button class="btn btn-light btn-sm" data-bs-title="Zoom Out Timeline" data-bs-toggle="tooltip" id="btnZoomOut">
+            <i class="fa-solid fa-magnifying-glass-minus">
+            </i>
+           </button>
+           <button class="btn btn-light btn-sm" data-bs-title="Zoom In Timeline" data-bs-toggle="tooltip" id="btnZoomIn">
+            <i class="fa-solid fa-magnifying-glass-plus">
+            </i>
+           </button>
+           <span class="small text-muted" id="zoomLabel">
+            100%
+           </span>
+          </div>
+         </div>
+        </div>
+        <!-- Timeline -->
+        <div class="app-card mt-3 timeline-panel">
+         <div class="card-header">
+          <div class="title d-flex align-items-center gap-2">
+           <i class="fa-solid fa-timeline text-info">
+           </i>
+           <span class="widget-title">
+            Timeline
+           </span>
+          </div>
+          <div class="small text-muted">
+           Drag clips here. Click to select. Drag edges to trim.
+          </div>
+         </div>
+         <div class="card-body p-0">
+          <div class="timeline-scroller" id="timelineScroller">
+           <div class="timeline-ruler" id="timelineRuler">
+           </div>
+           <div class="track" data-track="video" id="videoTrack">
+            <div class="track-label">
+             <i class="fa-solid fa-video">
+             </i>
+             Video Track
+            </div>
+            <div class="playhead" id="playhead">
+            </div>
+            <!-- Clips will be appended here -->
+           </div>
+           <div class="track" data-track="audio" id="audioTrack">
+            <div class="track-label">
+             <i class="fa-solid fa-music">
+             </i>
+             Audio Track
+            </div>
+            <!-- Audio clips may appear here; playhead is shared -->
+           </div>
+          </div>
+         </div>
+         <div class="card-footer d-flex justify-content-between small">
+          <div>
+           <span class="badge-soft info">
+            FPS 30
+           </span>
+           <span class="badge-soft secondary ms-2">
+            Non-destructive edits
+           </span>
+          </div>
+          <div class="text-muted" id="timelineInfo">
+           00:00 / 00:30
+          </div>
+         </div>
+        </div>
+       </div>
+       <!-- Inspector (Right) -->
+       <div class="col-12 col-lg-3">
+        <div class="app-card inspector-panel h-100">
+         <div class="card-header">
+          <div class="title d-flex align-items-center gap-2">
+           <i class="fa-solid fa-sliders text-info">
+           </i>
+           <span class="widget-title">
+            Inspector
+           </span>
+          </div>
+          <div class="small text-muted">
+           Properties of selected element
+          </div>
+         </div>
+         <div class="card-body">
+          <div class="empty-state p-3" id="inspectorEmpty">
+           <i class="fa-regular fa-object-ungroup fa-2x text-muted">
+           </i>
+           <div class="empty-state-text">
+            No item selected. Click a clip on the timeline to edit properties.
+           </div>
+          </div>
+          <div class="d-none" id="inspectorForm">
+           <div class="mb-3">
+            <label class="form-label">
+             Type
+            </label>
+            <input class="form-control form-control-sm" disabled="" id="inspectorType" type="text"/>
+           </div>
+           <div class="d-none" id="textProps">
+            <div class="mb-2">
+             <label class="form-label">
+              Text Content
+             </label>
+             <textarea class="form-control form-control-sm" id="textContent" placeholder="Enter overlay text..." rows="2"></textarea>
+            </div>
+            <div class="mb-2 d-flex align-items-center gap-2">
+             <div class="flex-grow-1">
+              <label class="form-label">
+               Font
+              </label>
+              <select class="form-select form-select-sm" id="textFont">
+               <option value="Poppins">
+                Poppins
+               </option>
+               <option value="Arial">
+                Arial
+               </option>
+               <option value="Georgia">
+                Georgia
+               </option>
+               <option value="Courier New">
+                Courier New
+               </option>
+              </select>
+             </div>
+             <div>
+              <label class="form-label">
+               Color
+              </label>
+              <input class="form-control form-control-color" id="textColor" type="color" value="#111111"/>
+             </div>
+            </div>
+           </div>
+           <div class="mb-3 d-none" id="audioProps">
+            <label class="form-label" for="clipVolume">
+             Volume
+            </label>
+            <input class="form-range" id="clipVolume" max="1" min="0" step="0.01" type="range" value="1"/>
+           </div>
+           <div class="mb-3">
+            <label class="form-label">
+             Start Time
+            </label>
+            <input class="form-control form-control-sm" disabled="" id="clipStart" type="text"/>
+           </div>
+           <div class="mb-3">
+            <label class="form-label">
+             End Time
+            </label>
+            <input class="form-control form-control-sm" disabled="" id="clipEnd" type="text"/>
+           </div>
+           <div class="d-flex justify-content-end gap-2">
+            <button class="btn btn-danger btn-sm" id="btnDeleteClip">
+             <i class="fa-solid fa-trash">
+             </i>
+            </button>
+           </div>
+          </div>
+          <hr/>
+          <div>
+           <div class="d-flex align-items-center justify-content-between mb-2">
+            <span class="small text-muted">
+             Audio Level (Live)
+            </span>
+            <span class="badge-soft info" id="audioLevelLabel">
+             Idle
+            </span>
+           </div>
+           <canvas height="120" id="audioChart">
+           </canvas>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </main>
+    <!-- Footer -->
+    <!-- Manager/Business Role Footer -->
+    <footer class="mt-auto py-3 border-top" style="border-top-color:#000080 !important;">
+     <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+       <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo3/20/20';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:20px;"/>
+       <span class="text-muted small">
+        © 2025 AI Social Manager
+       </span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+       <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+        <i class="fa-solid fa-file-export me-1">
+        </i>
+        Export
+       </a>
+       <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+        <i class="fa-solid fa-calendar-plus me-1">
+        </i>
+        Schedule
+       </a>
+       <a class="small text-muted ms-2" href="#">
+        Terms
+       </a>
+       <a class="small text-muted ms-2" href="#">
+        Privacy
+       </a>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <!-- Content Library Modal -->
+  <div aria-hidden="true" aria-labelledby="libraryModalLabel" class="modal fade" id="libraryModal" tabindex="-1">
+   <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="libraryModalLabel">
+       <i class="fa-solid fa-database me-2 text-info">
+       </i>
+       Content Library
+      </h5>
+      <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+      </button>
+     </div>
+     <div class="modal-body">
+      <div class="d-flex align-items-center justify-content-between mb-2 flex-wrap gap-2">
+       <div class="input-group input-group-sm" style="max-width:360px;">
+        <span class="input-group-text">
+         <i class="fa-solid fa-filter">
+         </i>
+        </span>
+        <input class="form-control" id="libFilter" placeholder="Filter by name, type..." type="text"/>
+       </div>
+       <div class="d-flex align-items-center gap-2 small">
+        <span>
+         Sort:
+        </span>
+        <button class="btn btn-light btn-sm" id="sortByDate">
+         <i class="fa-solid fa-arrow-down-short-wide me-1">
+         </i>
+         Date
+        </button>
+        <button class="btn btn-light btn-sm" id="sortByName">
+         <i class="fa-solid fa-arrow-down-a-z me-1">
+         </i>
+         Name
+        </button>
+       </div>
+      </div>
+      <div class="table-responsive border rounded">
+       <table class="table table-theme table-hover-reveal mb-0" id="libraryTable">
+        <thead>
+         <tr>
+          <th style="min-width:40px;">
+           <input id="libMasterCheck" type="checkbox"/>
+          </th>
+          <th>
+           Asset
+          </th>
+          <th>
+           Type
+          </th>
+          <th>
+           Duration
+          </th>
+          <th>
+           Added
+          </th>
+          <th>
+           Size
+          </th>
+          <th class="text-end">
+           Actions
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           <input class="libRowCheck" type="checkbox"/>
+          </td>
+          <td>
+           <div class="d-flex align-items-center gap-2">
+            <img alt="thumb" class="rounded border" src="https://picsum.photos/seed/clip1/48/30"/>
+            <div>
+             <div class="fw-semibold">
+              Beach-Broll-01.mp4
+             </div>
+             <div class="text-muted small">
+              1920x1080 • H.264
+             </div>
+            </div>
+           </div>
+          </td>
+          <td>
+           <span class="badge-soft info">
+            Video
+           </span>
+          </td>
+          <td>
+           00:00:12
+          </td>
+          <td>
+           2025-08-12
+          </td>
+          <td>
+           34.2 MB
+          </td>
+          <td class="text-end">
+           <button class="btn btn-sm btn-light hover-control">
+            <i class="fa-solid fa-eye">
+            </i>
+           </button>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <input class="libRowCheck" type="checkbox"/>
+          </td>
+          <td>
+           <div class="d-flex align-items-center gap-2">
+            <img alt="thumb" class="rounded border" src="https://picsum.photos/seed/clip2/48/30"/>
+            <div>
+             <div class="fw-semibold">
+              TalkingHead-Intro.mov
+             </div>
+             <div class="text-muted small">
+              3840x2160 • ProRes
+             </div>
+            </div>
+           </div>
+          </td>
+          <td>
+           <span class="badge-soft info">
+            Video
+           </span>
+          </td>
+          <td>
+           00:01:03
+          </td>
+          <td>
+           2025-08-11
+          </td>
+          <td>
+           420.8 MB
+          </td>
+          <td class="text-end">
+           <button class="btn btn-sm btn-light hover-control">
+            <i class="fa-solid fa-eye">
+            </i>
+           </button>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <input class="libRowCheck" type="checkbox"/>
+          </td>
+          <td>
+           <div class="d-flex align-items-center gap-2">
+            <img alt="thumb" class="rounded border" src="https://picsum.photos/seed/clip3/48/30"/>
+            <div>
+             <div class="fw-semibold">
+              Soft-Background-Loop.mp3
+             </div>
+             <div class="text-muted small">
+              Stereo • 320 kbps
+             </div>
+            </div>
+           </div>
+          </td>
+          <td>
+           <span class="badge-soft success">
+            Audio
+           </span>
+          </td>
+          <td>
+           00:02:30
+          </td>
+          <td>
+           2025-08-09
+          </td>
+          <td>
+           8.6 MB
+          </td>
+          <td class="text-end">
+           <button class="btn btn-sm btn-light hover-control">
+            <i class="fa-solid fa-eye">
+            </i>
+           </button>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <input class="libRowCheck" type="checkbox"/>
+          </td>
+          <td>
+           <div class="d-flex align-items-center gap-2">
+            <img alt="thumb" class="rounded border" src="https://picsum.photos/seed/clip4/48/30"/>
+            <div>
+             <div class="fw-semibold">
+              Logo-Stinger.mp4
+             </div>
+             <div class="text-muted small">
+              1080x1080 • H.264
+             </div>
+            </div>
+           </div>
+          </td>
+          <td>
+           <span class="badge-soft info">
+            Video
+           </span>
+          </td>
+          <td>
+           00:00:06
+          </td>
+          <td>
+           2025-08-01
+          </td>
+          <td>
+           4.8 MB
+          </td>
+          <td class="text-end">
+           <button class="btn btn-sm btn-light hover-control">
+            <i class="fa-solid fa-eye">
+            </i>
+           </button>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <input class="libRowCheck" type="checkbox"/>
+          </td>
+          <td>
+           <div class="d-flex align-items-center gap-2">
+            <img alt="thumb" class="rounded border" src="https://picsum.photos/seed/clip5/48/30"/>
+            <div>
+             <div class="fw-semibold">
+              City-Night-Broll.mp4
+             </div>
+             <div class="text-muted small">
+              1920x1080 • H.265
+             </div>
+            </div>
+           </div>
+          </td>
+          <td>
+           <span class="badge-soft info">
+            Video
+           </span>
+          </td>
+          <td>
+           00:00:20
+          </td>
+          <td>
+           2025-07-30
+          </td>
+          <td>
+           12.1 MB
+          </td>
+          <td class="text-end">
+           <button class="btn btn-sm btn-light hover-control">
+            <i class="fa-solid fa-eye">
+            </i>
+           </button>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <input class="libRowCheck" type="checkbox"/>
+          </td>
+          <td>
+           <div class="d-flex align-items-center gap-2">
+            <img alt="thumb" class="rounded border" src="https://picsum.photos/seed/clip6/48/30"/>
+            <div>
+             <div class="fw-semibold">
+              Whoosh-Transition.wav
+             </div>
+             <div class="text-muted small">
+              Mono • 16-bit
+             </div>
+            </div>
+           </div>
+          </td>
+          <td>
+           <span class="badge-soft success">
+            Audio
+           </span>
+          </td>
+          <td>
+           00:00:02
+          </td>
+          <td>
+           2025-07-22
+          </td>
+          <td>
+           0.2 MB
+          </td>
+          <td class="text-end">
+           <button class="btn btn-sm btn-light hover-control">
+            <i class="fa-solid fa-eye">
+            </i>
+           </button>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mt-2 small">
+       <div>
+        Showing 1–6 of 48 items
+       </div>
+       <nav aria-label="Library pagination">
+        <ul class="pagination pagination-sm mb-0">
+         <li class="page-item disabled">
+          <a class="page-link" href="#">
+           Previous
+          </a>
+         </li>
+         <li aria-current="page" class="page-item active">
+          <span class="page-link">
+           1
+          </span>
+         </li>
+         <li class="page-item">
+          <a class="page-link" href="#">
+           2
+          </a>
+         </li>
+         <li class="page-item">
+          <a class="page-link" href="#">
+           3
+          </a>
+         </li>
+         <li class="page-item">
+          <a class="page-link" href="#">
+           Next
+          </a>
+         </li>
+        </ul>
+       </nav>
+      </div>
+     </div>
+     <div class="modal-footer">
+      <button class="btn btn-light" data-bs-dismiss="modal" type="button">
+       Close
+      </button>
+      <button class="btn btn-primary" id="btnAddSelectedAssets" type="button">
+       <i class="fa-solid fa-plus me-1">
+       </i>
+       Add Selected
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Toast container -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+   <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-light border" id="appToast" role="alert">
+    <div class="d-flex">
+     <div class="toast-body">
+      <i class="fa-solid fa-circle-check text-success me-2">
+      </i>
+      <span id="toastMessage">
+       Action completed
+      </span>
+     </div>
+     <button aria-label="Close" class="btn-close me-2 m-auto" data-bs-dismiss="toast" type="button">
+     </button>
+    </div>
+   </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+  </script>
+  <script>
+   // Typography: ensure Poppins (override as needed)
+document.documentElement.style.setProperty('--editor-font', 'Poppins, var(--font-sans)');
+
+// Bootstrap tooltips
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+tooltipTriggerList.map(el => new bootstrap.Tooltip(el));
+
+// Toast helper
+const appToastEl = document.getElementById('appToast');
+const appToast = new bootstrap.Toast(appToastEl);
+
+function showToast(message) {
+    document.getElementById('toastMessage').textContent = message;
+    appToast.show();
+}
+
+// Elements
+const projectTitleInput = document.getElementById('projectTitleInput');
+const previewVideo = document.getElementById('previewVideo');
+const btnPlayPause = document.getElementById('btnPlayPause');
+const volumeRange = document.getElementById('volumeRange');
+const timecodeEl = document.getElementById('timecode');
+const playheadEl = document.getElementById('playhead');
+const timelineScroller = document.getElementById('timelineScroller');
+const rulerEl = document.getElementById('timelineRuler');
+const videoTrack = document.getElementById('videoTrack');
+const audioTrack = document.getElementById('audioTrack');
+const zoomLabel = document.getElementById('zoomLabel');
+const btnZoomIn = document.getElementById('btnZoomIn');
+const btnZoomOut = document.getElementById('btnZoomOut');
+const btnExport = document.getElementById('btnExport');
+const btnSave = document.getElementById('btnSave');
+const btnExit = document.getElementById('btnExit');
+const btnUndo = document.getElementById('btnUndo');
+const toolSelect = document.getElementById('toolSelect');
+const toolSplit = document.getElementById('toolSplit');
+const toolText = document.getElementById('toolText');
+const timelineInfo = document.getElementById('timelineInfo');
+
+// Inspector
+const inspectorEmpty = document.getElementById('inspectorEmpty');
+const inspectorForm = document.getElementById('inspectorForm');
+const inspectorType = document.getElementById('inspectorType');
+const textProps = document.getElementById('textProps');
+const textContent = document.getElementById('textContent');
+const textFont = document.getElementById('textFont');
+const textColor = document.getElementById('textColor');
+const audioProps = document.getElementById('audioProps');
+const clipVolume = document.getElementById('clipVolume');
+const clipStart = document.getElementById('clipStart');
+const clipEnd = document.getElementById('clipEnd');
+const btnDeleteClip = document.getElementById('btnDeleteClip');
+
+// Media Bin
+const mediaAssetGrid = document.getElementById('mediaAssetGrid');
+const assetSearch = document.getElementById('assetSearch');
+const assetCount = document.getElementById('assetCount');
+const fileUploadInput = document.getElementById('fileUploadInput');
+const btnImportFromLibrary = document.getElementById('btnImportFromLibrary');
+
+// Library Modal
+const libraryModal = new bootstrap.Modal(document.getElementById('libraryModal'));
+const libMasterCheck = document.getElementById('libMasterCheck');
+const btnAddSelectedAssets = document.getElementById('btnAddSelectedAssets');
+
+// State
+let isPlaying = false;
+let zoom = 1; // 1 = 100%
+let pxPerSecondBase = 120; // base scale
+let fps = 30;
+let clips = []; // {id, type: 'video'|'audio'|'text', start, end, track, el, label, color?, volume?}
+let selectedClipId = null;
+let history = [];
+let projectName = projectTitleInput.value;
+
+function pxPerSecond() {
+    return pxPerSecondBase * zoom;
+}
+
+// Utilities
+function pushHistory() {
+    history.push(JSON.stringify(clips));
+    if (history.length > 100) history.shift();
+}
+
+function formatTimecode(seconds) {
+    const s = Math.max(0, seconds || 0);
+    const hh = Math.floor(s / 3600);
+    const mm = Math.floor((s % 3600) / 60);
+    const ss = Math.floor(s % 60);
+    const ff = Math.floor((s - Math.floor(s)) * fps);
+    return `${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')}:${String(ff).padStart(2,'0')}`;
+}
+
+// Project title
+projectTitleInput.addEventListener('change', e => {
+    projectName = e.target.value.trim() || 'Untitled Video Project';
+});
+projectTitleInput.addEventListener('blur', e => {
+    projectName = e.target.value.trim() || 'Untitled Video Project';
+    projectTitleInput.value = projectName;
+});
+projectTitleInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        projectTitleInput.blur();
+    }
+});
+
+// Playback
+function updatePlayStateUI() {
+    btnPlayPause.innerHTML = isPlaying ? '<i class="fa-solid fa-pause"></i>' : '<i class="fa-solid fa-play"></i>';
+}
+btnPlayPause.addEventListener('click', () => {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+        previewVideo.play();
+        audioLevelLabel.textContent = 'Playing';
+    } else {
+        previewVideo.pause();
+        audioLevelLabel.textContent = 'Paused';
+    }
+    updatePlayStateUI();
+});
+previewVideo.addEventListener('click', () => {
+    btnPlayPause.click();
+});
+volumeRange.addEventListener('input', () => {
+    previewVideo.volume = parseFloat(volumeRange.value);
+});
+
+previewVideo.addEventListener('timeupdate', () => {
+    timecodeEl.textContent = formatTimecode(previewVideo.currentTime);
+    movePlayheadToTime(previewVideo.currentTime);
+});
+previewVideo.addEventListener('loadedmetadata', () => {
+    timelineInfo.textContent = `${formatTimecode(0)} / ${formatTimecode(previewVideo.duration || 30)}`;
+    renderRuler();
+});
+
+function movePlayheadToTime(t) {
+    const x = t * pxPerSecond();
+    playheadEl.style.left = x + 'px';
+}
+
+// Timeline ruler
+function renderRuler() {
+    const totalSec = Math.max(30, Math.ceil(previewVideo.duration || 30));
+    const totalWidth = totalSec * pxPerSecond();
+    rulerEl.style.width = totalWidth + 'px';
+    rulerEl.innerHTML = '';
+    for (let s = 0; s <= totalSec; s++) {
+        const tick = document.createElement('div');
+        tick.className = 'tick';
+        tick.style.left = (s * pxPerSecond()) + 'px';
+        tick.title = formatTimecode(s);
+        const label = document.createElement('span');
+        label.className = 'tick-label';
+        label.textContent = s % 5 === 0 ? formatTimecode(s) : '';
+        tick.appendChild(label);
+        rulerEl.appendChild(tick);
+    }
+    // Set tracks width
+    [videoTrack, audioTrack].forEach(t => t.style.width = totalWidth + 'px');
+}
+
+// Zoom controls
+function updateZoomLabel() {
+    zoomLabel.textContent = Math.round(zoom * 100) + '%';
+}
+btnZoomIn.addEventListener('click', () => {
+    zoom = Math.min(4, zoom + 0.25);
+    renderRuler();
+    positionAllClips();
+    updateZoomLabel();
+});
+btnZoomOut.addEventListener('click', () => {
+    zoom = Math.max(0.25, zoom - 0.25);
+    renderRuler();
+    positionAllClips();
+    updateZoomLabel();
+});
+
+// Media Bin initial items
+const initialAssets = [{
+    id: 'a1',
+    name: 'Beach-Broll-01.mp4',
+    type: 'video',
+    thumb: 'https://picsum.photos/seed/a1/120/80',
+    duration: 12
+}, {
+    id: 'a2',
+    name: 'TalkingHead-Intro.mov',
+    type: 'video',
+    thumb: 'https://picsum.photos/seed/a2/120/80',
+    duration: 63
+}, {
+    id: 'a3',
+    name: 'Soft-Background-Loop.mp3',
+    type: 'audio',
+    thumb: 'https://picsum.photos/seed/a3/120/80',
+    duration: 150
+}, {
+    id: 'a4',
+    name: 'Logo-Stinger.mp4',
+    type: 'video',
+    thumb: 'https://picsum.photos/seed/a4/120/80',
+    duration: 6
+}, {
+    id: 'a5',
+    name: 'City-Night-Broll.mp4',
+    type: 'video',
+    thumb: 'https://picsum.photos/seed/a5/120/80',
+    duration: 20
+}];
+let projectAssets = [...initialAssets];
+
+function renderMediaGrid() {
+    const q = (assetSearch.value || '').toLowerCase();
+    mediaAssetGrid.innerHTML = '';
+    projectAssets.filter(a => a.name.toLowerCase().includes(q)).forEach(asset => {
+        const card = document.createElement('div');
+        card.className = 'asset-thumb';
+        card.draggable = true;
+        card.dataset.assetId = asset.id;
+        card.innerHTML = `
+          <img src="${asset.thumb}" alt="thumb" class="thumb" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${asset.id}/120/80?grayscale';">
+          <div class="meta">
+            <div class="name" title="${asset.name}">${asset.name}</div>
+            <div class="details small text-muted">${asset.type.toUpperCase()} • ${formatTimecode(asset.duration)}</div>
+          </div>`;
+        card.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', JSON.stringify(asset));
+            card.classList.add('dragging');
+        });
+        card.addEventListener('dragend', () => card.classList.remove('dragging'));
+        mediaAssetGrid.appendChild(card);
+    });
+    assetCount.textContent = `${projectAssets.length} assets`;
+}
+renderMediaGrid();
+assetSearch.addEventListener('input', renderMediaGrid);
+
+// Upload
+fileUploadInput.addEventListener('change', (e) => {
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
+    files.forEach((f, idx) => {
+        const id = 'up' + Date.now() + '_' + idx;
+        const type = f.type.startsWith('audio') ? 'audio' : 'video';
+        const asset = {
+            id,
+            name: f.name,
+            type,
+            thumb: `https://picsum.photos/seed/${encodeURIComponent(f.name)}/120/80`,
+            duration: Math.floor(10 + Math.random() * 120)
+        };
+        // Simulate upload
+        setTimeout(() => {
+            projectAssets.unshift(asset);
+            renderMediaGrid();
+            showToast(`Uploaded ${f.name}`);
+        }, 600 + Math.random() * 800);
+    });
+    e.target.value = '';
+});
+
+// Import from Library
+btnImportFromLibrary.addEventListener('click', () => libraryModal.show());
+libMasterCheck.addEventListener('change', (e) => {
+    document.querySelectorAll('#libraryTable .libRowCheck').forEach(ch => ch.checked = e.target.checked);
+});
+btnAddSelectedAssets.addEventListener('click', () => {
+    const rows = Array.from(document.querySelectorAll('#libraryTable tbody tr'));
+    const toAdd = [];
+    rows.forEach((tr, i) => {
+        const chk = tr.querySelector('.libRowCheck');
+        if (chk.checked) {
+            const name = tr.querySelector('.fw-semibold').textContent.trim();
+            const typeText = tr.querySelector('td:nth-child(3)').innerText.trim().toLowerCase();
+            const type = typeText.includes('audio') ? 'audio' : 'video';
+            const duration = tr.querySelector('td:nth-child(4)').innerText.trim();
+            const [hh, mm, ss] = duration.split(':').map(Number);
+            const dur = (hh * 3600) + (mm * 60) + (ss);
+            const thumb = tr.querySelector('img').src;
+            toAdd.push({
+                id: 'lib' + Date.now() + i,
+                name,
+                type,
+                thumb,
+                duration: dur
+            });
+        }
+    });
+    if (!toAdd.length) {
+        showToast('No assets selected');
+        return;
+    }
+    projectAssets = [...toAdd, ...projectAssets];
+    renderMediaGrid();
+    libraryModal.hide();
+    showToast(`${toAdd.length} asset(s) imported`);
+});
+
+// Timeline drag/drop
+function trackDragOver(e) {
+    e.preventDefault();
+}
+
+function trackDrop(e) {
+    e.preventDefault();
+    const data = e.dataTransfer.getData('text/plain');
+    if (!data) return;
+    const asset = JSON.parse(data);
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left + e.currentTarget.scrollLeft; // relative
+    const startSec = x / pxPerSecond();
+    const dur = Math.min(asset.duration || 5, 15);
+    const clip = createClip({
+        type: asset.type,
+        start: Math.max(0, startSec),
+        end: Math.max(0.5, startSec + Math.max(2, Math.min(dur, 10))),
+        track: asset.type === 'audio' ? 'audio' : 'video',
+        label: asset.name,
+        color: asset.type === 'audio' ? 'var(--info-soft)' : 'var(--primary-soft)',
+        volume: 1
+    });
+    pushHistory();
+}
+[videoTrack, audioTrack].forEach(t => {
+    t.addEventListener('dragover', trackDragOver);
+    t.addEventListener('drop', trackDrop);
+});
+
+// Create clip element
+let clipSeq = 0;
+
+function createClip({
+    type,
+    start,
+    end,
+    track,
+    label,
+    color,
+    volume
+}) {
+    const id = 'c' + (++clipSeq);
+    const el = document.createElement('div');
+    el.className = 'clip';
+    el.tabIndex = 0;
+    el.dataset.id = id;
+    el.innerHTML = `
+        <div class="clip-bg"></div>
+        <div class="clip-label"><i class="${type==='audio' ? 'fa-solid fa-music' : (type==='text'?'fa-solid fa-t':'fa-solid fa-video')}"></i> ${label}</div>
+        <div class="handle handle-left" title="Trim start"></div>
+        <div class="handle handle-right" title="Trim end"></div>
+      `;
+    const trackEl = track === 'audio' ? audioTrack : videoTrack;
+    trackEl.appendChild(el);
+
+    const clip = {
+        id,
+        type,
+        start,
+        end,
+        track,
+        el,
+        label,
+        color,
+        volume: volume ?? 1,
+        text: (type === 'text' ? 'Sample Text' : undefined),
+        font: 'Poppins',
+        textColor: '#111111'
+    };
+    clips.push(clip);
+    styleClip(clip);
+    wireClipInteractions(clip);
+    return clip;
+}
+
+function styleClip(clip) {
+    const width = Math.max(16, (clip.end - clip.start) * pxPerSecond());
+    clip.el.style.left = (clip.start * pxPerSecond()) + 'px';
+    clip.el.style.width = width + 'px';
+    clip.el.style.setProperty('--clip-color', clip.color || 'var(--neutral-soft)');
+    clip.el.classList.toggle('clip-text', clip.type === 'text');
+}
+
+function positionAllClips() {
+    clips.forEach(styleClip);
+    movePlayheadToTime(previewVideo.currentTime || 0);
+}
+
+function wireClipInteractions(clip) {
+    const el = clip.el;
+    // Select
+    el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectClip(clip.id);
+    });
+    // Dragging
+    let dragStartX = 0;
+    let initialLeft = 0;
+    el.addEventListener('mousedown', (e) => {
+        if (e.target.classList.contains('handle')) return; // trim handles handled below
+        dragStartX = e.clientX;
+        initialLeft = parseFloat(getComputedStyle(el).left);
+        const onMove = (ev) => {
+            const dx = ev.clientX - dragStartX;
+            const newLeft = Math.max(0, initialLeft + dx);
+            el.style.left = newLeft + 'px';
+            clip.start = newLeft / pxPerSecond();
+            clip.end = clip.start + parseFloat(getComputedStyle(el).width) / pxPerSecond();
+            updateInspector(clip);
+        };
+        const onUp = () => {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onUp);
+            pushHistory();
+        };
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+    });
+    // Trim
+    const leftH = el.querySelector('.handle-left');
+    const rightH = el.querySelector('.handle-right');
+
+    function startTrim(side, e) {
+        e.stopPropagation();
+        const startX = e.clientX;
+        const startWidth = parseFloat(getComputedStyle(el).width);
+        const startLeft = parseFloat(getComputedStyle(el).left);
+        const onMove = (ev) => {
+            const dx = ev.clientX - startX;
+            if (side === 'left') {
+                const newLeft = Math.max(0, startLeft + dx);
+                const newWidth = Math.max(16, startWidth - dx);
+                el.style.left = newLeft + 'px';
+                el.style.width = newWidth + 'px';
+                clip.start = newLeft / pxPerSecond();
+            } else {
+                const newWidth = Math.max(16, startWidth + dx);
+                el.style.width = newWidth + 'px';
+                clip.end = (startLeft + newWidth) / pxPerSecond();
+            }
+            updateInspector(clip);
+        };
+        const onUp = () => {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onUp);
+            pushHistory();
+        };
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+    }
+    leftH.addEventListener('mousedown', startTrim.bind(null, 'left'));
+    rightH.addEventListener('mousedown', startTrim.bind(null, 'right'));
+
+    // Split tool behaviour
+    el.addEventListener('dblclick', () => {
+        if (toolSplit.checked) {
+            // Split at center of clip visually
+            const rect = el.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2 + window.scrollX;
+            splitClipAt(clip, (parseFloat(getComputedStyle(el).left) + rect.width / 2) / pxPerSecond());
+        }
+    });
+}
+
+function selectClip(id) {
+    selectedClipId = id;
+    clips.forEach(c => c.el.classList.toggle('selected', c.id === id));
+    const clip = clips.find(c => c.id === id);
+    updateInspector(clip);
+}
+
+function updateInspector(clip) {
+    if (!clip) {
+        inspectorEmpty.classList.remove('d-none');
+        inspectorForm.classList.add('d-none');
+        return;
+    }
+    inspectorEmpty.classList.add('d-none');
+    inspectorForm.classList.remove('d-none');
+    inspectorType.value = clip.type.toUpperCase();
+    clipStart.value = formatTimecode(clip.start);
+    clipEnd.value = formatTimecode(clip.end);
+    // Toggle groups
+    if (clip.type === 'text') {
+        textProps.classList.remove('d-none');
+        audioProps.classList.add('d-none');
+        textContent.value = clip.text || '';
+        textFont.value = clip.font || 'Poppins';
+        textColor.value = clip.textColor || '#111111';
+    } else {
+        textProps.classList.add('d-none');
+        audioProps.classList.remove('d-none');
+        clipVolume.value = clip.volume ?? 1;
+    }
+}
+
+// Inspector interactions
+textContent.addEventListener('input', () => {
+    const c = clips.find(x => x.id === selectedClipId);
+    if (c) {
+        c.text = textContent.value;
+        pushHistory();
+    }
+});
+textFont.addEventListener('change', () => {
+    const c = clips.find(x => x.id === selectedClipId);
+    if (c) {
+        c.font = textFont.value;
+        pushHistory();
+    }
+});
+textColor.addEventListener('change', () => {
+    const c = clips.find(x => x.id === selectedClipId);
+    if (c) {
+        c.textColor = textColor.value;
+        pushHistory();
+    }
+});
+clipVolume.addEventListener('input', () => {
+    const c = clips.find(x => x.id === selectedClipId);
+    if (c) {
+        c.volume = parseFloat(clipVolume.value);
+        pushHistory();
+    }
+});
+btnDeleteClip.addEventListener('click', () => {
+    const c = clips.find(x => x.id === selectedClipId);
+    if (!c) return;
+    Swal.fire({
+        title: 'Delete clip?',
+        text: c.label,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        confirmButtonColor: '#CD2026'
+    }).then(res => {
+        if (res.isConfirmed) {
+            c.el.remove();
+            clips = clips.filter(x => x.id !== c.id);
+            selectedClipId = null;
+            updateInspector(null);
+            pushHistory();
+            showToast('Clip deleted');
+        }
+    });
+});
+
+// Split
+function splitClipAt(clip, time) {
+    if (!(time > clip.start && time < clip.end)) return;
+    const leftDur = time - clip.start;
+    const rightDur = clip.end - time;
+    clip.end = time;
+    styleClip(clip);
+    const newClip = createClip({
+        type: clip.type,
+        start: time,
+        end: time + rightDur,
+        track: clip.track,
+        label: clip.label + ' (part)',
+        color: clip.color,
+        volume: clip.volume
+    });
+    pushHistory();
+    showToast('Clip split');
+}
+
+// Text tool
+timelineScroller.addEventListener('click', (e) => {
+    if (!toolText.checked) return;
+    const rect = videoTrack.getBoundingClientRect();
+    const x = e.clientX - rect.left + videoTrack.scrollLeft;
+    if (x < 0) return;
+    const startSec = x / pxPerSecond();
+    const clip = createClip({
+        type: 'text',
+        start: startSec,
+        end: startSec + 5,
+        track: 'video',
+        label: 'Text',
+        color: 'var(--warning-soft)'
+    });
+    selectClip(clip.id);
+    pushHistory();
+});
+
+// Undo
+btnUndo.addEventListener('click', () => {
+    if (!history.length) return;
+    const prev = history.pop();
+    try {
+        const arr = JSON.parse(prev);
+        // reset UI
+        clips.forEach(c => c.el.remove());
+        clips = [];
+        selectedClipId = null;
+        updateInspector(null);
+        arr.forEach(c => {
+            const newC = createClip(c);
+            newC.id = c.id; // keep ids
+            styleClip(newC);
+        });
+        showToast('Undone');
+    } catch (err) {
+        console.warn(err);
+    }
+});
+
+// Save
+btnSave.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Saving Project',
+        html: 'Please wait...',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+    setTimeout(() => {
+        Swal.close();
+        showToast('Project saved');
+    }, 1200);
+});
+
+// Export
+btnExport.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Export Video',
+        input: 'text',
+        inputValue: projectName.replace(/\s+/g, '_') + '.mp4',
+        inputLabel: 'Filename',
+        showCancelButton: true,
+        confirmButtonText: 'Start Export',
+    }).then(res => {
+        if (res.isConfirmed) {
+            startExport(res.value || (projectName.replace(/\s+/g, '_') + '.mp4'));
+        }
+    });
+});
+
+function startExport(filename) {
+    let progress = 0;
+    Swal.fire({
+        title: 'Rendering...',
+        html: `<div class="progress"><div class="progress-bar" role="progressbar" style="width:0%" id="exportProgress"></div></div><div class="small mt-2">${filename}</div>`,
+        allowOutsideClick: false,
+        didOpen: () => {
+            const bar = document.getElementById('exportProgress');
+            const iv = setInterval(() => {
+                progress += Math.random() * 12;
+                if (progress > 100) progress = 100;
+                bar.style.width = progress + '%';
+                if (progress >= 100) {
+                    clearInterval(iv);
+                    setTimeout(() => {
+                        Swal.fire({
+                            title: 'Export Complete',
+                            icon: 'success',
+                            html: `<p>Your video has been added to <a href='./content_library.html'>Content Library</a>.</p><a href='./post_creator.html' class='btn btn-primary mt-2'><i class='fa-solid fa-calendar-plus me-1'></i> Schedule Post</a>`
+                        });
+                    }, 300);
+                }
+            }, 300);
+        }
+    });
+}
+
+// Exit
+btnExit.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Exit Editor?',
+        text: 'Unsaved changes will be lost.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Exit',
+        confirmButtonColor: '#CD2026'
+    }).then(res => {
+        if (res.isConfirmed) {
+            window.location.href = './content_library.html';
+        }
+    });
+});
+
+// Audio levels chart
+const audioCtx = document.getElementById('audioChart');
+const audioLevelLabel = document.getElementById('audioLevelLabel');
+const audioChart = new Chart(audioCtx, {
+            type: 'line',
+            data: {
+                labels: Array.from({
+                    length: 30
+                }, (_, i) => i),
+                datasets: [{
+                    data: Array.from({
+                        length: 30
+                    }, () => 0),
+                    cubicInterpolationMode: 'monotone',
+                    borderColor: 'rgba(0,153,210,0.9)',
+                    backgroundColor: 'rgba(0,153,210,0.2)',
+                    fill: true,
+                    pointRadius: 0,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        display: false
+                    },
+                    y: {
+                        min: 0,
+                        max: 1,
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        ); setInterval(() => {
+            // Update with random values when playing
+            const d = audioChart.data.datasets[0].data;
+            d.shift();
+            d.push(isPlaying ? Math.random() * 0.9 : 0);
+            audioChart.update();
+        }, 200);
+
+        // Initial ruler and labeling
+        renderRuler(); updateZoomLabel();
+
+        // Click ruler to seek
+        rulerEl.addEventListener('click', (e) => {
+            const rect = rulerEl.getBoundingClientRect();
+            const x = e.clientX - rect.left + timelineScroller.scrollLeft;
+            const t = x / pxPerSecond();
+            previewVideo.currentTime = Math.max(0, Math.min(previewVideo.duration || 30, t));
+            movePlayheadToTime(previewVideo.currentTime);
+        });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,97 @@
+/* Post Creator / Scheduler - page-specific styles */
+/* Use Poppins on this page */
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Dropzone styling */
+.dropzone {
+    border: 2px dashed var(--divider-color);
+    background: var(--surface-0);
+    transition: border-color 0.2s ease, background-color 0.2s ease
+    }
+.dropzone.drag-active {
+    border-color: var(--color-info);
+    background: var(--info-soft)
+    }
+.dropzone a {
+    text-decoration: underline
+    }
+/* Media placeholder */
+.placeholder-media {
+    min-height: 160px
+    }
+/* Preview styling (simple platform tones) */
+.preview-pane {
+    min-height: 260px
+    }
+.social-preview {
+    padding: var(--space-3);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2);
+    background: var(--surface-0)
+    }
+.social-preview .preview-caption {
+    white-space: pre-wrap
+    }
+.platform-instagram .social-preview, .platform-instagram {
+    --tone: 255, 0, 102
+    }
+.platform-facebook .social-preview, .platform-facebook {
+    --tone: 24, 119, 242
+    }
+.platform-twitter .social-preview, .platform-twitter {
+    --tone: 17, 17, 17
+    }
+.platform-linkedin .social-preview, .platform-linkedin {
+    --tone: 10, 102, 194
+    }
+.platform-tiktok .social-preview, .platform-tiktok {
+    --tone: 0, 0, 0
+    }
+.platform-instagram .social-preview {
+    box-shadow: 0 0 0 2px rgba(255, 0, 102, 0.08) inset
+    }
+.platform-facebook .social-preview {
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.08) inset
+    }
+.platform-twitter .social-preview {
+    box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.08) inset
+    }
+.platform-linkedin .social-preview {
+    box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.08) inset
+    }
+.platform-tiktok .social-preview {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08) inset
+    }
+/* Tabs: subtle lift */
+.nav-tabs .nav-link {
+    font-weight: 600
+    }
+/* Library items */
+.library-item img.object-fit-cover {
+    object-fit: cover
+    }
+/* Character counter */
+.char-counter {
+    font-variant-numeric: tabular-nums
+    }
+/* Table tweaks */
+#recentTable thead th {
+    position: sticky;
+    top: 0;
+    background: var(--surface-muted);
+    z-index: 2
+    }
+#recentTable .badge-soft {
+    font-weight: 600
+    }
+/* Buttons */
+#scheduleBtn[disabled] {
+    cursor: not-allowed
+    }
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .social-preview {
+        padding: 12px
+        }
+    }

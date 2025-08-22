@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Create Your Account - AI Social Manager
+  </title>
+  <meta content="Register for AI Social Manager. Create your secure account to start managing your social media with AI-powered tools." name="description"/>
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <!-- Site Theme CSS -->
+  <link href="style.css" rel="stylesheet"/>
+  <!-- Page-specific CSS -->
+  <link href="registration_page.css" rel="stylesheet"/>
+ </head>
+ <body class="d-flex flex-column min-vh-100">
+  <!-- Common Auth (Login/Registration) Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000080;">
+   <div class="container-fluid">
+    <button aria-controls="offcanvasSidebarAuth" class="btn btn-outline-info d-md-none me-2" data-bs-target="#offcanvasSidebarAuth" data-bs-toggle="offcanvas" style="border-color:#00FFFF;color:#00FFFF;" type="button">
+     <i class="fa-solid fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./dashboard_page.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/aisociallogo/56/56';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:28px;"/>
+     <span>
+      AI Social Manager
+     </span>
+    </a>
+    <div class="ms-auto d-flex align-items-center gap-2">
+     <a class="btn btn-sm" href="#" style="color:#00FFFF;">
+      <i class="fa-solid fa-circle-question me-1">
+      </i>
+      Help
+     </a>
+     <a class="btn btn-sm btn-outline-info" href="./login_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+      Login
+     </a>
+     <a class="btn btn-sm" href="./registration_page.html" style="background-color:#00FFFF;color:#000080;">
+      Sign Up
+     </a>
+    </div>
+   </div>
+  </nav>
+  <!-- Offcanvas Sidebar for mobile auth -->
+  <div aria-labelledby="offcanvasSidebarAuthLabel" class="offcanvas offcanvas-start" id="offcanvasSidebarAuth" style="background-color:#000080;color:#fff;" tabindex="-1">
+   <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasSidebarAuthLabel">
+     Menu
+    </h5>
+    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body">
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item">
+      <a class="nav-link text-white" href="./login_page.html">
+       <i class="fa-solid fa-right-to-bracket me-2" style="color:#00FFFF;">
+       </i>
+       Login
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link text-white" href="./registration_page.html">
+       <i class="fa-solid fa-user-plus me-2" style="color:#00FFFF;">
+       </i>
+       Sign Up
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link text-white" href="#">
+       <i class="fa-solid fa-circle-question me-2" style="color:#00FFFF;">
+       </i>
+       Help Center
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <!-- Main Content -->
+  <main class="flex-grow-1">
+   <div class="container py-4">
+    <div class="row justify-content-center">
+     <div class="col-12 col-md-10 col-lg-7">
+      <div class="login-form-container registration-form-container">
+       <!-- Form Header -->
+       <div class="text-center mb-3">
+        <a class="d-inline-flex align-items-center justify-content-center mb-2 text-decoration-none" href="./dashboard_page.html">
+         <img alt="AI Social Manager Logo" class="rounded" height="56" onerror="this.onerror=null;this.src='https://picsum.photos/seed/aismlogo/56/56';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" width="56">
+         </img>
+        </a>
+        <h1 class="page-title mb-1" style="font-size:1.5rem;">
+         Create Your Account
+        </h1>
+        <p class="text-muted mb-0">
+         Start your AI-powered social management journey.
+        </p>
+       </div>
+       <!-- System feedback area -->
+       <div class="alert alert-danger d-none" id="formAlert" role="alert">
+        <i class="fa-solid fa-circle-exclamation me-2">
+        </i>
+        <span id="formAlertText">
+         There was an error creating your account. Please try again.
+        </span>
+       </div>
+       <!-- Registration Form -->
+       <form id="registrationForm" novalidate="">
+        <!-- Full Name -->
+        <div class="mb-3">
+         <label class="form-label" for="fullName">
+          Full Name
+         </label>
+         <input class="form-control" id="fullName" name="fullName" placeholder="e.g., Jordan Winters" required="" type="text"/>
+         <div class="form-text">
+          Enter your first and last name.
+         </div>
+         <div class="invalid-feedback" id="fullNameError">
+          Please enter your full name.
+         </div>
+        </div>
+        <!-- Email -->
+        <div class="mb-3">
+         <label class="form-label" for="email">
+          Email Address
+         </label>
+         <input class="form-control" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+         <div class="form-text">
+          We'll never share your email with anyone else.
+         </div>
+         <div class="invalid-feedback" id="emailError">
+          Enter a valid email address.
+         </div>
+        </div>
+        <!-- Password -->
+        <div class="mb-3">
+         <label class="form-label" for="password">
+          Password
+         </label>
+         <div class="input-group">
+          <input aria-describedby="passwordHelp" class="form-control" id="password" name="password" placeholder="Create a strong password" required="" type="password"/>
+          <button aria-label="Toggle password visibility" class="btn btn-light" id="togglePassword" title="Show/Hide Password" type="button">
+           <i aria-hidden="true" class="fa-regular fa-eye toggle-visibility-icon">
+           </i>
+          </button>
+         </div>
+         <div class="form-text" id="passwordHelp">
+          At least 8 characters, include an uppercase letter and a number.
+         </div>
+         <div class="invalid-feedback" id="passwordError">
+          Password must be at least 8 characters, include an uppercase letter and a number.
+         </div>
+         <!-- Password strength -->
+         <div class="mt-2">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+           <small class="text-muted">
+            Password strength
+           </small>
+           <small class="text-muted" id="strengthLabel">
+            Weak
+           </small>
+          </div>
+          <div aria-label="Password strength" aria-valuemax="100" aria-valuemin="0" class="progress" role="progressbar">
+           <div class="progress-bar bg-danger" id="strengthBar" style="width: 0%">
+           </div>
+          </div>
+          <ul class="list-unstyled small text-muted mt-2 mb-0">
+           <li class="req-item" id="ruleLength">
+            <i class="fa-regular fa-circle me-2">
+            </i>
+            Minimum 8 characters
+           </li>
+           <li class="req-item" id="ruleUpper">
+            <i class="fa-regular fa-circle me-2">
+            </i>
+            Contains an uppercase letter (A–Z)
+           </li>
+           <li class="req-item" id="ruleNumber">
+            <i class="fa-regular fa-circle me-2">
+            </i>
+            Contains a number (0–9)
+           </li>
+          </ul>
+         </div>
+        </div>
+        <!-- Confirm Password -->
+        <div class="mb-3">
+         <label class="form-label" for="confirmPassword">
+          Confirm Password
+         </label>
+         <div class="input-group">
+          <input class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" required="" type="password"/>
+          <button aria-label="Toggle confirm password visibility" class="btn btn-light" id="toggleConfirmPassword" title="Show/Hide Password" type="button">
+           <i aria-hidden="true" class="fa-regular fa-eye toggle-visibility-icon">
+           </i>
+          </button>
+         </div>
+         <div class="invalid-feedback" id="confirmPasswordError">
+          Passwords do not match.
+         </div>
+        </div>
+        <!-- Terms and Conditions -->
+        <div class="mb-3 form-check">
+         <input class="form-check-input" id="agreedToTerms" required="" type="checkbox" value=""/>
+         <label class="form-check-label" for="agreedToTerms">
+          I agree to the
+          <a href="https://example.com/terms" rel="noopener" target="_blank">
+           Terms of Service
+          </a>
+          and
+          <a href="https://example.com/privacy" rel="noopener" target="_blank">
+           Privacy Policy
+          </a>
+          .
+         </label>
+         <div class="invalid-feedback" id="termsError">
+          You must agree to the terms to continue.
+         </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="d-grid">
+         <button class="btn btn-primary" id="submitBtn" type="submit">
+          <span class="btn-text">
+           Create Account
+          </span>
+          <span aria-hidden="true" class="spinner-border spinner-border-sm ms-2 d-none" id="submitSpinner" role="status">
+          </span>
+         </button>
+        </div>
+        <!-- Login Redirect -->
+        <div class="text-center mt-3">
+         <small class="text-muted">
+          Already have an account?
+          <a href="./login_page.html">
+           Log In
+          </a>
+         </small>
+        </div>
+       </form>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <!-- Common Auth (Login/Registration) Footer -->
+  <footer class="mt-auto py-3 border-top" style="border-top-color:#000080 !important;">
+   <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/aisocialfooter/40/40';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:20px;"/>
+     <span class="text-muted small">
+      © 2025 AI Social Manager
+     </span>
+    </div>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 small text-muted" href="#">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 small text-muted" href="#">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 small text-muted" href="#">
+       Support
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- Bootstrap 5 JS Bundle -->
+  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // Helpers: validation rules
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const upperRegex = /[A-Z]/;
+const numberRegex = /[0-9]/;
+
+function validateName(value) {
+    return value.trim().length > 1;
+}
+
+function validateEmail(value) {
+    return emailRegex.test(value.trim());
+}
+
+function validatePassword(value) {
+    const lengthOK = value.length >= 8;
+    const upperOK = upperRegex.test(value);
+    const numberOK = numberRegex.test(value);
+    return {
+        valid: lengthOK && upperOK && numberOK,
+        lengthOK,
+        upperOK,
+        numberOK
+    };
+}
+
+// DOM refs
+const form = document.getElementById('registrationForm');
+const alertBox = document.getElementById('formAlert');
+const alertText = document.getElementById('formAlertText');
+
+const fullName = document.getElementById('fullName');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const confirmPassword = document.getElementById('confirmPassword');
+const agreedToTerms = document.getElementById('agreedToTerms');
+
+const submitBtn = document.getElementById('submitBtn');
+const submitSpinner = document.getElementById('submitSpinner');
+
+const strengthBar = document.getElementById('strengthBar');
+const strengthLabel = document.getElementById('strengthLabel');
+const ruleLength = document.getElementById('ruleLength');
+const ruleUpper = document.getElementById('ruleUpper');
+const ruleNumber = document.getElementById('ruleNumber');
+
+// Field-level validation on blur
+fullName.addEventListener('blur', () => {
+    toggleValidity(fullName, validateName(fullName.value));
+});
+email.addEventListener('blur', () => {
+    toggleValidity(email, validateEmail(email.value));
+});
+password.addEventListener('blur', () => {
+    const res = validatePassword(password.value);
+    toggleValidity(password, res.valid);
+});
+confirmPassword.addEventListener('blur', () => {
+    toggleValidity(confirmPassword, confirmPassword.value === password.value && password.value.length > 0);
+});
+
+// Live password strength update
+password.addEventListener('input', () => {
+    updatePasswordStrength(password.value);
+    if (confirmPassword.value) {
+        toggleValidity(confirmPassword, confirmPassword.value === password.value);
+    }
+});
+
+// Enable/disable submit based on terms
+agreedToTerms.addEventListener('change', () => {
+    if (agreedToTerms.checked) {
+        agreedToTerms.classList.remove('is-invalid');
+    }
+    updateSubmitButtonState();
+});
+
+function updateSubmitButtonState() {
+    submitBtn.disabled = !agreedToTerms.checked;
+}
+updateSubmitButtonState();
+
+function toggleValidity(input, isValid) {
+    if (isValid) {
+        input.classList.add('is-valid');
+        input.classList.remove('is-invalid');
+    } else {
+        input.classList.add('is-invalid');
+        input.classList.remove('is-valid');
+    }
+}
+
+function updatePasswordStrength(value) {
+    const {
+        lengthOK,
+        upperOK,
+        numberOK
+    } = validatePassword(value);
+    let score = 0;
+    if (lengthOK) score += 34;
+    if (upperOK) score += 33;
+    if (numberOK) score += 33;
+    strengthBar.style.width = score + '%';
+
+    // Update color and label
+    strengthBar.classList.remove('bg-danger', 'bg-warning', 'bg-success');
+    if (score < 40) {
+        strengthBar.classList.add('bg-danger');
+        strengthLabel.textContent = 'Weak';
+    } else if (score < 80) {
+        strengthBar.classList.add('bg-warning');
+        strengthLabel.textContent = 'Fair';
+    } else {
+        strengthBar.classList.add('bg-success');
+        strengthLabel.textContent = 'Strong';
+    }
+
+    // Update requirement checklist icons
+    setRuleState(ruleLength, lengthOK);
+    setRuleState(ruleUpper, upperOK);
+    setRuleState(ruleNumber, numberOK);
+}
+
+function setRuleState(el, ok) {
+    const icon = el.querySelector('i');
+    if (ok) {
+        icon.classList.remove('fa-circle');
+        icon.classList.add('fa-check-circle');
+        el.classList.add('text-success');
+    } else {
+        icon.classList.remove('fa-check-circle');
+        icon.classList.add('fa-circle');
+        el.classList.remove('text-success');
+    }
+}
+
+// Toggle password visibility
+document.getElementById('togglePassword').addEventListener('click', () => toggleVisibility(password, event.currentTarget));
+document.getElementById('toggleConfirmPassword').addEventListener('click', () => toggleVisibility(confirmPassword, event.currentTarget));
+
+function toggleVisibility(input, btn) {
+    const icon = btn.querySelector('i');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+    input.focus();
+}
+
+// Form submit
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    alertBox.classList.add('d-none');
+
+    const nameOK = validateName(fullName.value);
+    const emailOK = validateEmail(email.value);
+    const passRes = validatePassword(password.value);
+    const passOK = passRes.valid;
+    const confirmOK = confirmPassword.value === password.value && password.value.length > 0;
+    const termsOK = agreedToTerms.checked;
+
+    toggleValidity(fullName, nameOK);
+    toggleValidity(email, emailOK);
+    toggleValidity(password, passOK);
+    toggleValidity(confirmPassword, confirmOK);
+    if (!termsOK) agreedToTerms.classList.add('is-invalid');
+
+    if (!(nameOK && emailOK && passOK && confirmOK && termsOK)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Please fix the errors',
+            text: 'Make sure all fields are valid and the terms are accepted.',
+            confirmButtonColor: '#0FF'
+        });
+        return;
+    }
+
+    // Simulate async submission
+    setLoading(true);
+    try {
+        await new Promise((res) => setTimeout(res, 1200));
+
+        // Fake check: email already used
+        if (email.value.trim().toLowerCase() === 'taken@example.com') {
+            throw new Error('This email is already registered. Try logging in.');
+        }
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Account created!',
+            text: 'Redirecting you to the login page...',
+            timer: 1600,
+            showConfirmButton: false
+        });
+        setTimeout(() => {
+            window.location.href = './login_page.html';
+        }, 1400);
+    } catch (err) {
+        alertText.textContent = err?.message || 'There was an error creating your account. Please try again.';
+        alertBox.classList.remove('d-none');
+    } finally {
+        setLoading(false);
+    }
+});
+
+function setLoading(isLoading) {
+    if (isLoading) {
+        submitSpinner.classList.remove('d-none');
+        submitBtn.setAttribute('disabled', 'disabled');
+        fullName.setAttribute('disabled', 'disabled');
+        email.setAttribute('disabled', 'disabled');
+        password.setAttribute('disabled', 'disabled');
+        confirmPassword.setAttribute('disabled', 'disabled');
+        agreedToTerms.setAttribute('disabled', 'disabled');
+    } else {
+        submitSpinner.classList.add('d-none');
+        submitBtn.removeAttribute('disabled');
+        fullName.removeAttribute('disabled');
+        email.removeAttribute('disabled');
+        password.removeAttribute('disabled');
+        confirmPassword.removeAttribute('disabled');
+        agreedToTerms.removeAttribute('disabled');
+        updateSubmitButtonState();
+    }
+}
+
+// Initialize strength UI
+updatePasswordStrength('');
+  </script>
+ </body>
+</html>

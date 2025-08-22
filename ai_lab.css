@@ -1,0 +1,56 @@
+/* AI Lab Page specific CSS (ai_lab.css) */
+:root {
+    /* Use Poppins as the brand font */
+    --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+    }
+/* Ensure main content breathes next to the fixed-width sidebar */
+@media (min-width: 992px) {
+    main.main-panel {
+        padding-top: var(--space-6);
+        padding-bottom: var(--space-6)
+        }
+    }
+/* Idea cards accent */
+.idea-card {
+    border-left: 3px solid var(--color-info)
+    }
+.idea-card .badge-soft.info {
+    font-weight: 700
+    }
+/* Rich script output */
+.rich-output p {
+    margin-bottom: 0.75rem
+    }
+.rich-output strong {
+    color: var(--text-strong)
+    }
+/* Tabs spacing */
+#toolTabs .nav-link {
+    font-weight: 600
+    }
+#toolTabs .nav-link i {
+    color: var(--color-info)
+    }
+/* Chart container respects height */
+#ideasChart {
+    width: 100%
+    }
+/* Table header cursor */
+#recentTable thead th[role="button"] {
+    cursor: pointer;
+    user-select: none
+    }
+/* Buttons inside cards */
+.btn-light {
+    background: var(--surface-muted);
+    border-color: var(--border-color)
+    }
+.btn-light:hover {
+    background: #eef2f6
+    }
+/* Responsive adjustments for grids */
+@media (max-width: 575.98px) {
+    #ideasGrid .col-12 {
+        margin-bottom: var(--space-2)
+        }
+    }

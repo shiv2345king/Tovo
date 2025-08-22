@@ -1,0 +1,100 @@
+/* content_library.css - Page-specific styles for Content Library */
+/* Layout tweaks */
+.library-toolbar .input-group .input-group-text {
+    background: var(--surface-0)
+    }
+.library-toolbar .breadcrumb {
+    margin-right: auto
+    }
+/* Grid cards */
+.asset-card, .folder-card {
+    cursor: pointer
+    }
+.folder-card .folder-name {
+    max-width: 180px
+    }
+/* Thumbnail wrapper ensures consistent aspect ratio */
+.thumb-wrapper {
+    position: relative;
+    background: var(--surface-muted);
+    border-bottom: 1px solid var(--border-color)
+    }
+.thumb-wrapper .thumb {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: var(--radius-2);
+    border-top-right-radius: var(--radius-2)
+    }
+/* Selection checkbox overlay */
+.asset-card .select-box {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 2;
+    opacity: 0;
+    transform: translatey(-4px);
+    transition: opacity 0.15s ease, transform 0.15s ease
+    }
+.asset-card:hover .select-box, .asset-card .select-box:focus-visible {
+    opacity: 1;
+    transform: translatey(0)
+    }
+/* Video indicator overlay */
+.video-indicator {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px
+    }
+.video-indicator i {
+    color: var(--color-primary)
+    }
+/* Name truncation */
+.asset-card .name {
+    max-width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+    }
+/* Modal preview */
+.preview-pane {
+    position: relative;
+    background: var(--surface-muted);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2);
+    padding: 8px
+    }
+.video-indicator-lg {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 1.1rem
+    }
+/* Recent uploads table */
+#uploadsTable tbody tr:hover {
+    background: rgba(0, 0, 0, 0.02)
+    }
+#uploadsTable thead th[role="button"] {
+    user-select: none
+    }
+/* Responsive adjustments */
+@media (max-width: 575.98px) {
+    .folder-card .folder-name {
+        max-width: 120px
+        }
+    }

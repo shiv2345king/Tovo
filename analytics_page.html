@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Analytics Dashboard – Business Console
+  </title>
+  <!-- Brand Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+   <!-- SweetAlert2 -->
+   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- Flatpickr (Date Range) -->
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/>
+    <!-- Site Theme -->
+    <link href="style.css" rel="stylesheet"/>
+    <!-- Page specific CSS -->
+    <link href="analytics_page.css" rel="stylesheet"/>
+    <style>
+     body { font-family: 'Poppins', var(--font-sans); }
+    </style>
+   </link>
+  </link>
+ </head>
+ <body class="min-vh-100 d-flex flex-column">
+  <!-- Header (Manager/Business Role Header) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000080;">
+   <div class="container-fluid">
+    <button aria-controls="offcanvasSidebarManager" class="btn btn-outline-info d-lg-none me-2" data-bs-target="#offcanvasSidebarManager" data-bs-toggle="offcanvas" style="border-color:#00FFFF;color:#00FFFF;" type="button">
+     <i class="fa-solid fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./dashboard_page.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brand/28/28';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:28px;"/>
+     <span>
+      Business Console
+     </span>
+    </a>
+    <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
+     <div class="input-group">
+      <span class="input-group-text" style="background:#fff;border-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-magnifying-glass">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" placeholder="Search campaigns, posts..." style="border-color:#00FFFF;" type="search"/>
+     </div>
+    </form>
+    <ul class="navbar-nav ms-auto align-items-center">
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+       <i class="fa-solid fa-file-export me-1">
+       </i>
+       Export Report
+      </a>
+     </li>
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-calendar-plus me-1">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" data-bs-title="Notifications" data-bs-toggle="tooltip" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" data-bs-title="Messages" data-bs-toggle="tooltip" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button" style="color:#00FFFF;">
+       <img alt="Avatar" class="rounded-circle me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user/28/28';" src="https://via.placeholder.com/28"/>
+       @brand_account
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./account_settings.html">
+         <i class="fa-solid fa-gear me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./analytics_page.html">
+         <i class="fa-solid fa-chart-line me-2">
+         </i>
+         Analytics
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item text-danger" href="./login_page.html">
+         <i class="fa-solid fa-right-from-bracket me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <!-- Offcanvas Sidebar for mobile (Manager) -->
+  <div aria-labelledby="offcanvasSidebarManagerLabel" class="offcanvas offcanvas-start" id="offcanvasSidebarManager" style="background-color:#000080;color:#fff;" tabindex="-1">
+   <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasSidebarManagerLabel">
+     Navigation
+    </h5>
+    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body">
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./content_library.html">
+       <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+       </i>
+       Assets
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./ai_lab.html">
+       <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+       </i>
+       AI Ideas
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./analytics_page.html">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="container-fluid flex-grow-1">
+   <div class="d-flex align-items-stretch">
+    <!-- Left Sidebar (Manager/Business Role Sidebar) visible on lg+ -->
+    <aside class="d-none d-lg-flex flex-column flex-shrink-0 p-3 text-white" style="width:280px;background-color:#000080;min-height:100vh;">
+     <div class="d-flex align-items-center mb-3">
+      <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandnav/36/36';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:36px;width:auto;"/>
+      <span class="fs-6 fw-semibold" style="color:#00FFFF;">
+       Business Console
+      </span>
+     </div>
+     <div class="d-flex align-items-center mb-3 p-2 rounded" style="background-color:rgba(0,255,255,.08);">
+      <img alt="Avatar" class="rounded-circle me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/usernav/40/40';" src="https://via.placeholder.com/40"/>
+      <div>
+       <div class="small">
+        Signed in as
+       </div>
+       <div class="fw-semibold">
+        @brand_account
+       </div>
+       <span class="badge" style="background-color:#00FFFF;color:#000080;">
+        Manager
+       </span>
+      </div>
+     </div>
+     <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item mb-1">
+       <a class="nav-link text-white" href="./dashboard_page.html">
+        <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+        </i>
+        Overview
+       </a>
+      </li>
+      <li class="nav-item mb-1">
+       <a class="nav-link text-white" href="./calendar_page.html">
+        <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+        </i>
+        Planner
+       </a>
+      </li>
+      <li class="nav-item mb-1">
+       <a class="nav-link text-white" href="./post_creator.html">
+        <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+        </i>
+        Schedule Post
+       </a>
+      </li>
+      <li class="nav-item mb-1">
+       <a class="nav-link text-white" href="./content_library.html">
+        <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+        </i>
+        Assets
+       </a>
+      </li>
+      <li class="nav-item mb-1">
+       <a class="nav-link text-white" href="./ai_lab.html">
+        <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+        </i>
+        AI Ideas
+       </a>
+      </li>
+      <li class="nav-item mb-1">
+       <a aria-controls="analyticsMenu" aria-expanded="true" class="nav-link text-white" data-bs-toggle="collapse" href="#analyticsMenu" role="button">
+        <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+        </i>
+        Analytics &amp; Reports
+        <i class="fa-solid fa-chevron-down float-end">
+        </i>
+       </a>
+       <div class="collapse show ps-4" id="analyticsMenu">
+        <ul class="list-unstyled">
+         <li class="my-1">
+          <a class="nav-link text-white" href="./analytics_page.html">
+           <i class="fa-solid fa-chart-simple me-2" style="color:#00FFFF;">
+           </i>
+           Dashboard
+          </a>
+         </li>
+         <li class="my-1">
+          <a class="nav-link text-white" href="./analytics_page.html#top-content">
+           <i class="fa-regular fa-star me-2" style="color:#00FFFF;">
+           </i>
+           Top Content
+          </a>
+         </li>
+        </ul>
+       </div>
+      </li>
+      <li class="nav-item mb-1">
+       <a class="nav-link text-white" href="./account_settings.html">
+        <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+        </i>
+        Account Settings
+       </a>
+      </li>
+     </ul>
+     <hr class="border-light opacity-25"/>
+     <div>
+      <a class="btn w-100 mb-2" href="./analytics_page.html" style="background-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-arrow-trend-up me-2">
+       </i>
+       View Analytics
+      </a>
+      <a class="btn btn-outline-info w-100" href="./post_creator.html" style="border-color:#00FFFF;color:#00FFFF;">
+       <i class="fa-solid fa-calendar-check me-2">
+       </i>
+       Schedule Now
+      </a>
+     </div>
+     <style>
+      aside a.nav-link{border-radius:.5rem;}
+          aside a.nav-link:hover{background-color:rgba(0,255,255,.15);} 
+          aside .collapse .nav-link{font-size:.95rem;}
+     </style>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="flex-grow-1 p-3 p-lg-4">
+     <!-- Page Header Title -->
+     <div class="page-header">
+      <div>
+       <h1 class="page-title m-0">
+        Unified Analytics
+       </h1>
+       <small class="text-muted">
+        Track performance across all connected platforms. Data reflects your active filters.
+       </small>
+      </div>
+      <div aria-label="View Switcher" class="view-switcher d-none d-md-inline-flex">
+       <div class="option active">
+        <i class="fa-solid fa-chart-column me-1">
+        </i>
+        Dashboard
+       </div>
+       <a class="option" href="#top-content">
+        <i class="fa-regular fa-star me-1">
+        </i>
+        Top Content
+       </a>
+      </div>
+     </div>
+     <!-- Global Filters (Sticky) -->
+     <div class="filters-bar app-card border mb-3" id="globalFilters">
+      <div class="row g-2 align-items-center">
+       <!-- Platform Selector -->
+       <div class="col-12 col-md-6">
+        <div class="dropdown w-100">
+         <button aria-expanded="false" class="btn btn-light w-100 d-flex justify-content-between align-items-center" data-bs-toggle="dropdown" id="platformSelectorBtn">
+          <span class="d-flex align-items-center">
+           <i class="fa-brands fa-hashtag me-2 text-info">
+           </i>
+           <span id="platformSelectorLabel">
+            All Platforms
+           </span>
+          </span>
+          <i class="fa-solid fa-caret-down">
+          </i>
+         </button>
+         <div class="dropdown-menu p-2 w-100 platform-dropdown" style="max-height: 300px; overflow:auto;">
+          <div class="form-check">
+           <input class="form-check-input" id="pf_all" type="checkbox" value="__ALL__"/>
+           <label class="form-check-label" for="pf_all">
+            All Platforms
+           </label>
+          </div>
+          <hr class="my-2"/>
+          <div id="platformOptions">
+           <div class="form-check">
+            <input checked="" class="form-check-input pf-item" id="pf_ig" type="checkbox" value="Instagram"/>
+            <label class="form-check-label" for="pf_ig">
+             Instagram
+            </label>
+           </div>
+           <div class="form-check">
+            <input checked="" class="form-check-input pf-item" id="pf_tt" type="checkbox" value="TikTok"/>
+            <label class="form-check-label" for="pf_tt">
+             TikTok
+            </label>
+           </div>
+           <div class="form-check">
+            <input checked="" class="form-check-input pf-item" id="pf_yt" type="checkbox" value="YouTube"/>
+            <label class="form-check-label" for="pf_yt">
+             YouTube
+            </label>
+           </div>
+           <div class="form-check">
+            <input checked="" class="form-check-input pf-item" id="pf_fb" type="checkbox" value="Facebook"/>
+            <label class="form-check-label" for="pf_fb">
+             Facebook
+            </label>
+           </div>
+           <div class="form-check">
+            <input checked="" class="form-check-input pf-item" id="pf_x" type="checkbox" value="X"/>
+            <label class="form-check-label" for="pf_x">
+             X (Twitter)
+            </label>
+           </div>
+          </div>
+          <div class="d-flex justify-content-end gap-2 mt-2">
+           <button class="btn btn-sm btn-light" id="platformReset">
+            Reset
+           </button>
+           <button class="btn btn-sm btn-info text-white" id="applyPlatformFilters">
+            <i class="fa-solid fa-filter me-1">
+            </i>
+            Apply
+           </button>
+          </div>
+         </div>
+        </div>
+       </div>
+       <!-- Date Range Picker -->
+       <div class="col-12 col-md-6">
+        <div class="input-group">
+         <span class="input-group-text">
+          <i class="fa-regular fa-calendar">
+          </i>
+         </span>
+         <input class="form-control" id="dateRangeInput" placeholder="Select date range" type="text">
+          <button class="btn btn-light d-none d-md-inline" id="preset7">
+           Last 7 Days
+          </button>
+          <button class="btn btn-light d-none d-md-inline" id="preset30">
+           Last 30 Days
+          </button>
+          <button class="btn btn-info text-white" id="applyDate">
+           <i class="fa-solid fa-check me-1">
+           </i>
+           Apply
+          </button>
+         </input>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Key Metrics Summary -->
+     <section class="card-grid mb-4" id="keyMetrics">
+      <div aria-live="polite" class="metric-card">
+       <div class="metric-title">
+        Total Views
+       </div>
+       <div class="d-flex align-items-end justify-content-between">
+        <div class="metric-value" id="kpiViews">
+         1,234,567
+        </div>
+        <span class="badge-soft success" id="kpiViewsTrend">
+         <i class="fa-solid fa-arrow-up me-1">
+         </i>
+         +8.4%
+        </span>
+       </div>
+      </div>
+      <div class="metric-card">
+       <div class="metric-title">
+        Total Engagement
+       </div>
+       <div class="d-flex align-items-end justify-content-between">
+        <div class="metric-value" id="kpiEngagement">
+         256,890
+        </div>
+        <span class="badge-soft success" id="kpiEngagementTrend">
+         <i class="fa-solid fa-arrow-up me-1">
+         </i>
+         +3.2%
+        </span>
+       </div>
+      </div>
+      <div class="metric-card">
+       <div class="metric-title">
+        Follower Growth
+       </div>
+       <div class="d-flex align-items-end justify-content-between">
+        <div class="metric-value" id="kpiFollowers">
+         +12,340
+        </div>
+        <span class="badge-soft warning" id="kpiFollowersTrend">
+         <i class="fa-solid fa-arrow-right me-1">
+         </i>
+         +0.4%
+        </span>
+       </div>
+      </div>
+      <div class="metric-card">
+       <div class="metric-title">
+        Engagement Rate
+       </div>
+       <div class="d-flex align-items-end justify-content-between">
+        <div class="metric-value" id="kpiER">
+         4.2%
+        </div>
+        <span class="badge-soft success" data-bs-title="Compared to previous period" data-bs-toggle="tooltip" id="kpiERTrend">
+         <i class="fa-solid fa-arrow-up me-1">
+         </i>
+         +0.6%
+        </span>
+       </div>
+      </div>
+     </section>
+     <!-- Charts + AI Insights Row -->
+     <section class="row g-4 align-items-stretch">
+      <div class="col-12 col-lg-8 d-flex flex-column gap-4">
+       <!-- Engagement Trend Chart -->
+       <div class="card h-100">
+        <div class="card-header">
+         <div class="widget-title">
+          Engagement Trend
+         </div>
+         <div class="d-flex align-items-center gap-2">
+          <span class="badge-soft info">
+           <i class="fa-solid fa-layer-group me-1">
+           </i>
+           Daily
+          </span>
+          <button class="btn btn-light btn-sm" id="btnDownloadEngagement">
+           <i class="fa-solid fa-download me-1">
+           </i>
+           PNG
+          </button>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="loading-overlay d-none" id="engagementLoading">
+          <div class="spinner-border text-info" role="status">
+           <span class="visually-hidden">
+            Loading...
+           </span>
+          </div>
+         </div>
+         <canvas aria-label="Line chart showing engagement over time" height="140" id="engagementTrendCanvas" role="img">
+         </canvas>
+        </div>
+       </div>
+       <!-- Performance by Platform Chart -->
+       <div class="card h-100">
+        <div class="card-header">
+         <div class="widget-title">
+          Performance by Platform
+         </div>
+         <div class="d-flex align-items-center gap-2">
+          <span class="badge-soft primary">
+           <i class="fa-solid fa-eye me-1">
+           </i>
+           Views
+          </span>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="loading-overlay d-none" id="platformLoading">
+          <div class="spinner-border text-info" role="status">
+           <span class="visually-hidden">
+            Loading...
+           </span>
+          </div>
+         </div>
+         <canvas aria-label="Chart showing views by platform" height="160" id="platformBreakdownCanvas" role="img">
+         </canvas>
+        </div>
+       </div>
+      </div>
+      <!-- AI Insights Panel -->
+      <aside class="col-12 col-lg-4">
+       <div class="card h-100">
+        <div class="card-header">
+         <div class="widget-title">
+          <i class="fa-solid fa-wand-magic-sparkles me-2 text-info">
+          </i>
+          AI Insights
+         </div>
+         <button class="btn btn-light btn-sm" id="refreshInsights">
+          <i class="fa-solid fa-rotate">
+          </i>
+         </button>
+        </div>
+        <div class="card-body d-grid gap-3" id="insightsContainer">
+         <!-- Insight Cards (dynamic) -->
+         <div class="ai-insight-card app-card p-3 position-relative" data-id="ins1">
+          <button aria-label="Dismiss insight" class="btn btn-sm btn-icon position-absolute top-0 end-0 m-2 insight-dismiss">
+           <i class="fa-solid fa-xmark">
+           </i>
+          </button>
+          <div class="d-flex align-items-start gap-2">
+           <i class="fa-regular fa-lightbulb text-warning mt-1">
+           </i>
+           <div>
+            <div class="fw-semibold">
+             Post Timing Tip
+            </div>
+            <div class="text-muted">
+             Your Instagram Reels get 48% more engagement when posted between 6–8 PM on weekdays.
+            </div>
+            <a class="small" href="./calendar_page.html">
+             Schedule next post
+             <i class="fa-solid fa-arrow-up-right-from-square ms-1">
+             </i>
+            </a>
+           </div>
+          </div>
+         </div>
+         <div class="ai-insight-card app-card p-3 position-relative" data-id="ins2">
+          <button aria-label="Dismiss insight" class="btn btn-sm btn-icon position-absolute top-0 end-0 m-2 insight-dismiss">
+           <i class="fa-solid fa-xmark">
+           </i>
+          </button>
+          <div class="d-flex align-items-start gap-2">
+           <i class="fa-solid fa-hashtag text-info mt-1">
+           </i>
+           <div>
+            <div class="fw-semibold">
+             Hashtag Optimization
+            </div>
+            <div class="text-muted">
+             Mix 3 niche + 2 trending tags to improve reach by ~12% on TikTok.
+            </div>
+            <a class="small" href="./ai_lab.html">
+             Generate hashtags
+             <i class="fa-solid fa-arrow-up-right-from-square ms-1">
+             </i>
+            </a>
+           </div>
+          </div>
+         </div>
+         <div class="ai-insight-card app-card p-3 position-relative" data-id="ins3">
+          <button aria-label="Dismiss insight" class="btn btn-sm btn-icon position-absolute top-0 end-0 m-2 insight-dismiss">
+           <i class="fa-solid fa-xmark">
+           </i>
+          </button>
+          <div class="d-flex align-items-start gap-2">
+           <i class="fa-solid fa-video text-success mt-1">
+           </i>
+           <div>
+            <div class="fw-semibold">
+             Format Suggestion
+            </div>
+            <div class="text-muted">
+             Short form clips under 20s have 1.4x higher completion rate on YouTube Shorts.
+            </div>
+            <a class="small" href="./video_editor.html">
+             Open video editor
+             <i class="fa-solid fa-arrow-up-right-from-square ms-1">
+             </i>
+            </a>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </aside>
+     </section>
+     <!-- Top Content Table -->
+     <section class="mt-4" id="top-content">
+      <div class="card">
+       <div class="card-header">
+        <div class="d-flex align-items-center gap-2">
+         <div class="widget-title">
+          Top Content (Selected Period)
+         </div>
+         <span class="badge-soft info">
+          <i class="fa-solid fa-calendar-day me-1">
+          </i>
+          <span id="tableRangeLabel">
+           Last 30 Days
+          </span>
+         </span>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+         <div class="input-group input-group-sm" style="width: 220px;">
+          <span class="input-group-text">
+           <i class="fa-solid fa-magnifying-glass">
+           </i>
+          </span>
+          <input class="form-control" id="tableSearch" placeholder="Search posts..." type="text"/>
+         </div>
+         <div class="dropdown">
+          <button class="btn btn-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+           <i class="fa-solid fa-filter me-1">
+           </i>
+           Platform
+          </button>
+          <div class="dropdown-menu p-2">
+           <div class="form-check">
+            <input checked="" class="form-check-input table-pf-filter" id="tpf_ig" type="checkbox" value="Instagram"/>
+            <label class="form-check-label" for="tpf_ig">
+             Instagram
+            </label>
+           </div>
+           <div class="form-check">
+            <input checked="" class="form-check-input table-pf-filter" id="tpf_tt" type="checkbox" value="TikTok"/>
+            <label class="form-check-label" for="tpf_tt">
+             TikTok
+            </label>
+           </div>
+           <div class="form-check">
+            <input checked="" class="form-check-input table-pf-filter" id="tpf_yt" type="checkbox" value="YouTube"/>
+            <label class="form-check-label" for="tpf_yt">
+             YouTube
+            </label>
+           </div>
+           <div class="form-check">
+            <input checked="" class="form-check-input table-pf-filter" id="tpf_fb" type="checkbox" value="Facebook"/>
+            <label class="form-check-label" for="tpf_fb">
+             Facebook
+            </label>
+           </div>
+           <div class="form-check">
+            <input checked="" class="form-check-input table-pf-filter" id="tpf_x" type="checkbox" value="X"/>
+            <label class="form-check-label" for="tpf_x">
+             X (Twitter)
+            </label>
+           </div>
+          </div>
+         </div>
+         <button class="btn btn-outline-info btn-sm" id="exportTopContent">
+          <i class="fa-solid fa-file-export">
+          </i>
+         </button>
+        </div>
+       </div>
+       <div class="card-body p-0">
+        <div class="table-responsive">
+         <table class="table table-theme mb-0" id="topContentTable">
+          <thead>
+           <tr>
+            <th class="sortable" data-key="date">
+             Date
+             <i class="fa-solid fa-sort ms-1">
+             </i>
+            </th>
+            <th>
+             Post
+            </th>
+            <th class="sortable text-end" data-key="views">
+             Views
+             <i class="fa-solid fa-sort ms-1">
+             </i>
+            </th>
+            <th class="sortable text-end" data-key="engagement">
+             Engagement
+             <i class="fa-solid fa-sort ms-1">
+             </i>
+            </th>
+            <th class="sortable text-end" data-key="er">
+             ER %
+             <i class="fa-solid fa-sort ms-1">
+             </i>
+            </th>
+            <th>
+             Platform
+            </th>
+            <th class="text-end">
+             Actions
+            </th>
+           </tr>
+          </thead>
+          <tbody id="topContentBody">
+           <!-- Rows injected by JS -->
+          </tbody>
+         </table>
+        </div>
+       </div>
+       <div class="card-footer d-flex justify-content-between align-items-center">
+        <small class="text-muted" id="paginationInfo">
+         Showing 1–5 of 10
+        </small>
+        <nav aria-label="Top content pagination">
+         <ul class="pagination pagination-sm mb-0" id="pagination">
+          <!-- Pagination injected by JS -->
+         </ul>
+        </nav>
+       </div>
+      </div>
+     </section>
+    </main>
+   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="mt-auto py-3 border-top" style="border-top-color:#000080 !important;">
+   <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandfoot/20/20';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:20px;"/>
+     <span class="text-muted small">
+      © 2025 AI Social Manager
+     </span>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+     <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-file-export me-1">
+      </i>
+      Export
+     </a>
+     <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-calendar-plus me-1">
+      </i>
+      Schedule
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Terms
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Privacy
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- Scripts -->
+  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+  </script>
+  <script>
+   // Enable Bootstrap tooltips
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+tooltipTriggerList.map(function(el) {
+    return new bootstrap.Tooltip(el);
+});
+
+// Global state
+const state = {
+    platforms: ["Instagram", "TikTok", "YouTube", "Facebook", "X"],
+    selectedPlatforms: new Set(["Instagram", "TikTok", "YouTube", "Facebook", "X"]),
+    dateRange: {
+        start: null,
+        end: null
+    },
+    table: {
+        sortKey: 'views',
+        sortDir: 'desc',
+        page: 1,
+        pageSize: 5,
+        search: '',
+        platformFilter: new Set(["Instagram", "TikTok", "YouTube", "Facebook", "X"])
+    }
+};
+
+// Initialize Platform Selector
+const pfAll = document.getElementById('pf_all');
+const pfItems = Array.from(document.querySelectorAll('.pf-item'));
+const pfLabel = document.getElementById('platformSelectorLabel');
+
+function updatePlatformLabel() {
+    const count = state.selectedPlatforms.size;
+    if (count === state.platforms.length) {
+        pfLabel.textContent = 'All Platforms';
+    } else if (count === 1) {
+        pfLabel.textContent = Array.from(state.selectedPlatforms)[0];
+    } else if (count === 0) {
+        pfLabel.textContent = 'None selected';
+    } else {
+        const first = Array.from(state.selectedPlatforms)[0];
+        pfLabel.textContent = `${first} + ${count - 1} more`;
+    }
+}
+
+function syncAllCheckbox() {
+    pfAll.checked = state.selectedPlatforms.size === state.platforms.length;
+}
+
+pfAll.addEventListener('change', (e) => {
+    const check = e.target.checked;
+    state.selectedPlatforms = new Set(check ? state.platforms : []);
+    pfItems.forEach(cb => cb.checked = check);
+    updatePlatformLabel();
+});
+pfItems.forEach(cb => {
+    cb.addEventListener('change', () => {
+        if (cb.checked) state.selectedPlatforms.add(cb.value);
+        else state.selectedPlatforms.delete(cb.value);
+        syncAllCheckbox();
+        updatePlatformLabel();
+    });
+});
+
+document.getElementById('platformReset').addEventListener('click', () => {
+    state.selectedPlatforms = new Set(state.platforms);
+    pfItems.forEach(cb => cb.checked = true);
+    syncAllCheckbox();
+    updatePlatformLabel();
+});
+
+document.getElementById('applyPlatformFilters').addEventListener('click', () => {
+    // Apply platform filters -> refresh data
+    applyFilters();
+    bootstrap.Dropdown.getOrCreateInstance(document.getElementById('platformSelectorBtn')).hide();
+});
+
+// Date Range (Flatpickr)
+const dateInput = document.getElementById('dateRangeInput');
+const today = new Date();
+const thirtyDaysAgo = new Date(Date.now() - 29 * 24 * 60 * 60 * 1000);
+const fp = flatpickr(dateInput, {
+    mode: 'range',
+    dateFormat: 'Y-m-d',
+    defaultDate: [thirtyDaysAgo, today],
+    onClose: function(selectedDates) {
+        if (selectedDates.length === 2) {
+            state.dateRange.start = selectedDates[0];
+            state.dateRange.end = selectedDates[1];
+        }
+    }
+});
+state.dateRange.start = thirtyDaysAgo;
+state.dateRange.end = today;
+
+document.getElementById('preset7').addEventListener('click', () => {
+    const start = new Date(Date.now() - 6 * 24 * 60 * 60 * 1000),
+        end = new Date();
+    fp.setDate([start, end], true);
+    state.dateRange = {
+        start,
+        end
+    };
+});
+document.getElementById('preset30').addEventListener('click', () => {
+    const start = new Date(Date.now() - 29 * 24 * 60 * 60 * 1000),
+        end = new Date();
+    fp.setDate([start, end], true);
+    state.dateRange = {
+        start,
+        end
+    };
+});
+document.getElementById('applyDate').addEventListener('click', () => applyFilters());
+
+// Charts setup with Chart.js
+const engagementCtx = document.getElementById('engagementTrendCanvas');
+const platformCtx = document.getElementById('platformBreakdownCanvas');
+let engagementChart, platformChart;
+
+function fmt(num) {
+    return new Intl.NumberFormat().format(num);
+}
+
+function daysBetween(start, end) {
+    const ms = 24 * 60 * 60 * 1000;
+    const s = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+    const e = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+    return Math.round((e - s) / ms) + 1;
+}
+
+function genDateLabels(start, end) {
+    const labels = [];
+    const n = daysBetween(start, end);
+    for (let i = 0; i < n; i++) {
+        const d = new Date(start.getTime() + i * 24 * 60 * 60 * 1000);
+        labels.push(d.toISOString().slice(0, 10));
+    }
+    return labels;
+}
+
+function randomSeries(n, base = 500, variance = 0.5) {
+    const arr = [];
+    let val = base;
+    for (let i = 0; i < n; i++) {
+        val = Math.max(0, val + (Math.random() - 0.5) * base * variance);
+        arr.push(Math.round(val));
+    }
+    return arr;
+}
+
+function getPlatformColors(names) {
+    const palette = {
+        Instagram: '#E1306C',
+        TikTok: '#69C9D0',
+        YouTube: '#FF0000',
+        Facebook: '#1877F2',
+        X: '#111111'
+    };
+    return names.map(n => palette[n] || '#0099D2');
+}
+
+function simulateData() {
+    const labels = genDateLabels(state.dateRange.start, state.dateRange.end);
+    const series = randomSeries(labels.length, 600, 0.4);
+
+    const selected = Array.from(state.selectedPlatforms);
+    const platformValues = selected.map(() => Math.round(Math.random() * 500000 + 100000));
+    const totalViews = platformValues.reduce((a, b) => a + b, 0);
+    const totalEngagement = Math.round(totalViews * (0.12 + Math.random() * 0.06));
+    const followerDelta = Math.round(5000 + Math.random() * 15000);
+    const er = ((totalEngagement / Math.max(1, totalViews)) * 100).toFixed(1);
+
+    return {
+        labels,
+        series,
+        selected,
+        platformValues,
+        totalViews,
+        totalEngagement,
+        followerDelta,
+        er
+    };
+}
+
+function renderCharts() {
+    const {
+        labels,
+        series,
+        selected,
+        platformValues
+    } = simulateData();
+
+    // Engagement Trend
+    if (engagementChart) engagementChart.destroy();
+    engagementChart = new Chart(engagementCtx, {
+        type: 'line',
+        data: {
+            labels,
+            datasets: [{
+                label: 'Engagements',
+                data: series,
+                borderColor: 'rgba(0,153,210,1)',
+                backgroundColor: 'rgba(0,153,210,0.15)',
+                tension: 0.25,
+                fill: true,
+                pointRadius: 0,
+                pointHoverRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => ` ${fmt(ctx.parsed.y)} engagements`
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        maxTicksLimit: 10
+                    }
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Platform Breakdown (Doughnut)
+    if (platformChart) platformChart.destroy();
+    platformChart = new Chart(platformCtx, {
+        type: 'doughnut',
+        data: {
+            labels: selected,
+            datasets: [{
+                data: platformValues,
+                backgroundColor: getPlatformColors(selected),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => ` ${ctx.label}: ${fmt(ctx.parsed)} views`
+                    }
+                }
+            }
+        }
+    });
+}
+
+function updateKPIs(summary) {
+    // summary can be simulated again for coherence with charts
+    const s = summary || simulateData();
+    document.getElementById('kpiViews').textContent = fmt(s.totalViews);
+    document.getElementById('kpiEngagement').textContent = fmt(s.totalEngagement);
+    document.getElementById('kpiFollowers').textContent = `+${fmt(s.followerDelta)}`;
+    document.getElementById('kpiER').textContent = `${s.er}%`;
+}
+
+function showLoading(selectorId, show = true) {
+    const el = document.getElementById(selectorId);
+    if (!el) return;
+    el.classList.toggle('d-none', !show);
+}
+
+function applyFilters() {
+    // show loading
+    showLoading('engagementLoading', true);
+    showLoading('platformLoading', true);
+
+    // Update table label
+    const start = state.dateRange.start,
+        end = state.dateRange.end;
+    const fmtDate = (d) => d.toLocaleDateString(undefined, {
+        month: 'short',
+        day: 'numeric'
+    });
+    document.getElementById('tableRangeLabel').textContent = `${fmtDate(start)} – ${fmtDate(end)}`;
+
+    setTimeout(() => {
+        renderCharts();
+        updateKPIs();
+        rebuildTable();
+        showLoading('engagementLoading', false);
+        showLoading('platformLoading', false);
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1800,
+            icon: 'success',
+            title: 'Filters applied'
+        });
+    }, 600);
+}
+
+// Download PNG for chart
+document.getElementById('btnDownloadEngagement').addEventListener('click', () => {
+    const a = document.createElement('a');
+    a.href = engagementCtx.toDataURL('image/png');
+    a.download = `engagement-trend-${Date.now()}.png`;
+    a.click();
+});
+
+// AI Insights dismiss + refresh
+function loadDismissed() {
+    try {
+        return JSON.parse(localStorage.getItem('dismissedInsights') || '[]');
+    } catch {
+        return [];
+    }
+}
+
+function saveDismissed(ids) {
+    localStorage.setItem('dismissedInsights', JSON.stringify(ids));
+}
+
+document.getElementById('insightsContainer').addEventListener('click', (e) => {
+    const btn = e.target.closest('.insight-dismiss');
+    if (!btn) return;
+    const card = btn.closest('.ai-insight-card');
+    const id = card?.dataset.id;
+    if (!id) return;
+    const dismissed = new Set(loadDismissed());
+    dismissed.add(id);
+    saveDismissed(Array.from(dismissed));
+    card.remove();
+});
+document.getElementById('refreshInsights').addEventListener('click', () => {
+    Swal.fire({
+        title: 'Refreshing insights',
+        didOpen: () => {
+            Swal.showLoading();
+        },
+        timer: 800,
+        willClose: () => {
+            Swal.fire({
+                icon: 'success',
+                title: 'New insights generated',
+                timer: 1200,
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false
+            });
+        }
+    });
+});
+
+// Top Content Table (mock data)
+const mockPosts = [{
+    id: 1,
+    date: '2025-01-28',
+    platform: 'Instagram',
+    img: 'https://via.placeholder.com/64',
+    caption: 'Behind the scenes: new product teaser',
+    views: 125000,
+    engagement: 14800
+}, {
+    id: 2,
+    date: '2025-01-26',
+    platform: 'TikTok',
+    img: 'https://via.placeholder.com/64',
+    caption: 'Packing orders – satisfying ASMR',
+    views: 312000,
+    engagement: 38600
+}, {
+    id: 3,
+    date: '2025-01-24',
+    platform: 'YouTube',
+    img: 'https://via.placeholder.com/64',
+    caption: 'How we design our content calendar',
+    views: 98000,
+    engagement: 7200
+}, {
+    id: 4,
+    date: '2025-01-22',
+    platform: 'Facebook',
+    img: 'https://via.placeholder.com/64',
+    caption: 'Customer spotlight: @alex builds with us',
+    views: 56000,
+    engagement: 4800
+}, {
+    id: 5,
+    date: '2025-01-20',
+    platform: 'X',
+    img: 'https://via.placeholder.com/64',
+    caption: 'We just crossed 50k followers! 🎉',
+    views: 88000,
+    engagement: 9400
+}, {
+    id: 6,
+    date: '2025-01-18',
+    platform: 'Instagram',
+    img: 'https://via.placeholder.com/64',
+    caption: 'Reel: quick tips for creators',
+    views: 210000,
+    engagement: 24500
+}, {
+    id: 7,
+    date: '2025-01-16',
+    platform: 'TikTok',
+    img: 'https://via.placeholder.com/64',
+    caption: 'Trend remix: before/after edit',
+    views: 402000,
+    engagement: 51200
+}, {
+    id: 8,
+    date: '2025-01-14',
+    platform: 'YouTube',
+    img: 'https://via.placeholder.com/64',
+    caption: 'Full walkthrough: analytics deep dive',
+    views: 76000,
+    engagement: 6900
+}, {
+    id: 9,
+    date: '2025-01-12',
+    platform: 'Facebook',
+    img: 'https://via.placeholder.com/64',
+    caption: 'Poll: what should we build next?',
+    views: 35000,
+    engagement: 3100
+}, {
+    id: 10,
+    date: '2025-01-10',
+    platform: 'Instagram',
+    img: 'https://via.placeholder.com/64',
+    caption: 'Carousel: content planning checklist',
+    views: 154000,
+    engagement: 17200
+}].map(p => ({
+    ...p,
+    er: Number((p.engagement / Math.max(1, p.views) * 100).toFixed(2))
+}));
+
+function renderRow(p) {
+    const img = p.img;
+    return `<tr data-id="${p.id}">
+        <td>${new Date(p.date).toLocaleDateString()}</td>
+        <td>
+          <div class="d-flex align-items-center gap-2">
+            <img src="${img}" alt="Post" width="48" height="48" class="rounded" onerror="this.onerror=null;this.src='https://picsum.photos/seed/post${p.id}/48/48';">
+            <div>
+              <div class="fw-semibold">${p.caption}</div>
+              <small class="text-muted">ID: #${p.id}</small>
+            </div>
+          </div>
+        </td>
+        <td class="text-end">${fmt(p.views)}</td>
+        <td class="text-end">${fmt(p.engagement)}</td>
+        <td class="text-end">${p.er}%</td>
+        <td><span class="badge-soft info">${p.platform}</span></td>
+        <td class="text-end">
+          <div class="btn-group">
+            <a href="#" class="btn btn-sm btn-light" data-bs-toggle="tooltip" data-bs-title="View details"><i class="fa-regular fa-eye"></i></a>
+            <a href="./post_creator.html" class="btn btn-sm btn-light" data-bs-toggle="tooltip" data-bs-title="Promote"><i class="fa-solid fa-bullhorn"></i></a>
+          </div>
+        </td>
+      </tr>`;
+}
+
+function rebuildTable() {
+    const body = document.getElementById('topContentBody');
+    const q = state.table.search.toLowerCase();
+    const pfAllowed = state.table.platformFilter;
+    let rows = mockPosts.filter(p => pfAllowed.has(p.platform) && (p.caption.toLowerCase().includes(q) || String(p.id).includes(q)));
+
+    // sort
+    rows.sort((a, b) => {
+        const k = state.table.sortKey;
+        const dir = state.table.sortDir === 'asc' ? 1 : -1;
+        if (k === 'date') return dir * (new Date(a.date) - new Date(b.date));
+        return dir * ((a[k] < b[k]) ? -1 : (a[k] > b[k] ? 1 : 0));
+    });
+
+    // pagination
+    const total = rows.length;
+    const ps = state.table.pageSize;
+    const maxPage = Math.max(1, Math.ceil(total / ps));
+    if (state.table.page > maxPage) state.table.page = maxPage;
+    const start = (state.table.page - 1) * ps;
+    const end = start + ps;
+    const pageRows = rows.slice(start, end);
+
+    body.innerHTML = pageRows.map(renderRow).join('');
+    document.getElementById('paginationInfo').textContent = `Showing ${total?start+1:0}–${Math.min(end,total)} of ${total}`;
+    buildPagination(maxPage);
+
+    // refresh tooltips
+    [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')).map(el => new bootstrap.Tooltip(el));
+}
+
+function buildPagination(maxPage) {
+    const ul = document.getElementById('pagination');
+    const p = state.table.page;
+    let html = '';
+    html += `<li class="page-item ${p===1?'disabled':''}"><a class="page-link" href="#" data-page="${p-1}">Prev</a></li>`;
+    for (let i = 1; i <= maxPage; i++) {
+        html += `<li class="page-item ${i===p?'active':''}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+    }
+    html += `<li class="page-item ${p===maxPage?'disabled':''}"><a class="page-link" href="#" data-page="${p+1}">Next</a></li>`;
+    ul.innerHTML = html;
+    ul.querySelectorAll('a.page-link').forEach(a => a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = Number(a.dataset.page);
+        if (!Number.isNaN(target)) {
+            state.table.page = Math.max(1, target);
+            rebuildTable();
+        }
+    }));
+}
+
+// Sorting
+document.querySelectorAll('#topContentTable thead th.sortable').forEach(th => {
+    th.style.cursor = 'pointer';
+    th.addEventListener('click', () => {
+        const key = th.dataset.key;
+        if (state.table.sortKey === key) {
+            state.table.sortDir = state.table.sortDir === 'asc' ? 'desc' : 'asc';
+        } else {
+            state.table.sortKey = key;
+            state.table.sortDir = 'desc';
+        }
+        document.querySelectorAll('#topContentTable thead th.sortable i').forEach(i => i.className = 'fa-solid fa-sort ms-1');
+        const icon = th.querySelector('i');
+        icon.className = `fa-solid ${state.table.sortDir==='asc'?'fa-sort-up':'fa-sort-down'} ms-1`;
+        rebuildTable();
+    });
+});
+
+// Table search
+document.getElementById('tableSearch').addEventListener('input', (e) => {
+    state.table.search = e.target.value;
+    state.table.page = 1;
+    rebuildTable();
+});
+
+// Table platform filters
+document.querySelectorAll('.table-pf-filter').forEach(cb => cb.addEventListener('change', () => {
+    const set = new Set();
+    document.querySelectorAll('.table-pf-filter').forEach(el => {
+        if (el.checked) set.add(el.value);
+    });
+    state.table.platformFilter = set;
+    state.table.page = 1;
+    rebuildTable();
+}));
+
+// Export Top Content (demo)
+document.getElementById('exportTopContent').addEventListener('click', () => {
+    Swal.fire({
+        icon: 'info',
+        title: 'Export queued',
+        text: 'Your CSV export will be emailed shortly.'
+    });
+});
+
+// Initial render
+syncAllCheckbox();
+updatePlatformLabel();
+renderCharts();
+updateKPIs();
+rebuildTable();
+  </script>
+ </body>
+</html>

@@ -1,0 +1,37 @@
+/* Registration Page specific styles (registration_page.css) */
+/* Use Poppins as the brand font site-wide on this page */
+body {
+    font-family: "Poppins", var(--font-sans), sans-serif
+    }
+/* Centered container spacing adjustments for registration */
+.registration-form-container {
+    max-width: 520px;
+    /* Slightly wider than default for better readability */
+    }
+/* Header visual alignment tweaks */
+.registration-form-container .page-title {
+    letter-spacing: 0.2px
+    }
+/* Requirement checklist visuals */
+.req-item i {
+    color: var(--border-color)
+    }
+.req-item.text-success i {
+    color: var(--color-success)
+    }
+/* Improve input group buttons look with theme */
+.input-group > .btn.btn-light {
+    border-color: var(--border-color)
+    }
+.input-group > .btn.btn-light:hover {
+    background: var(--neutral-soft)
+    }
+/* Alert spacing */
+#formAlert {
+    margin-bottom: 1rem
+    }
+/* Small form hints */
+.form-text {
+    color: var(--text-muted)
+    }
+/* Make footer stick properly with short content (already via min-vh-100 on body) */

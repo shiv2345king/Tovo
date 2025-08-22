@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Content Library • Business Console
+  </title>
+  <!-- Poppins Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <!-- Theme Styles -->
+  <link href="style.css" rel="stylesheet"/>
+  <!-- Page Styles -->
+  <link href="content_library.css" rel="stylesheet"/>
+  <style>
+   body { font-family: 'Poppins', var(--font-sans); }
+  </style>
+ </head>
+ <body class="bg-light">
+  <!-- Header (Manager/Business Role Header) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000080;">
+   <div class="container-fluid">
+    <button aria-controls="offcanvasSidebarManager" class="btn btn-outline-info d-lg-none me-2" data-bs-target="#offcanvasSidebarManager" data-bs-toggle="offcanvas" style="border-color:#00FFFF;color:#00FFFF;" type="button">
+     <i class="fa-solid fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./dashboard_page.html">
+     <img alt="Logo" class="me-2" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:28px;"/>
+     <span>
+      Business Console
+     </span>
+    </a>
+    <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
+     <div class="input-group">
+      <span class="input-group-text" style="background:#fff;border-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-magnifying-glass">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" id="globalSearch" placeholder="Search campaigns, posts..." style="border-color:#00FFFF;" type="search"/>
+     </div>
+    </form>
+    <ul class="navbar-nav ms-auto align-items-center">
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+       <i class="fa-solid fa-file-export me-1">
+       </i>
+       Export Report
+      </a>
+     </li>
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-calendar-plus me-1">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button" style="color:#00FFFF;">
+       <img alt="Avatar" class="rounded-circle me-2" src="https://via.placeholder.com/28"/>
+       @brand_account
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./account_settings.html">
+         <i class="fa-solid fa-gear me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./analytics_page.html">
+         <i class="fa-solid fa-chart-line me-2">
+         </i>
+         Analytics
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item text-danger" href="./login_page.html">
+         <i class="fa-solid fa-right-from-bracket me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <!-- Offcanvas Sidebar for mobile (Manager) -->
+  <div aria-labelledby="offcanvasSidebarManagerLabel" class="offcanvas offcanvas-start" id="offcanvasSidebarManager" style="background-color:#000080;color:#fff;" tabindex="-1">
+   <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasSidebarManagerLabel">
+     Navigation
+    </h5>
+    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body">
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white active" href="./content_library.html">
+       <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+       </i>
+       Assets
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./ai_lab.html">
+       <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+       </i>
+       AI Ideas
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./analytics_page.html">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="d-flex">
+   <!-- Sidebar (desktop) -->
+   <aside class="d-none d-lg-flex flex-column flex-shrink-0 p-3 text-white" style="width:280px;background-color:#000080;min-height:100vh;">
+    <div class="d-flex align-items-center mb-3">
+     <img alt="Logo" class="me-2" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:36px;width:auto;"/>
+     <span class="fs-6 fw-semibold" style="color:#00FFFF;">
+      Business Console
+     </span>
+    </div>
+    <div class="d-flex align-items-center mb-3 p-2 rounded" style="background-color:rgba(0,255,255,.08);">
+     <img alt="Avatar" class="rounded-circle me-2" src="https://via.placeholder.com/40"/>
+     <div>
+      <div class="small">
+       Signed in as
+      </div>
+      <div class="fw-semibold">
+       @brand_account
+      </div>
+      <span class="badge" style="background-color:#00FFFF;color:#000080;">
+       Manager
+      </span>
+     </div>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a aria-controls="analyticsMenu" aria-expanded="true" class="nav-link text-white" data-bs-toggle="collapse" href="#analyticsMenu" role="button">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics &amp; Reports
+       <i class="fa-solid fa-chevron-down float-end">
+       </i>
+      </a>
+      <div class="collapse show ps-4" id="analyticsMenu">
+       <ul class="list-unstyled">
+        <li class="my-1">
+         <a class="nav-link text-white" href="./analytics_page.html">
+          <i class="fa-solid fa-chart-simple me-2" style="color:#00FFFF;">
+          </i>
+          Dashboard
+         </a>
+        </li>
+        <li class="my-1">
+         <a class="nav-link text-white" href="./analytics_page.html#top-content">
+          <i class="fa-regular fa-star me-2" style="color:#00FFFF;">
+          </i>
+          Top Content
+         </a>
+        </li>
+       </ul>
+      </div>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+    <hr class="border-light opacity-25"/>
+    <div>
+     <a class="btn w-100 mb-2" href="./analytics_page.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-arrow-trend-up me-2">
+      </i>
+      View Analytics
+     </a>
+     <a class="btn btn-outline-info w-100" href="./post_creator.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-calendar-check me-2">
+      </i>
+      Schedule Now
+     </a>
+    </div>
+    <style>
+     aside a.nav-link{border-radius:.5rem;}
+        aside a.nav-link:hover{background-color:rgba(0,255,255,.15);} 
+        aside .collapse .nav-link{font-size:.95rem;}
+    </style>
+   </aside>
+   <!-- Main Panel -->
+   <main class="main-panel flex-grow-1">
+    <div class="container-fluid container-max">
+     <!-- Library Header -->
+     <div class="page-header align-items-center">
+      <div class="d-flex align-items-center gap-2">
+       <h1 class="page-title m-0">
+        Content Library
+       </h1>
+       <span class="badge-soft info ms-1">
+        <i class="fa-solid fa-database">
+        </i>
+        Total Storage:
+        <span id="totalStorage">
+         8.4 GB
+        </span>
+       </span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+       <button class="btn btn-light" id="btnNewFolder">
+        <i class="fa-solid fa-folder-plus me-2">
+        </i>
+        New Folder
+       </button>
+       <button class="btn btn-primary" id="btnUpload">
+        <i class="fa-solid fa-upload me-2">
+        </i>
+        Upload
+       </button>
+       <input accept="image/*,video/*" class="d-none" id="fileUploadInput" multiple="" type="file"/>
+      </div>
+     </div>
+     <!-- Toolbar: Search, Filters, Sort, Breadcrumb -->
+     <div class="app-card p-3 mb-3 library-toolbar">
+      <div class="row g-2 align-items-center">
+       <div class="col-12 col-lg-4">
+        <div class="input-group">
+         <span class="input-group-text">
+          <i class="fa-solid fa-magnifying-glass">
+          </i>
+         </span>
+         <input class="form-control" id="searchInput" placeholder="Search by name or tag..." type="text"/>
+        </div>
+       </div>
+       <div class="col-12 col-lg-8 d-flex justify-content-lg-end gap-2 flex-wrap">
+        <nav aria-label="breadcrumb" class="breadcrumb m-0">
+         <span class="breadcrumb-item">
+          <a href="#" id="bc-root">
+           Assets
+          </a>
+         </span>
+         <span aria-current="page" class="breadcrumb-item active" id="bc-current">
+          Root
+         </span>
+        </nav>
+        <div class="d-flex gap-2">
+         <select class="form-select" id="filterType" style="min-width:160px;">
+          <option value="all">
+           All Types
+          </option>
+          <option value="image">
+           Images
+          </option>
+          <option value="video">
+           Videos
+          </option>
+         </select>
+         <select class="form-select" id="sortSelect" style="min-width:180px;">
+          <option value="newest">
+           Sort: Newest
+          </option>
+          <option value="oldest">
+           Oldest
+          </option>
+          <option value="name-asc">
+           Name A-Z
+          </option>
+          <option value="name-desc">
+           Name Z-A
+          </option>
+          <option value="size-desc">
+           Size High-Low
+          </option>
+          <option value="size-asc">
+           Size Low-High
+          </option>
+         </select>
+         <div class="view-switcher ms-1">
+          <div class="option active" id="viewGrid" title="Grid view">
+           <i class="fa-solid fa-grid-2">
+           </i>
+          </div>
+          <div class="option" id="viewTiles" title="Compact tiles">
+           <i class="fa-solid fa-table-cells">
+           </i>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="d-none mt-3" id="selectionBar">
+       <div class="alert alert-info d-flex align-items-center justify-content-between m-0">
+        <div>
+         <i class="fa-regular fa-square-check me-2">
+         </i>
+         <span id="selectionCount">
+          0
+         </span>
+         selected
+        </div>
+        <div class="d-flex gap-2">
+         <button class="btn btn-sm btn-danger" id="btnBulkDelete">
+          <i class="fa-solid fa-trash-can me-1">
+          </i>
+          Delete
+         </button>
+         <button class="btn btn-sm btn-secondary" id="btnBulkDownload">
+          <i class="fa-solid fa-download me-1">
+          </i>
+          Download
+         </button>
+         <button class="btn btn-sm btn-light" id="btnClearSelection">
+          <i class="fa-solid fa-xmark me-1">
+          </i>
+          Clear
+         </button>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- KPI + Storage Chart -->
+     <div class="row g-3 mb-3">
+      <div class="col-md-4">
+       <div class="metric-card h-100">
+        <div class="metric-title">
+         Images
+        </div>
+        <div class="d-flex align-items-end justify-content-between">
+         <div class="metric-value">
+          1,284
+         </div>
+         <span class="badge-soft success">
+          <i class="fa-solid fa-arrow-up">
+          </i>
+          +3.2%
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="metric-card h-100">
+        <div class="metric-title">
+         Videos
+        </div>
+        <div class="d-flex align-items-end justify-content-between">
+         <div class="metric-value">
+          212
+         </div>
+         <span class="badge-soft info">
+          <i class="fa-solid fa-arrow-up">
+          </i>
+          +1.1%
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="metric-card h-100">
+        <div class="metric-title">
+         Storage Used
+        </div>
+        <div class="d-flex align-items-center justify-content-between">
+         <div class="metric-value">
+          8.4 GB
+         </div>
+         <div class="text-muted">
+          of 20 GB
+         </div>
+        </div>
+        <div class="progress mt-2" style="height:10px;">
+         <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="42" class="progress-bar" role="progressbar" style="width: 42%">
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Asset Grid -->
+     <div class="card-grid" id="assetGrid">
+      <!-- Folders -->
+      <div class="card folder-card" data-folder-id="campaigns" data-name="Campaigns" data-parent="root" data-type="folder" tabindex="0">
+       <div class="card-body d-flex align-items-center">
+        <i class="fa-solid fa-folder text-warning fs-3 me-3">
+        </i>
+        <div>
+         <div class="fw-semibold folder-name text-truncate">
+          Campaigns
+         </div>
+         <small class="text-muted">
+          12 items
+         </small>
+        </div>
+       </div>
+      </div>
+      <div class="card folder-card" data-folder-id="product-shots" data-name="Product Shots" data-parent="root" data-type="folder" tabindex="0">
+       <div class="card-body d-flex align-items-center">
+        <i class="fa-solid fa-folder text-warning fs-3 me-3">
+        </i>
+        <div>
+         <div class="fw-semibold folder-name text-truncate">
+          Product Shots
+         </div>
+         <small class="text-muted">
+          37 items
+         </small>
+        </div>
+       </div>
+      </div>
+      <div class="card folder-card" data-folder-id="reels" data-name="Reels" data-parent="root" data-type="folder" tabindex="0">
+       <div class="card-body d-flex align-items-center">
+        <i class="fa-solid fa-folder text-warning fs-3 me-3">
+        </i>
+        <div>
+         <div class="fw-semibold folder-name text-truncate">
+          Reels
+         </div>
+         <small class="text-muted">
+          9 items
+         </small>
+        </div>
+       </div>
+      </div>
+      <!-- Assets (root) -->
+      <div class="card asset-card reveal-on-hover" data-date="2025-02-04" data-folder="root" data-id="a1" data-name="brand-cover.jpg" data-size="2456123" data-tags="brand,cover,hero" data-type="image">
+       <div class="thumb-wrapper">
+        <input aria-label="Select asset" class="form-check-input select-box" type="checkbox"/>
+        <img alt="brand-cover.jpg" class="img-fluid thumb" data-seed="brand-cover" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandcover/480/320'" src="https://picsum.photos/seed/brandcover/480/320"/>
+       </div>
+       <div class="p-2 d-flex align-items-center justify-content-between">
+        <div class="name text-truncate me-2">
+         brand-cover.jpg
+        </div>
+        <button class="btn btn-sm btn-light btn-quick-view" title="Details">
+         <i class="fa-regular fa-eye">
+         </i>
+        </button>
+       </div>
+      </div>
+      <div class="card asset-card reveal-on-hover" data-date="2025-02-01" data-folder="root" data-id="a2" data-name="promo_reel.mp4" data-size="15456123" data-tags="promo,reel,mp4" data-type="video">
+       <div class="thumb-wrapper">
+        <input aria-label="Select asset" class="form-check-input select-box" type="checkbox"/>
+        <img alt="promo_reel.mp4" class="img-fluid thumb" data-seed="promo-reel" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/promoreel/480/320'" src="https://picsum.photos/seed/promoreel/480/320"/>
+        <div class="video-indicator">
+         <i class="fa-solid fa-circle-play">
+         </i>
+        </div>
+       </div>
+       <div class="p-2 d-flex align-items-center justify-content-between">
+        <div class="name text-truncate me-2">
+         promo_reel.mp4
+        </div>
+        <button class="btn btn-sm btn-light btn-quick-view" title="Details">
+         <i class="fa-regular fa-eye">
+         </i>
+        </button>
+       </div>
+      </div>
+      <div class="card asset-card reveal-on-hover" data-date="2025-01-22" data-folder="root" data-id="a3" data-name="team-photo.png" data-size="3561234" data-tags="team,office,people" data-type="image">
+       <div class="thumb-wrapper">
+        <input aria-label="Select asset" class="form-check-input select-box" type="checkbox"/>
+        <img alt="team-photo.png" class="img-fluid thumb" data-seed="team-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/teamp/480/320'" src="https://picsum.photos/seed/teamp/480/320"/>
+       </div>
+       <div class="p-2 d-flex align-items-center justify-content-between">
+        <div class="name text-truncate me-2">
+         team-photo.png
+        </div>
+        <button class="btn btn-sm btn-light btn-quick-view" title="Details">
+         <i class="fa-regular fa-eye">
+         </i>
+        </button>
+       </div>
+      </div>
+      <!-- Assets (product-shots folder) -->
+      <div class="card asset-card reveal-on-hover" data-date="2025-01-18" data-folder="product-shots" data-id="a4" data-name="bottle_closeup.jpg" data-size="1256123" data-tags="product,bottle,closeup" data-type="image">
+       <div class="thumb-wrapper">
+        <input aria-label="Select asset" class="form-check-input select-box" type="checkbox"/>
+        <img alt="bottle_closeup.jpg" class="img-fluid thumb" data-seed="bottle" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/bottle/480/320'" src="https://picsum.photos/seed/bottle/480/320"/>
+       </div>
+       <div class="p-2 d-flex align-items-center justify-content-between">
+        <div class="name text-truncate me-2">
+         bottle_closeup.jpg
+        </div>
+        <button class="btn btn-sm btn-light btn-quick-view" title="Details">
+         <i class="fa-regular fa-eye">
+         </i>
+        </button>
+       </div>
+      </div>
+      <div class="card asset-card reveal-on-hover" data-date="2025-01-10" data-folder="product-shots" data-id="a5" data-name="packaging_flatlay.jpg" data-size="2256123" data-tags="product,packaging,flatlay" data-type="image">
+       <div class="thumb-wrapper">
+        <input aria-label="Select asset" class="form-check-input select-box" type="checkbox"/>
+        <img alt="packaging_flatlay.jpg" class="img-fluid thumb" data-seed="flatlay" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/flatlay/480/320'" src="https://picsum.photos/seed/flatlay/480/320"/>
+       </div>
+       <div class="p-2 d-flex align-items-center justify-content-between">
+        <div class="name text-truncate me-2">
+         packaging_flatlay.jpg
+        </div>
+        <button class="btn btn-sm btn-light btn-quick-view" title="Details">
+         <i class="fa-regular fa-eye">
+         </i>
+        </button>
+       </div>
+      </div>
+      <!-- Assets (reels folder) -->
+      <div class="card asset-card reveal-on-hover" data-date="2025-02-05" data-folder="reels" data-id="a6" data-name="unboxing_reel.mov" data-size="18556123" data-tags="unboxing,reel,mov" data-type="video">
+       <div class="thumb-wrapper">
+        <input aria-label="Select asset" class="form-check-input select-box" type="checkbox"/>
+        <img alt="unboxing_reel.mov" class="img-fluid thumb" data-seed="unboxing" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/unboxing/480/320'" src="https://picsum.photos/seed/unboxing/480/320"/>
+        <div class="video-indicator">
+         <i class="fa-solid fa-circle-play">
+         </i>
+        </div>
+       </div>
+       <div class="p-2 d-flex align-items-center justify-content-between">
+        <div class="name text-truncate me-2">
+         unboxing_reel.mov
+        </div>
+        <button class="btn btn-sm btn-light btn-quick-view" title="Details">
+         <i class="fa-regular fa-eye">
+         </i>
+        </button>
+       </div>
+      </div>
+     </div>
+     <!-- Loading / Empty states -->
+     <div class="loading-state mt-3 d-none" id="loadingState">
+      <div class="skeleton" style="height:200px">
+      </div>
+      <div class="empty-state-text">
+       Loading assets...
+      </div>
+     </div>
+     <div class="empty-state mt-3 d-none" id="emptyState">
+      <i class="fa-regular fa-folder-open fa-2xl text-muted">
+      </i>
+      <div class="empty-state-text">
+       No assets found for your filters. Try adjusting your search.
+      </div>
+      <button class="btn btn-info" id="btnClearFilters">
+       <i class="fa-solid fa-eraser me-2">
+       </i>
+       Clear Filters
+      </button>
+     </div>
+     <!-- Recent Uploads Table -->
+     <div class="app-card mt-4">
+      <div class="card-header">
+       <div class="title">
+        Recent Uploads
+       </div>
+       <div class="d-flex align-items-center gap-2">
+        <div class="input-group input-group-sm" style="width:220px;">
+         <span class="input-group-text">
+          <i class="fa-solid fa-magnifying-glass">
+          </i>
+         </span>
+         <input class="form-control" id="tableSearch" placeholder="Search table"/>
+        </div>
+       </div>
+      </div>
+      <div class="card-body p-0">
+       <div class="table-responsive">
+        <table class="table table-theme m-0 align-middle" id="uploadsTable">
+         <thead>
+          <tr>
+           <th data-sort="name" role="button">
+            Filename
+            <i class="fa-solid fa-sort ms-1">
+            </i>
+           </th>
+           <th>
+            Type
+           </th>
+           <th data-sort="size" role="button">
+            Size
+            <i class="fa-solid fa-sort ms-1">
+            </i>
+           </th>
+           <th>
+            Uploaded By
+           </th>
+           <th data-sort="date" role="button">
+            Date
+            <i class="fa-solid fa-sort ms-1">
+            </i>
+           </th>
+           <th>
+            Actions
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            brand-cover.jpg
+           </td>
+           <td>
+            <span class="badge-soft info">
+             Image
+            </span>
+           </td>
+           <td data-bytes="2456123">
+            2.34 MB
+           </td>
+           <td>
+            Alex Morgan
+           </td>
+           <td data-date="2025-02-04">
+            Feb 4, 2025
+           </td>
+           <td>
+            <button class="btn btn-sm btn-light table-view" data-id="a1">
+             <i class="fa-regular fa-eye">
+             </i>
+            </button>
+            <button class="btn btn-sm btn-danger table-delete" data-id="a1">
+             <i class="fa-regular fa-trash-can">
+             </i>
+            </button>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            promo_reel.mp4
+           </td>
+           <td>
+            <span class="badge-soft warning">
+             Video
+            </span>
+           </td>
+           <td data-bytes="15456123">
+            14.74 MB
+           </td>
+           <td>
+            Priya Shah
+           </td>
+           <td data-date="2025-02-01">
+            Feb 1, 2025
+           </td>
+           <td>
+            <button class="btn btn-sm btn-light table-view" data-id="a2">
+             <i class="fa-regular fa-eye">
+             </i>
+            </button>
+            <button class="btn btn-sm btn-danger table-delete" data-id="a2">
+             <i class="fa-regular fa-trash-can">
+             </i>
+            </button>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            team-photo.png
+           </td>
+           <td>
+            <span class="badge-soft info">
+             Image
+            </span>
+           </td>
+           <td data-bytes="3561234">
+            3.39 MB
+           </td>
+           <td>
+            Jordan Lee
+           </td>
+           <td data-date="2025-01-22">
+            Jan 22, 2025
+           </td>
+           <td>
+            <button class="btn btn-sm btn-light table-view" data-id="a3">
+             <i class="fa-regular fa-eye">
+             </i>
+            </button>
+            <button class="btn btn-sm btn-danger table-delete" data-id="a3">
+             <i class="fa-regular fa-trash-can">
+             </i>
+            </button>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            bottle_closeup.jpg
+           </td>
+           <td>
+            <span class="badge-soft info">
+             Image
+            </span>
+           </td>
+           <td data-bytes="1256123">
+            1.20 MB
+           </td>
+           <td>
+            Samira Patel
+           </td>
+           <td data-date="2025-01-18">
+            Jan 18, 2025
+           </td>
+           <td>
+            <button class="btn btn-sm btn-light table-view" data-id="a4">
+             <i class="fa-regular fa-eye">
+             </i>
+            </button>
+            <button class="btn btn-sm btn-danger table-delete" data-id="a4">
+             <i class="fa-regular fa-trash-can">
+             </i>
+            </button>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            packaging_flatlay.jpg
+           </td>
+           <td>
+            <span class="badge-soft info">
+             Image
+            </span>
+           </td>
+           <td data-bytes="2256123">
+            2.15 MB
+           </td>
+           <td>
+            Alex Morgan
+           </td>
+           <td data-date="2025-01-10">
+            Jan 10, 2025
+           </td>
+           <td>
+            <button class="btn btn-sm btn-light table-view" data-id="a5">
+             <i class="fa-regular fa-eye">
+             </i>
+            </button>
+            <button class="btn btn-sm btn-danger table-delete" data-id="a5">
+             <i class="fa-regular fa-trash-can">
+             </i>
+            </button>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            unboxing_reel.mov
+           </td>
+           <td>
+            <span class="badge-soft warning">
+             Video
+            </span>
+           </td>
+           <td data-bytes="18556123">
+            17.71 MB
+           </td>
+           <td>
+            Jordan Lee
+           </td>
+           <td data-date="2025-02-05">
+            Feb 5, 2025
+           </td>
+           <td>
+            <button class="btn btn-sm btn-light table-view" data-id="a6">
+             <i class="fa-regular fa-eye">
+             </i>
+            </button>
+            <button class="btn btn-sm btn-danger table-delete" data-id="a6">
+             <i class="fa-regular fa-trash-can">
+             </i>
+            </button>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+       <small class="text-muted">
+        Showing 1–6 of 42
+       </small>
+       <nav>
+        <ul class="pagination pagination-sm m-0">
+         <li class="page-item disabled">
+          <a class="page-link" href="#">
+           Previous
+          </a>
+         </li>
+         <li class="page-item active">
+          <a class="page-link" href="#">
+           1
+          </a>
+         </li>
+         <li class="page-item">
+          <a class="page-link" href="#">
+           2
+          </a>
+         </li>
+         <li class="page-item">
+          <a class="page-link" href="#">
+           3
+          </a>
+         </li>
+         <li class="page-item">
+          <a class="page-link" href="#">
+           Next
+          </a>
+         </li>
+        </ul>
+       </nav>
+      </div>
+     </div>
+    </div>
+   </main>
+  </div>
+  <!-- Footer (Manager/Business Role Footer) -->
+  <footer class="mt-auto py-3 border-top" style="border-top-color:#000080 !important;">
+   <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:20px;"/>
+     <span class="text-muted small">
+      © 2025 AI Social Manager
+     </span>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+     <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-file-export me-1">
+      </i>
+      Export
+     </a>
+     <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-calendar-plus me-1">
+      </i>
+      Schedule
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Terms
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Privacy
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- Asset Details Modal (Bootstrap) -->
+  <div aria-hidden="true" class="modal fade" id="assetModal" tabindex="-1">
+   <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title">
+       <i class="fa-regular fa-image me-2">
+       </i>
+       <span id="modalAssetName">
+        Asset
+       </span>
+      </h5>
+      <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+      </button>
+     </div>
+     <div class="modal-body">
+      <div class="row g-3">
+       <div class="col-lg-7">
+        <div class="preview-pane">
+         <img alt="Preview" class="img-fluid rounded" id="modalPreview" onerror="this.onerror=null;this.src='https://picsum.photos/seed/preview-fallback/800/600'" src=""/>
+         <div class="video-indicator-lg d-none" id="modalVideoBadge">
+          <i class="fa-solid fa-circle-play">
+          </i>
+         </div>
+        </div>
+       </div>
+       <div class="col-lg-5">
+        <div class="d-grid gap-2 mb-3">
+         <button class="btn btn-primary" id="btnUseInPost">
+          <i class="fa-solid fa-plus me-2">
+          </i>
+          Use in Post
+         </button>
+         <button class="btn btn-danger" id="btnDeleteAsset">
+          <i class="fa-regular fa-trash-can me-2">
+          </i>
+          Delete
+         </button>
+        </div>
+        <div class="card">
+         <div class="card-body">
+          <h6 class="mb-3 text-strong">
+           Details
+          </h6>
+          <dl class="row mb-0 small">
+           <dt class="col-5">
+            Filename
+           </dt>
+           <dd class="col-7" id="metaName">
+            -
+           </dd>
+           <dt class="col-5">
+            Type
+           </dt>
+           <dd class="col-7" id="metaType">
+            -
+           </dd>
+           <dt class="col-5">
+            Size
+           </dt>
+           <dd class="col-7" id="metaSize">
+            -
+           </dd>
+           <dt class="col-5">
+            Uploaded
+           </dt>
+           <dd class="col-7" id="metaDate">
+            -
+           </dd>
+           <dt class="col-5">
+            Tags
+           </dt>
+           <dd class="col-7" id="metaTags">
+            -
+           </dd>
+           <dt class="col-5">
+            ID
+           </dt>
+           <dd class="col-7" id="metaId">
+            -
+           </dd>
+          </dl>
+         </div>
+        </div>
+        <div class="mt-3">
+         <label class="form-label" for="renameInput">
+          Rename
+         </label>
+         <div class="input-group">
+          <input class="form-control" id="renameInput" placeholder="Enter new name" type="text"/>
+          <button class="btn btn-light" id="btnRename">
+           <i class="fa-solid fa-pen">
+           </i>
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="modal-footer">
+      <button class="btn btn-light" data-bs-dismiss="modal" type="button">
+       Close
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Toast Container -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+   <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-primary border-0" id="liveToast" role="alert">
+    <div class="d-flex">
+     <div class="toast-body" id="toastBody">
+      Action completed
+     </div>
+     <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" type="button">
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <!-- Chart.js (optional demo) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1">
+  </script>
+  <script>
+   // Utilities
+const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+const $ = (sel, ctx = document) => ctx.querySelector(sel);
+const debounce = (fn, delay = 300) => {
+    let t;
+    return (...args) => {
+        clearTimeout(t);
+        t = setTimeout(() => fn.apply(this, args), delay);
+    };
+};
+
+// Bootstrap init
+document.addEventListener('DOMContentLoaded', () => {
+    // Tooltips
+    $$('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+
+    // View toggles
+    $('#viewGrid').addEventListener('click', () => {
+        document.body.classList.remove('view-tiles');
+        document.body.classList.add('view-grid');
+        $('#viewGrid').classList.add('active');
+        $('#viewTiles').classList.remove('active');
+    });
+    $('#viewTiles').addEventListener('click', () => {
+        document.body.classList.remove('view-grid');
+        document.body.classList.add('view-tiles');
+        $('#viewTiles').classList.add('active');
+        $('#viewGrid').classList.remove('active');
+    });
+
+    // Upload handling
+    const uploadBtn = $('#btnUpload');
+    const fileInput = $('#fileUploadInput');
+    uploadBtn.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', onFilesSelected);
+
+    // New folder
+    $('#btnNewFolder').addEventListener('click', onNewFolder);
+
+    // Search / Filter / Sort
+    $('#searchInput').addEventListener('input', debounce(applyFilters, 250));
+    $('#filterType').addEventListener('change', applyFilters);
+    $('#sortSelect').addEventListener('change', applySort);
+    $('#bc-root').addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateTo('root');
+    });
+
+    // Clear Filters button
+    $('#btnClearFilters').addEventListener('click', () => {
+        $('#searchInput').value = '';
+        $('#filterType').value = 'all';
+        applyFilters();
+    });
+
+    // Folder navigation
+    $$('.folder-card').forEach(folder => {
+        folder.addEventListener('dblclick', () => navigateTo(folder.dataset.folderId));
+        folder.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') navigateTo(folder.dataset.folderId);
+        });
+    });
+
+    // Selection events
+    $$('.asset-card .select-box').forEach(cb => cb.addEventListener('change', updateSelectionBar));
+    $('#btnClearSelection').addEventListener('click', clearSelection);
+    $('#btnBulkDelete').addEventListener('click', bulkDelete);
+    $('#btnBulkDownload').addEventListener('click', bulkDownload);
+
+    // Quick view buttons
+    $$('.asset-card .btn-quick-view').forEach(btn => btn.addEventListener('click', (e) => openFromCard(e.target.closest('.asset-card'))));
+
+    // Table search & sorting
+    $('#tableSearch').addEventListener('input', debounce(filterUploadsTable, 200));
+    $$('#uploadsTable thead th[role="button"]').forEach(th => th.addEventListener('click', () => sortUploadsTable(th)));
+    $$('.table-view').forEach(btn => btn.addEventListener('click', (e) => {
+        const id = e.currentTarget.getAttribute('data-id');
+        const card = $(`.asset-card[data-id="${id}"]`);
+        if (card) openFromCard(card);
+    }));
+    $$('.table-delete').forEach(btn => btn.addEventListener('click', (e) => {
+        const id = e.currentTarget.getAttribute('data-id');
+        const card = $(`.asset-card[data-id="${id}"]`);
+        if (card) deleteAsset(card);
+    }));
+
+    // Modal actions
+    $('#btnDeleteAsset').addEventListener('click', () => {
+        if (currentModalCard) deleteAsset(currentModalCard);
+    });
+    $('#btnUseInPost').addEventListener('click', () => {
+        if (!currentModalCard) return;
+        const assetId = currentModalCard.dataset.id;
+        const url = `./post_creator.html?assetId=${encodeURIComponent(assetId)}`;
+        Swal.fire({
+            icon: 'success',
+            title: 'Asset selected',
+            text: 'Redirecting to Post Creator...',
+            timer: 1200,
+            showConfirmButton: false
+        }).then(() => {
+            window.location.href = url;
+        });
+    });
+    $('#btnRename').addEventListener('click', renameAsset);
+
+    // Initial
+    document.body.classList.add('view-grid');
+    applyFilters();
+});
+
+// State
+let currentFolder = 'root';
+let currentModalCard = null;
+
+// Functions
+function onFilesSelected(e) {
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
+
+    const allowed = ['image/', 'video/'];
+    const valid = files.filter(f => allowed.some(t => f.type.startsWith(t)));
+    const invalid = files.filter(f => !allowed.some(t => f.type.startsWith(t)));
+
+    let progress = 0;
+    Swal.fire({
+        title: 'Uploading...',
+        html: `<div class="progress"><div id="uploadProgress" class="progress-bar" style="width:0%"></div></div>`,
+        allowOutsideClick: false,
+        didOpen: () => Swal.showLoading()
+    });
+
+    // Simulate upload
+    const step = () => {
+        progress += Math.random() * 30;
+        if (progress > 100) progress = 100;
+        const bar = document.getElementById('uploadProgress');
+        if (bar) bar.style.width = progress + '%';
+        if (progress < 100) {
+            setTimeout(step, 400);
+        } else {
+            Swal.close();
+            // Add valid files to grid
+            valid.forEach(addFileToGrid);
+            if (invalid.length) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Some files skipped',
+                    text: `${invalid.length} unsupported file(s) were not uploaded.`
+                });
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Upload complete',
+                    timer: 1200,
+                    showConfirmButton: false
+                });
+            }
+            e.target.value = '';
+            applyFilters();
+        }
+    };
+    setTimeout(step, 400);
+}
+
+function addFileToGrid(file) {
+    const isVideo = file.type.startsWith('video/');
+    const id = 'u' + Math.random().toString(36).slice(2, 8);
+    const card = document.createElement('div');
+    card.className = 'card asset-card reveal-on-hover';
+    card.dataset.type = isVideo ? 'video' : 'image';
+    card.dataset.name = file.name;
+    card.dataset.size = file.size;
+    card.dataset.date = new Date().toISOString().slice(0, 10);
+    card.dataset.tags = '';
+    card.dataset.id = id;
+    card.dataset.folder = currentFolder;
+    const objUrl = URL.createObjectURL(file);
+    card.innerHTML = `
+        <div class="thumb-wrapper">
+          <input class="form-check-input select-box" type="checkbox" aria-label="Select asset">
+          <img class="img-fluid thumb" loading="lazy" src="${objUrl}" alt="${file.name}" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${encodeURIComponent(file.name)}/480/320'">
+          ${isVideo ? '<div class="video-indicator"><i class="fa-solid fa-circle-play"></i></div>' : ''}
+        </div>
+        <div class="p-2 d-flex align-items-center justify-content-between">
+          <div class="name text-truncate me-2">${file.name}</div>
+          <button class="btn btn-sm btn-light btn-quick-view" title="Details"><i class="fa-regular fa-eye"></i></button>
+        </div>`;
+    $('#assetGrid').appendChild(card);
+    card.querySelector('.select-box').addEventListener('change', updateSelectionBar);
+    card.querySelector('.btn-quick-view').addEventListener('click', () => openFromCard(card));
+}
+
+function navigateTo(folderId) {
+    currentFolder = folderId;
+    $('#bc-current').textContent = folderId === 'root' ? 'Root' : folderId.replace(/-/g, ' ');
+    applyFilters();
+}
+
+function applyFilters() {
+    const term = $('#searchInput').value.trim().toLowerCase();
+    const type = $('#filterType').value; // all/image/video
+
+    const assets = $$('#assetGrid .asset-card');
+    const folders = $$('#assetGrid .folder-card');
+
+    let anyVisible = false;
+
+    // Folders: show only those whose parent is currentFolder (root has parent root)
+    folders.forEach(f => {
+        const visible = f.dataset.parent === currentFolder && (term ? f.dataset.name.toLowerCase().includes(term) : true);
+        f.classList.toggle('d-none', !visible);
+        anyVisible = anyVisible || visible;
+    });
+
+    assets.forEach(a => {
+        const inFolder = a.dataset.folder === currentFolder;
+        const matchType = type === 'all' ? true : a.dataset.type === type;
+        const hay = (a.dataset.name + ' ' + (a.dataset.tags || '')).toLowerCase();
+        const matchTerm = term ? hay.includes(term) : true;
+        const visible = inFolder && matchType && matchTerm;
+        a.classList.toggle('d-none', !visible);
+        anyVisible = anyVisible || visible;
+    });
+
+    $('#emptyState').classList.toggle('d-none', anyVisible);
+    if (!anyVisible) $('#selectionBar').classList.add('d-none');
+
+    applySort();
+}
+
+function applySort() {
+    const val = $('#sortSelect').value;
+    const grid = $('#assetGrid');
+    const items = Array.from(grid.children).filter(el => !el.classList.contains('d-none'));
+
+    const getDate = el => new Date(el.dataset.date || '1970-01-01').getTime();
+    const getName = el => (el.dataset.name || el.dataset.name || '').toLowerCase();
+    const getSize = el => parseInt(el.dataset.size || '0', 10);
+
+    items.sort((a, b) => {
+        if (a.dataset.type === 'folder' && b.dataset.type !== 'folder') return -1; // folders first
+        if (a.dataset.type !== 'folder' && b.dataset.type === 'folder') return 1;
+        switch (val) {
+            case 'newest':
+                return getDate(b) - getDate(a);
+            case 'oldest':
+                return getDate(a) - getDate(b);
+            case 'name-asc':
+                return getName(a).localeCompare(getName(b));
+            case 'name-desc':
+                return getName(b).localeCompare(getName(a));
+            case 'size-asc':
+                return getSize(a) - getSize(b);
+            case 'size-desc':
+                return getSize(b) - getSize(a);
+            default:
+                return 0;
+        }
+    });
+
+    items.forEach(el => grid.appendChild(el));
+}
+
+function updateSelectionBar() {
+    const boxes = $$('#assetGrid .asset-card .select-box');
+    const selected = boxes.filter(b => b.checked);
+    $('#selectionCount').textContent = selected.length;
+    $('#selectionBar').classList.toggle('d-none', selected.length === 0);
+}
+
+function clearSelection() {
+    $$('#assetGrid .asset-card .select-box:checked').forEach(cb => {
+        cb.checked = false;
+    });
+    updateSelectionBar();
+}
+
+function bulkDelete() {
+    const selectedCards = $$('#assetGrid .asset-card .select-box:checked').map(cb => cb.closest('.asset-card'));
+    if (!selectedCards.length) return;
+    Swal.fire({
+        icon: 'warning',
+        title: 'Delete selected assets?',
+        text: `This action cannot be undone. (${selectedCards.length} items)`,
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        confirmButtonColor: '#CD2026'
+    }).then(res => {
+        if (res.isConfirmed) {
+            selectedCards.forEach(c => c.remove());
+            updateSelectionBar();
+            toast('Selected assets deleted');
+            applyFilters();
+        }
+    });
+}
+
+function bulkDownload() {
+    const count = $$('#assetGrid .asset-card .select-box:checked').length;
+    if (!count) return;
+    toast(`Preparing ${count} file(s) for download...`);
+}
+
+function toast(message) {
+    $('#toastBody').textContent = message;
+    const t = new bootstrap.Toast($('#liveToast'));
+    t.show();
+}
+
+function openFromCard(card) {
+    currentModalCard = card;
+    const name = card.dataset.name;
+    const type = card.dataset.type;
+    const size = parseInt(card.dataset.size || '0', 10);
+    const date = card.dataset.date || '-';
+    const tags = card.dataset.tags || '-';
+    const id = card.dataset.id || '-';
+    const img = card.querySelector('img.thumb');
+
+    $('#modalAssetName').textContent = name;
+    $('#metaName').textContent = name;
+    $('#metaType').textContent = type;
+    $('#metaSize').textContent = humanFileSize(size);
+    $('#metaDate').textContent = formatDate(date);
+    $('#metaTags').textContent = tags;
+    $('#metaId').textContent = id;
+    $('#renameInput').value = name;
+
+    $('#modalVideoBadge').classList.toggle('d-none', type !== 'video');
+    $('#modalPreview').src = img ? img.src : 'https://picsum.photos/seed/preview/800/600';
+
+    const modal = new bootstrap.Modal($('#assetModal'));
+    modal.show();
+}
+
+function deleteAsset(card) {
+    Swal.fire({
+        icon: 'warning',
+        title: `Delete \"${card.dataset.name}\"?`,
+        text: 'This action cannot be undone.',
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        confirmButtonColor: '#CD2026'
+    }).then(res => {
+        if (res.isConfirmed) {
+            card.remove();
+            const modalEl = $('#assetModal');
+            const modalInst = bootstrap.Modal.getInstance(modalEl);
+            if (modalInst) modalInst.hide();
+            toast('Asset deleted');
+            applyFilters();
+        }
+    });
+}
+
+function renameAsset() {
+    if (!currentModalCard) return;
+    const newName = $('#renameInput').value.trim();
+    if (!newName) return;
+    currentModalCard.dataset.name = newName;
+    const nameDiv = currentModalCard.querySelector('.name');
+    if (nameDiv) nameDiv.textContent = newName;
+    $('#modalAssetName').textContent = newName;
+    $('#metaName').textContent = newName;
+    toast('Asset renamed');
+}
+
+function humanFileSize(bytes) {
+    if (!bytes) return '—';
+    const thresh = 1024;
+    if (Math.abs(bytes) < thresh) return bytes + ' B';
+    const units = ['KB', 'MB', 'GB', 'TB'];
+    let u = -1;
+    do {
+        bytes /= thresh;
+        ++u;
+    } while (Math.abs(bytes) >= thresh && u < units.length - 1);
+    return bytes.toFixed(2) + ' ' + units[u];
+}
+
+function formatDate(iso) {
+    if (!iso) return '-';
+    const d = new Date(iso + 'T00:00:00');
+    return d.toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    });
+}
+
+function filterUploadsTable() {
+    const term = $('#tableSearch').value.toLowerCase();
+    $$('#uploadsTable tbody tr').forEach(tr => {
+        const txt = tr.textContent.toLowerCase();
+        tr.classList.toggle('d-none', term && !txt.includes(term));
+    });
+}
+
+let tableSortDir = {
+    name: 1,
+    size: 1,
+    date: 1
+};
+
+function sortUploadsTable(th) {
+    const key = th.getAttribute('data-sort');
+    const tbody = $('#uploadsTable tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => !r.classList.contains('d-none'));
+    const dir = (tableSortDir[key] = -tableSortDir[key]);
+    rows.sort((a, b) => {
+        if (key === 'name') return dir * a.cells[0].textContent.localeCompare(b.cells[0].textContent);
+        if (key === 'size') return dir * (parseInt(a.cells[2].dataset.bytes, 10) - parseInt(b.cells[2].dataset.bytes, 10));
+        if (key === 'date') return dir * (new Date(a.cells[4].dataset.date) - new Date(b.cells[4].dataset.date));
+        return 0;
+    });
+    rows.forEach(r => tbody.appendChild(r));
+}
+  </script>
+ </body>
+</html>

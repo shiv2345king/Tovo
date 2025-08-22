@@ -1,0 +1,66 @@
+/* calendar_page.css - Page-specific styles for Content Calendar Page */
+/* Ensure calendar fits the card nicely */
+#calendar .fc {
+    --fc-border-color: var(--border-color)
+    }
+#calendar .fc .fc-daygrid-day.fc-day-today {
+    background: var(--primary-soft)
+    }
+#calendar .fc .fc-timegrid-slot {
+    height: 2.5rem
+    }
+/* Event status styles aligned with theme tokens */
+.fc-post-item.status-scheduled .small.fw-semibold {
+    color: var(--text-strong)
+    }
+.fc-post-item.status-published {
+    opacity: 0.7
+    }
+.fc-post-item.status-error .small.fw-semibold {
+    color: var(--color-error)
+    }
+/* FullCalendar event chip look */
+.fc .fc-event, .fc .fc-event-main {
+    background: var(--surface-0);
+    border: 1px solid var(--border-color);
+    color: var(--text);
+    border-radius: var(--radius-1);
+    padding: 2px 4px
+    }
+.fc .fc-event:hover {
+    box-shadow: var(--shadow-1)
+    }
+/* View switcher alignment tweaks */
+.view-switcher {
+    border-color: var(--border-color)
+    }
+.view-switcher .option {
+    user-select: none
+    }
+/* Table hover controls reveal compatibility */
+.table-hover-reveal tr td .hover-control {
+    opacity: 0;
+    transition: opacity 0.2s ease
+    }
+.table-hover-reveal tr:hover td .hover-control {
+    opacity: 1
+    }
+/* Badges mapping to theme soft palettes (used in modal/table) */
+.badge-soft.info {
+    background: var(--info-soft);
+    color: #005b7a
+    }
+.badge-soft.success {
+    background: var(--success-soft);
+    color: #0d5c3d
+    }
+.badge-soft.error {
+    background: var(--error-soft);
+    color: #7a0f12
+    }
+/* Responsive: constrain calendar padding on small screens */
+@media (max-width: 575.98px) {
+    #calendar {
+        padding: 0.5rem !important
+        }
+    }

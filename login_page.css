@@ -1,0 +1,47 @@
+/* login_page.html.css - Page specific styles for Login Page */
+/* Brand typography for this page */
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Centered auth card spacing tweaks on small screens */
+@media (max-width: 575.98px) {
+    .login-form-container {
+        padding: var(--space-4)
+        }
+    }
+/* Divider with OR */
+.or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.06em
+    }
+.or-divider::before, .or-divider::after {
+    content: "";
+    flex: 1 1 auto;
+    border-bottom: 1px solid var(--divider-color)
+    }
+.or-divider::before {
+    margin-right: 0.75rem
+    }
+.or-divider::after {
+    margin-left: 0.75rem
+    }
+/* Improve input-group button alignment for eye icon */
+#password-toggle {
+    cursor: pointer
+    }
+#password-toggle:hover {
+    background-color: var(--neutral-soft)
+    }
+/* Demo table monospace emphasis */
+.table-theme code {
+    color: var(--text);
+    font-weight: 600
+    }
+/* Header and footer spacing harmony */
+footer {
+    background: transparent
+    }

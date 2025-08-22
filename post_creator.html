@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Post Creator / Scheduler
+  </title>
+  <!-- Brand Typography: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Font Awesome 6 -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+   <!-- Flatpickr (Date/Time Picker) -->
+   <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/>
+   <!-- App Theme -->
+   <link href="style.css" rel="stylesheet"/>
+   <!-- Page-specific CSS -->
+   <link href="post_creator.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body>
+  <!-- Header (Manager/Business Role Header) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000080;">
+   <div class="container-fluid">
+    <button aria-controls="offcanvasSidebarManager" class="btn btn-outline-info d-lg-none me-2" data-bs-target="#offcanvasSidebarManager" data-bs-toggle="offcanvas" style="border-color:#00FFFF;color:#00FFFF;" type="button">
+     <i class="fa-solid fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./dashboard_page.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandlogo/120/40'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:28px;"/>
+     <span>
+      Business Console
+     </span>
+    </a>
+    <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
+     <div class="input-group">
+      <span class="input-group-text" style="background:#fff;border-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-magnifying-glass">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" placeholder="Search campaigns, posts..." style="border-color:#00FFFF;" type="search"/>
+     </div>
+    </form>
+    <ul class="navbar-nav ms-auto align-items-center">
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+       <i class="fa-solid fa-file-export me-1">
+       </i>
+       Export Report
+      </a>
+     </li>
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-calendar-plus me-1">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button" style="color:#00FFFF;">
+       <img alt="Avatar" class="rounded-circle me-2" src="https://via.placeholder.com/28"/>
+       @brand_account
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./account_settings.html">
+         <i class="fa-solid fa-gear me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./analytics_page.html">
+         <i class="fa-solid fa-chart-line me-2">
+         </i>
+         Analytics
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item text-danger" href="./login_page.html">
+         <i class="fa-solid fa-right-from-bracket me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <!-- Offcanvas Sidebar for mobile (Manager) -->
+  <div aria-labelledby="offcanvasSidebarManagerLabel" class="offcanvas offcanvas-start" id="offcanvasSidebarManager" style="background-color:#000080;color:#fff;" tabindex="-1">
+   <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasSidebarManagerLabel">
+     Navigation
+    </h5>
+    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body">
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./content_library.html">
+       <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+       </i>
+       Assets
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./ai_lab.html">
+       <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+       </i>
+       AI Ideas
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./analytics_page.html">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="container-fluid">
+   <div class="row g-0">
+    <!-- Sidebar (large screens) -->
+    <div class="col-lg-auto d-none d-lg-block">
+     <!-- Manager/Business Role Sidebar (Small Business Owner / Marketing Manager) -->
+     <aside class="d-none d-lg-flex flex-column flex-shrink-0 p-3 text-white" style="width:280px;background-color:#000080;min-height:100vh;">
+      <div class="d-flex align-items-center mb-3">
+       <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandlogo2/120/40'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:36px;width:auto;"/>
+       <span class="fs-6 fw-semibold" style="color:#00FFFF;">
+        Business Console
+       </span>
+      </div>
+      <div class="d-flex align-items-center mb-3 p-2 rounded" style="background-color:rgba(0,255,255,.08);">
+       <img alt="Avatar" class="rounded-circle me-2" src="https://via.placeholder.com/40"/>
+       <div>
+        <div class="small">
+         Signed in as
+        </div>
+        <div class="fw-semibold">
+         @brand_account
+        </div>
+        <span class="badge" style="background-color:#00FFFF;color:#000080;">
+         Manager
+        </span>
+       </div>
+      </div>
+      <ul class="nav nav-pills flex-column mb-auto">
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./dashboard_page.html">
+         <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+         </i>
+         Overview
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./calendar_page.html">
+         <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+         </i>
+         Planner
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./post_creator.html">
+         <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+         </i>
+         Schedule Post
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./content_library.html">
+         <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+         </i>
+         Assets
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./ai_lab.html">
+         <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+         </i>
+         AI Ideas
+        </a>
+       </li>
+       <li class="nav-item mb-1">
+        <a aria-controls="analyticsMenu" aria-expanded="true" class="nav-link text-white" data-bs-toggle="collapse" href="#analyticsMenu" role="button">
+         <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+         </i>
+         Analytics &amp; Reports
+         <i class="fa-solid fa-chevron-down float-end">
+         </i>
+        </a>
+        <div class="collapse show ps-4" id="analyticsMenu">
+         <ul class="list-unstyled">
+          <li class="my-1">
+           <a class="nav-link text-white" href="./analytics_page.html">
+            <i class="fa-solid fa-chart-simple me-2" style="color:#00FFFF;">
+            </i>
+            Dashboard
+           </a>
+          </li>
+          <li class="my-1">
+           <a class="nav-link text-white" href="./analytics_page.html#top-content">
+            <i class="fa-regular fa-star me-2" style="color:#00FFFF;">
+            </i>
+            Top Content
+           </a>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li class="nav-item mb-1">
+        <a class="nav-link text-white" href="./account_settings.html">
+         <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+         </i>
+         Account Settings
+        </a>
+       </li>
+      </ul>
+      <hr class="border-light opacity-25"/>
+      <div>
+       <a class="btn w-100 mb-2" href="./analytics_page.html" style="background-color:#00FFFF;color:#000080;">
+        <i class="fa-solid fa-arrow-trend-up me-2">
+        </i>
+        View Analytics
+       </a>
+       <a class="btn btn-outline-info w-100" href="./post_creator.html" style="border-color:#00FFFF;color:#00FFFF;">
+        <i class="fa-solid fa-calendar-check me-2">
+        </i>
+        Schedule Now
+       </a>
+      </div>
+      <style>
+       aside a.nav-link{border-radius:.5rem;}
+            aside a.nav-link:hover{background-color:rgba(0,255,255,.15);} 
+            aside .collapse .nav-link{font-size:.95rem;}
+      </style>
+     </aside>
+    </div>
+    <!-- Main Content Area -->
+    <div class="col-12 col-lg">
+     <main class="main-panel">
+      <div class="container-max">
+       <!-- Page Header -->
+       <div class="page-header">
+        <div class="d-flex align-items-center gap-2">
+         <h1 class="page-title mb-0">
+          Create &amp; Schedule Post
+         </h1>
+         <span class="badge-soft info">
+          Unified Workflow
+         </span>
+        </div>
+        <div aria-label="View options" class="view-switcher" role="group">
+         <div class="option active">
+          <i class="fa-solid fa-pen-to-square me-1">
+          </i>
+          Compose
+         </div>
+         <div class="option">
+          <i class="fa-solid fa-eye me-1">
+          </i>
+          Preview
+         </div>
+        </div>
+       </div>
+       <!-- Breadcrumb -->
+       <nav aria-label="breadcrumb" class="breadcrumb small">
+        <ol class="breadcrumb mb-0">
+         <li class="breadcrumb-item">
+          <a href="./dashboard_page.html">
+           Dashboard
+          </a>
+         </li>
+         <li class="breadcrumb-item">
+          <a href="./calendar_page.html">
+           Planner
+          </a>
+         </li>
+         <li aria-current="page" class="breadcrumb-item active">
+          Post Creator
+         </li>
+        </ol>
+       </nav>
+       <!-- Form Container -->
+       <form class="mt-4" id="postCreatorForm">
+        <div class="row g-4">
+         <!-- Left Column: Media + Preview -->
+         <div class="col-12 col-lg-7">
+          <!-- Media Selector -->
+          <section aria-labelledby="mediaSelectorTitle" class="card mb-4">
+           <div class="card-header">
+            <div class="title d-flex align-items-center gap-2">
+             <i class="fa-solid fa-photo-film text-info">
+             </i>
+             <h2 class="h5 mb-0" id="mediaSelectorTitle">
+              Media Selector
+             </h2>
+            </div>
+            <div class="d-flex gap-2">
+             <button class="btn btn-light btn-sm" id="openLibraryBtn" type="button">
+              <i class="fa-solid fa-folder-open me-1">
+              </i>
+              Choose from Library
+             </button>
+            </div>
+           </div>
+           <div class="card-body">
+            <!-- Dropzone -->
+            <div class="dropzone rounded p-4 text-center" id="fileDropzone">
+             <input accept="image/*,video/*" class="visually-hidden" id="mediaFileInput" type="file">
+              <div class="mb-2">
+               <i class="fa-solid fa-cloud-arrow-up fa-2x text-info">
+               </i>
+              </div>
+              <p class="mb-2">
+               Drag &amp; drop media here, or
+               <a href="#" id="browseLink">
+                click to browse
+               </a>
+              </p>
+              <small class="text-muted">
+               Accepted: JPG, PNG, MP4, MOV. Max 100MB
+              </small>
+              <div class="progress mt-3 d-none" id="uploadProgress">
+               <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress-bar" role="progressbar" style="width: 0%">
+                0%
+               </div>
+              </div>
+             </input>
+            </div>
+            <!-- Media Thumbnail Preview -->
+            <div class="mt-3" id="mediaPreview">
+             <div class="placeholder-media border rounded p-3 d-flex align-items-center justify-content-center text-muted">
+              <i class="fa-regular fa-image me-2">
+              </i>
+              No media selected.
+             </div>
+            </div>
+           </div>
+          </section>
+          <!-- Post Previewer -->
+          <section aria-labelledby="postPreviewerTitle" class="card">
+           <div class="card-header">
+            <div class="title d-flex align-items-center gap-2">
+             <i class="fa-solid fa-eye text-info">
+             </i>
+             <h2 class="h5 mb-0" id="postPreviewerTitle">
+              Live Preview
+             </h2>
+            </div>
+            <div class="d-flex gap-2 flex-wrap" id="previewPlatformChips">
+            </div>
+           </div>
+           <div class="card-body">
+            <div class="preview-pane" id="previewPane">
+             <div class="empty-state">
+              <div class="text-muted">
+               Select platforms and start typing to see a real-time preview.
+              </div>
+             </div>
+            </div>
+           </div>
+          </section>
+         </div>
+         <!-- Right Column: Platforms + Content + Schedule + Actions -->
+         <div class="col-12 col-lg-5">
+          <!-- Platform Selector -->
+          <section aria-labelledby="platformSelectorTitle" class="card mb-4">
+           <div class="card-header">
+            <div class="title d-flex align-items-center gap-2">
+             <i class="fa-solid fa-share-nodes text-info">
+             </i>
+             <h2 class="h5 mb-0" id="platformSelectorTitle">
+              Select Platforms
+             </h2>
+            </div>
+           </div>
+           <div class="card-body">
+            <div class="list-group list-group-flush" id="platformList">
+            </div>
+            <small class="text-muted d-block mt-2">
+             Tip: Choose at least one platform to enable scheduling.
+            </small>
+           </div>
+          </section>
+          <!-- Content Customizer -->
+          <section aria-labelledby="contentCustomizerTitle" class="card mb-4">
+           <div class="card-header">
+            <div class="title d-flex align-items-center gap-2">
+             <i class="fa-solid fa-pen-to-square text-info">
+             </i>
+             <h2 class="h5 mb-0" id="contentCustomizerTitle">
+              Customize Captions
+             </h2>
+            </div>
+            <div>
+             <button class="btn btn-info btn-sm text-white" id="aiSuggestBtn" type="button">
+              <i class="fa-solid fa-wand-magic-sparkles me-1">
+              </i>
+              AI Suggest
+             </button>
+            </div>
+           </div>
+           <div class="card-body">
+            <ul class="nav nav-tabs mb-3" id="platformTabs" role="tablist">
+            </ul>
+            <div class="tab-content" id="tabContents">
+            </div>
+            <small class="text-muted d-block mt-2">
+             Character limits are enforced based on each platform's rules.
+            </small>
+           </div>
+          </section>
+          <!-- Scheduling Controls -->
+          <section aria-labelledby="schedulingControlsTitle" class="card mb-4">
+           <div class="card-header">
+            <div class="title d-flex align-items-center gap-2">
+             <i class="fa-solid fa-calendar-check text-info">
+             </i>
+             <h2 class="h5 mb-0" id="schedulingControlsTitle">
+              Schedule
+             </h2>
+            </div>
+           </div>
+           <div class="card-body">
+            <div class="row g-3 align-items-end">
+             <div class="col-12">
+              <label class="form-label" for="scheduleDateTime">
+               Publish Date &amp; Time
+              </label>
+              <input class="form-control" id="scheduleDateTime" placeholder="Select date &amp; time" type="text"/>
+              <div class="form-text">
+               Times shown in your timezone:
+               <span id="timezoneName">
+               </span>
+              </div>
+             </div>
+            </div>
+           </div>
+          </section>
+          <!-- Action Toolbar -->
+          <section aria-label="Actions" class="card mb-4">
+           <div class="card-body d-flex flex-wrap gap-2 justify-content-end">
+            <button class="btn btn-light" id="cancelBtn" type="button">
+             Cancel
+            </button>
+            <button class="btn btn-secondary" id="saveDraftBtn" type="button">
+             Save Draft
+            </button>
+            <button class="btn btn-primary" disabled="" id="scheduleBtn" type="button">
+             <span class="schedule-btn-label">
+              <i class="fa-solid fa-paper-plane me-1">
+              </i>
+              Schedule
+             </span>
+             <span class="schedule-btn-loading d-none">
+              <span class="spinner-border spinner-border-sm me-2">
+              </span>
+              Scheduling...
+             </span>
+            </button>
+           </div>
+          </section>
+          <!-- Recent Drafts & Scheduled (sample table) -->
+          <section aria-labelledby="recentTableTitle" class="card">
+           <div class="card-header">
+            <div class="title d-flex align-items-center gap-2">
+             <i class="fa-solid fa-clock-rotate-left text-info">
+             </i>
+             <h2 class="h6 mb-0" id="recentTableTitle">
+              Recent Drafts &amp; Scheduled
+             </h2>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+             <div class="input-group input-group-sm" style="width:220px;">
+              <span class="input-group-text">
+               <i class="fa-solid fa-filter">
+               </i>
+              </span>
+              <input class="form-control" id="recentFilter" placeholder="Filter..." type="text"/>
+             </div>
+            </div>
+           </div>
+           <div class="card-body p-0">
+            <div class="table-responsive">
+             <table class="table table-theme mb-0" id="recentTable">
+              <thead>
+               <tr>
+                <th class="sortable" data-sort="title">
+                 Title
+                 <i class="fa-solid fa-sort ms-1">
+                 </i>
+                </th>
+                <th>
+                 Platforms
+                </th>
+                <th class="sortable" data-sort="when">
+                 When
+                 <i class="fa-solid fa-sort ms-1">
+                 </i>
+                </th>
+                <th>
+                 Status
+                </th>
+                <th>
+                 Actions
+                </th>
+               </tr>
+              </thead>
+              <tbody id="recentTbody">
+              </tbody>
+             </table>
+            </div>
+           </div>
+           <div class="card-footer d-flex justify-content-between align-items-center small">
+            <span id="recentInfo">
+             Showing 1–6 of 6
+            </span>
+            <a class="text-info" href="./calendar_page.html">
+             Go to Planner
+            </a>
+           </div>
+          </section>
+         </div>
+        </div>
+       </form>
+      </div>
+     </main>
+    </div>
+   </div>
+  </div>
+  <!-- Footer (Manager/Business Role Footer) -->
+  <footer class="mt-auto py-3 border-top" style="border-top-color:#000080 !important;">
+   <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandlogo3/120/40'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:20px;"/>
+     <span class="text-muted small">
+      © 2025 AI Social Manager
+     </span>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+     <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-file-export me-1">
+      </i>
+      Export
+     </a>
+     <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-calendar-plus me-1">
+      </i>
+      Schedule
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Terms
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Privacy
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- Content Library Modal -->
+  <div aria-hidden="true" aria-labelledby="libraryModalLabel" class="modal fade" id="libraryModal" tabindex="-1">
+   <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="libraryModalLabel">
+       <i class="fa-solid fa-folder-open me-2 text-info">
+       </i>
+       Content Library
+      </h5>
+      <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+      </button>
+     </div>
+     <div class="modal-body">
+      <div class="row g-3" id="libraryGrid">
+       <!-- Thumbnails injected via JS -->
+      </div>
+     </div>
+     <div class="modal-footer">
+      <button class="btn btn-light" data-bs-dismiss="modal" type="button">
+       Close
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Bootstrap Toast Container (System feedback) -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1060">
+   <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-dark border-0" id="appToast" role="alert">
+    <div class="d-flex">
+     <div class="toast-body" id="appToastBody">
+      Action completed.
+     </div>
+     <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" type="button">
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <!-- Flatpickr -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr">
+  </script>
+  <!-- Page Script -->
+  <script>
+   // Typography override to Poppins for this page
+document.documentElement.style.setProperty('--font-sans', '\"Poppins\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"');
+
+// Connected accounts (mock)
+const accounts = [{
+    id: 'ig_1',
+    platform: 'instagram',
+    name: 'acme.co',
+    icon: 'fa-brands fa-instagram',
+    color: '#E1306C',
+    limit: 2200
+}, {
+    id: 'fb_1',
+    platform: 'facebook',
+    name: 'Acme Co Page',
+    icon: 'fa-brands fa-facebook',
+    color: '#1877F2',
+    limit: 63206
+}, {
+    id: 'tw_1',
+    platform: 'twitter',
+    name: 'AcmeOfficial',
+    icon: 'fa-brands fa-x-twitter',
+    color: '#111111',
+    limit: 280
+}, {
+    id: 'li_1',
+    platform: 'linkedin',
+    name: 'Acme Company',
+    icon: 'fa-brands fa-linkedin',
+    color: '#0A66C2',
+    limit: 3000
+}, {
+    id: 'tt_1',
+    platform: 'tiktok',
+    name: 'acme_official',
+    icon: 'fa-brands fa-tiktok',
+    color: '#000000',
+    limit: 2200
+}];
+
+// State
+let selectedMedia = null; // { type: 'image'|'video', url }
+let selectedPlatforms = new Set(['ig_1', 'fb_1']);
+const captions = {}; // {accountId: text}
+let activePreviewAccountId = 'ig_1';
+
+// Elements
+const platformListEl = document.getElementById('platformList');
+const tabsEl = document.getElementById('platformTabs');
+const tabContentsEl = document.getElementById('tabContents');
+const previewPaneEl = document.getElementById('previewPane');
+const previewChipsEl = document.getElementById('previewPlatformChips');
+const scheduleBtn = document.getElementById('scheduleBtn');
+const saveDraftBtn = document.getElementById('saveDraftBtn');
+const cancelBtn = document.getElementById('cancelBtn');
+const scheduleInput = document.getElementById('scheduleDateTime');
+const timezoneNameEl = document.getElementById('timezoneName');
+const aiSuggestBtn = document.getElementById('aiSuggestBtn');
+
+// Toast helper
+let toastInstance;
+
+function showToast(message) {
+    const el = document.getElementById('appToast');
+    document.getElementById('appToastBody').textContent = message;
+    toastInstance = bootstrap.Toast.getOrCreateInstance(el, {
+        delay: 2500
+    });
+    toastInstance.show();
+}
+
+// Render platform selector list
+function renderPlatformList() {
+    platformListEl.innerHTML = '';
+    accounts.forEach(acc => {
+        const item = document.createElement('label');
+        item.className = 'list-group-item d-flex align-items-center gap-2';
+        item.innerHTML = `
+          <input class="form-check-input me-2" type="checkbox" value="${acc.id}" ${selectedPlatforms.has(acc.id) ? 'checked' : ''}>
+          <i class="${acc.icon}" style="color:${acc.color}"></i>
+          <span class="flex-grow-1">${acc.platform.charAt(0).toUpperCase()+acc.platform.slice(1)} — <span class="text-strong">${acc.name}</span></span>
+          <span class="badge-soft info">Limit: ${acc.limit.toLocaleString()}</span>
+        `;
+        const input = item.querySelector('input');
+        input.addEventListener('change', (e) => {
+            if (e.target.checked) selectedPlatforms.add(acc.id);
+            else selectedPlatforms.delete(acc.id);
+            // If removing active preview, switch to another
+            if (!selectedPlatforms.has(activePreviewAccountId)) {
+                activePreviewAccountId = Array.from(selectedPlatforms)[0] || null;
+            }
+            buildTabs();
+            buildPreview();
+            validateForm();
+        });
+        platformListEl.appendChild(item);
+    });
+}
+
+// Build tabs based on selected platforms
+function buildTabs() {
+    tabsEl.innerHTML = '';
+    tabContentsEl.innerHTML = '';
+    const ids = Array.from(selectedPlatforms);
+    if (ids.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.innerHTML = '<div class="text-muted">Select at least one platform to customize captions.</div>';
+        tabContentsEl.appendChild(empty);
+        return;
+    }
+    ids.forEach((id, idx) => {
+        const acc = accounts.find(a => a.id === id);
+        const isActive = idx === 0;
+        // Tab header
+        const li = document.createElement('li');
+        li.className = 'nav-item';
+        li.innerHTML = `
+          <button class="nav-link ${isActive ? 'active' : ''}" id="tab-${id}" data-bs-toggle="tab" data-bs-target="#tabpane-${id}" type="button" role="tab" aria-controls="tabpane-${id}" aria-selected="${isActive}">
+            <i class="${acc.icon} me-1" style="color:${acc.color}"></i>${acc.platform}
+          </button>
+        `;
+        tabsEl.appendChild(li);
+        // Tab pane
+        const pane = document.createElement('div');
+        pane.className = `tab-pane fade ${isActive ? 'show active' : ''}`;
+        pane.id = `tabpane-${id}`;
+        pane.setAttribute('role', 'tabpanel');
+        pane.innerHTML = `
+          <label class="form-label">Caption for ${acc.platform} <span class="text-muted">(max ${acc.limit.toLocaleString()} chars)</span></label>
+          <textarea class="form-control platform-textarea" rows="5" placeholder="Write a compelling caption, add hashtags, and mentions..." data-account="${id}" maxlength="${acc.limit}">${captions[id] || ''}</textarea>
+          <div class="d-flex justify-content-between mt-1 small text-muted">
+            <span>Tips: Use @mentions and #hashtags where relevant.</span>
+            <span class="char-counter" data-account="${id}">${(captions[id]||'').length}/${acc.limit}</span>
+          </div>
+        `;
+        tabContentsEl.appendChild(pane);
+    });
+    // Wire up change listeners
+    tabContentsEl.querySelectorAll('.platform-textarea').forEach(ta => {
+        ta.addEventListener('input', (e) => {
+            const accId = e.target.dataset.account;
+            captions[accId] = e.target.value;
+            const acc = accounts.find(a => a.id === accId);
+            const counter = tabContentsEl.querySelector(`.char-counter[data-account="${accId}"]`);
+            if (counter) counter.textContent = `${e.target.value.length}/${acc.limit}`;
+            buildPreview();
+            validateForm();
+        });
+    });
+}
+
+// Build preview chips and pane
+function buildPreview() {
+    // Chips
+    previewChipsEl.innerHTML = '';
+    const ids = Array.from(selectedPlatforms);
+    if (ids.length === 0) {
+        previewPaneEl.innerHTML = `<div class="empty-state"><div class="text-muted">Select platforms to preview.</div></div>`;
+        return;
+    }
+    ids.forEach((id) => {
+        const acc = accounts.find(a => a.id === id);
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = `btn btn-sm ${id === activePreviewAccountId ? 'btn-info text-white' : 'btn-light'}`;
+        chip.innerHTML = `<i class="${acc.icon} me-1" style="color:${id===activePreviewAccountId ? '#fff' : acc.color}"></i>${acc.platform}`;
+        chip.addEventListener('click', () => {
+            activePreviewAccountId = id;
+            buildPreview();
+        });
+        previewChipsEl.appendChild(chip);
+    });
+
+    const acc = accounts.find(a => a.id === activePreviewAccountId) || accounts.find(a => selectedPlatforms.has(a.id));
+    if (!acc) {
+        previewPaneEl.innerHTML = `<div class="empty-state"><div class="text-muted">Select platforms to preview.</div></div>`;
+        return;
+    }
+
+    const text = captions[acc.id] || '';
+    const mediaHTML = selectedMedia ?
+        (selectedMedia.type === 'video' ?
+            `<video controls class="w-100 rounded"><source src="${selectedMedia.url}" type="video/mp4">Your browser does not support the video tag.</video>` :
+            `<img src="${selectedMedia.url}" alt="Selected media" class="img-fluid rounded" onerror="this.onerror=null;this.src='https://picsum.photos/seed/preview/600/400'">`) :
+        `<div class="placeholder-media border rounded p-3 d-flex align-items-center justify-content-center text-muted"><i class=\"fa-regular fa-image me-2\"></i> No media selected.</div>`;
+
+    previewPaneEl.innerHTML = `
+        <div class="social-preview card border-0 shadow-0 platform-${acc.platform}">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <img src="https://via.placeholder.com/40" class="rounded-circle" alt="avatar">
+            <div>
+              <div class="fw-semibold">${acc.name}</div>
+              <div class="small text-muted">${acc.platform}</div>
+            </div>
+          </div>
+          <div class="mb-2">${mediaHTML}</div>
+          <div class="preview-caption">${text ? text.replace(/\n/g,'<br>') : '<span class="text-muted">(Caption will appear here)</span>'}</div>
+          <div class="d-flex gap-3 mt-2 small text-muted">
+            <span><i class="fa-regular fa-heart me-1"></i>1,248</span>
+            <span><i class="fa-regular fa-comment me-1"></i>126</span>
+            <span><i class="fa-regular fa-bookmark me-1"></i>98</span>
+          </div>
+        </div>
+      `;
+}
+
+// Media upload/selection
+const dropzone = document.getElementById('fileDropzone');
+const fileInput = document.getElementById('mediaFileInput');
+const browseLink = document.getElementById('browseLink');
+const uploadProgress = document.getElementById('uploadProgress');
+const mediaPreview = document.getElementById('mediaPreview');
+
+function setMedia(url, type) {
+    selectedMedia = {
+        url,
+        type
+    };
+    mediaPreview.innerHTML = type === 'video' ?
+        `<video controls class="w-100 rounded"><source src="${url}" type="video/mp4">Your browser does not support the video tag.</video>` :
+        `<img src="${url}" class="img-fluid rounded" alt="Selected media" onerror="this.onerror=null;this.src='https://picsum.photos/seed/selected/600/400'">`;
+    buildPreview();
+    validateForm();
+    showToast('Media added to the post.');
+}
+
+function simulateUpload(file) {
+    // Simple simulation with progress bar
+    uploadProgress.classList.remove('d-none');
+    const bar = uploadProgress.querySelector('.progress-bar');
+    let progress = 0;
+    const tick = setInterval(() => {
+        progress += Math.random() * 20 + 5; // 5-25%
+        if (progress >= 100) progress = 100;
+        bar.style.width = progress + '%';
+        bar.setAttribute('aria-valuenow', progress);
+        bar.textContent = Math.floor(progress) + '%';
+        if (progress >= 100) {
+            clearInterval(tick);
+            setTimeout(() => {
+                uploadProgress.classList.add('d-none');
+                bar.style.width = '0%';
+                bar.textContent = '0%';
+                const type = file.type.startsWith('video') ? 'video' : 'image';
+                const url = URL.createObjectURL(file);
+                setMedia(url, type);
+            }, 400);
+        }
+    }, 200);
+}
+
+;
+['dragenter', 'dragover'].forEach(evt => dropzone.addEventListener(evt, (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropzone.classList.add('drag-active');
+}));;
+['dragleave', 'drop'].forEach(evt => dropzone.addEventListener(evt, (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropzone.classList.remove('drag-active');
+}));
+dropzone.addEventListener('drop', (e) => {
+    const file = e.dataTransfer.files && e.dataTransfer.files[0];
+    if (!file) return;
+    if (!/^(image|video)\//.test(file.type)) {
+        showToast('Unsupported file type.');
+        return;
+    }
+    simulateUpload(file);
+});
+browseLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    fileInput.click();
+});
+fileInput.addEventListener('change', (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    if (!/^(image|video)\//.test(file.type)) {
+        showToast('Unsupported file type.');
+        return;
+    }
+    simulateUpload(file);
+    fileInput.value = '';
+});
+
+// Content Library modal sample assets
+const libraryModal = new bootstrap.Modal(document.getElementById('libraryModal'));
+document.getElementById('openLibraryBtn').addEventListener('click', () => {
+    populateLibrary();
+    libraryModal.show();
+});
+
+function populateLibrary() {
+    const grid = document.getElementById('libraryGrid');
+    grid.innerHTML = '';
+    const samples = [{
+        url: 'https://picsum.photos/id/1015/800/600',
+        type: 'image',
+        title: 'Outdoor'
+    }, {
+        url: 'https://picsum.photos/id/1016/800/600',
+        type: 'image',
+        title: 'Mountains'
+    }, {
+        url: 'https://picsum.photos/id/1025/800/600',
+        type: 'image',
+        title: 'Doggo'
+    }, {
+        url: 'https://picsum.photos/id/1035/800/600',
+        type: 'image',
+        title: 'City'
+    }, {
+        url: 'https://picsum.photos/seed/brand/800/600',
+        type: 'image',
+        title: 'Brand'
+    }, {
+        url: 'https://picsum.photos/id/1041/800/600',
+        type: 'image',
+        title: 'Ocean'
+    }];
+    samples.forEach((s, idx) => {
+        const col = document.createElement('div');
+        col.className = 'col-6 col-md-4 col-lg-3';
+        col.innerHTML = `
+          <div class="library-item border rounded overflow-hidden h-100 d-flex flex-column">
+            <div class="ratio ratio-4x3">
+              <img src="${s.url}" alt="${s.title}" class="w-100 h-100 object-fit-cover" onerror="this.onerror=null;this.src='https://picsum.photos/seed/lib${idx}/400/300'">
+            </div>
+            <div class="p-2 d-flex justify-content-between align-items-center">
+              <span class="small">${s.title}</span>
+              <button type="button" class="btn btn-sm btn-primary select-asset"><i class="fa-solid fa-plus me-1"></i>Select</button>
+            </div>
+          </div>
+        `;
+        col.querySelector('.select-asset').addEventListener('click', () => {
+            setMedia(s.url, s.type);
+            libraryModal.hide();
+        });
+        grid.appendChild(col);
+    });
+}
+
+// Flatpickr init
+const fp = flatpickr(scheduleInput, {
+    enableTime: true,
+    dateFormat: 'Y-m-d H:i',
+    minDate: 'today',
+    minuteIncrement: 5
+});
+timezoneNameEl.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+function getScheduledDate() {
+    return fp.selectedDates && fp.selectedDates.length ? fp.selectedDates[0] : null;
+}
+
+function hasAnyCaption() {
+    return Array.from(selectedPlatforms).some(id => (captions[id] || '').trim().length > 0);
+}
+
+function validateForm() {
+    const hasMedia = !!selectedMedia;
+    const hasPlatform = selectedPlatforms.size > 0;
+    const hasCaption = hasAnyCaption();
+    const hasDate = !!getScheduledDate();
+    const valid = hasMedia && hasPlatform && hasCaption && hasDate;
+    scheduleBtn.disabled = !valid;
+    saveDraftBtn.disabled = !(hasMedia || hasPlatform || hasCaption);
+    return valid;
+}
+
+scheduleInput.addEventListener('change', validateForm);
+
+// Actions
+cancelBtn.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Discard changes?',
+        text: 'Your current edits will be lost.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Discard',
+        cancelButtonText: 'Keep editing'
+    }).then(res => {
+        if (res.isConfirmed) {
+            window.location.href = './calendar_page.html';
+        }
+    });
+});
+
+saveDraftBtn.addEventListener('click', () => {
+    const draftId = Math.random().toString(36).slice(2, 8).toUpperCase();
+    showToast(`Draft ${draftId} saved.`);
+    // Optionally add to recent table
+    addRecentRow({
+        title: 'Untitled Draft ' + draftId,
+        platforms: Array.from(selectedPlatforms).map(id => accounts.find(a => a.id === id).platform),
+        when: '-',
+        status: 'Draft'
+    });
+});
+
+scheduleBtn.addEventListener('click', async () => {
+    if (!validateForm()) return;
+    // Loading state
+    scheduleBtn.querySelector('.schedule-btn-label').classList.add('d-none');
+    scheduleBtn.querySelector('.schedule-btn-loading').classList.remove('d-none');
+    scheduleBtn.disabled = true;
+    // Simulate API
+    await new Promise(r => setTimeout(r, 1200));
+    scheduleBtn.querySelector('.schedule-btn-label').classList.remove('d-none');
+    scheduleBtn.querySelector('.schedule-btn-loading').classList.add('d-none');
+    scheduleBtn.disabled = false;
+    Swal.fire({
+        icon: 'success',
+        title: 'Post scheduled!',
+        text: 'Your content has been added to the planner.',
+        showCancelButton: true,
+        confirmButtonText: 'View Calendar',
+        cancelButtonText: 'Stay here'
+    }).then(res => {
+        if (res.isConfirmed) window.location.href = './calendar_page.html';
+    });
+});
+
+// AI Suggest
+aiSuggestBtn.addEventListener('click', () => {
+    const ids = Array.from(selectedPlatforms);
+    if (ids.length === 0) {
+        showToast('Select a platform first.');
+        return;
+    }
+    const acc = accounts.find(a => a.id === ids[0]);
+    const baseText = (captions[acc.id] || '').trim();
+    // Mock AI suggestions based on baseText
+    const topic = baseText || 'your product launch';
+    const suggestions = [
+        `✨ Big news! ${topic} is here. Tap to learn more and join the journey. #Acme #LaunchDay`,
+        `We\'re thrilled to share ${topic}! Tell us what you\'re most excited about 👇 #Community`,
+        `From idea to reality: ${topic}. Thanks for supporting us every step of the way. 💙 #BehindTheScenes`,
+    ];
+    const html = `
+        <div class="text-start">
+          <p class="mb-2">Select a suggestion to apply to the active tab:</p>
+          <div class="list-group">
+            ${suggestions.map((s, i) => `<button type=\"button\" class=\"list-group-item list-group-item-action\" data-sug=\"${i}\">${s}</button>`).join('')}
+          </div>
+        </div>`;
+    Swal.fire({
+        title: 'AI Suggestions',
+        html,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.getHtmlContainer().querySelectorAll('[data-sug]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const idx = Number(btn.getAttribute('data-sug'));
+                    applySuggestionToActiveTab(suggestions[idx]);
+                    Swal.close();
+                });
+            });
+        }
+    });
+});
+
+function applySuggestionToActiveTab(text) {
+    const activeBtn = tabsEl.querySelector('.nav-link.active');
+    if (!activeBtn) return;
+    const accId = activeBtn.id.replace('tab-', '');
+    const ta = tabContentsEl.querySelector(`textarea[data-account="${accId}"]`);
+    if (ta) {
+        ta.value = text;
+        ta.dispatchEvent(new Event('input', {
+            bubbles: true
+        }));
+    }
+}
+
+// Recent table (sample data)
+const recentData = [{
+    title: 'Spring Sale Teaser',
+    platforms: ['instagram', 'facebook'],
+    when: '2025-03-21 09:00',
+    status: 'Scheduled'
+}, {
+    title: 'New Blog Post',
+    platforms: ['linkedin'],
+    when: '2025-03-20 13:30',
+    status: 'Scheduled'
+}, {
+    title: 'Behind the Scenes',
+    platforms: ['tiktok', 'instagram'],
+    when: '-',
+    status: 'Draft'
+}, {
+    title: 'Customer Spotlight',
+    platforms: ['facebook', 'twitter'],
+    when: '2025-03-22 11:15',
+    status: 'Scheduled'
+}, {
+    title: 'Weekly Tips #12',
+    platforms: ['twitter'],
+    when: '-',
+    status: 'Draft'
+}, {
+    title: 'Product Update v2.4',
+    platforms: ['linkedin', 'twitter'],
+    when: '2025-03-23 08:00',
+    status: 'Scheduled'
+}];
+const recentTbody = document.getElementById('recentTbody');
+
+function renderRecentTable(rows) {
+    recentTbody.innerHTML = '';
+    rows.forEach((r, idx) => addRecentRow(r, false));
+    document.getElementById('recentInfo').textContent = `Showing 1–${rows.length} of ${rows.length}`;
+}
+
+function addRecentRow(r, appendInfo = true) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+        <td>${r.title}</td>
+        <td>${r.platforms.map(p => `<span class=\"badge-soft info me-1\"><i class=\"${platformIcon(p)} me-1\"></i>${p}</span>`).join('')}</td>
+        <td>${r.when}</td>
+        <td>${statusBadge(r.status)}</td>
+        <td>
+          <div class="btn-group btn-group-sm" role="group">
+            <a href="./post_creator.html" class="btn btn-light"><i class="fa-solid fa-pen"></i></a>
+            <a href="./calendar_page.html" class="btn btn-light"><i class="fa-solid fa-calendar"></i></a>
+          </div>
+        </td>
+      `;
+    recentTbody.appendChild(tr);
+    if (appendInfo) {
+        const count = recentTbody.querySelectorAll('tr').length;
+        document.getElementById('recentInfo').textContent = `Showing 1–${count} of ${count}`;
+    }
+}
+
+function platformIcon(p) {
+    switch (p) {
+        case 'instagram':
+            return 'fa-brands fa-instagram';
+        case 'facebook':
+            return 'fa-brands fa-facebook';
+        case 'twitter':
+            return 'fa-brands fa-x-twitter';
+        case 'linkedin':
+            return 'fa-brands fa-linkedin';
+        case 'tiktok':
+            return 'fa-brands fa-tiktok';
+        default:
+            return 'fa-solid fa-share-nodes';
+    }
+}
+
+function statusBadge(s) {
+    if (s === 'Scheduled') return '<span class="badge-soft success">Scheduled</span>';
+    return '<span class="badge-soft warning">Draft</span>';
+}
+
+// Sorting & filtering
+let currentSort = {
+    key: null,
+    asc: true
+};
+document.querySelectorAll('#recentTable thead .sortable').forEach(th => {
+    th.style.cursor = 'pointer';
+    th.addEventListener('click', () => {
+        const key = th.getAttribute('data-sort');
+        const asc = currentSort.key === key ? !currentSort.asc : true;
+        currentSort = {
+            key,
+            asc
+        };
+        const sorted = [...recentData].sort((a, b) => {
+            if (key === 'title') return asc ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
+            if (key === 'when') return asc ? (a.when + '').localeCompare(b.when + '') : (b.when + '').localeCompare(a.when + '');
+            return 0;
+        });
+        renderRecentTable(sorted);
+    });
+});
+document.getElementById('recentFilter').addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase();
+    const filtered = recentData.filter(r => r.title.toLowerCase().includes(q) || r.platforms.some(p => p.includes(q)) || r.status.toLowerCase().includes(q));
+    renderRecentTable(filtered);
+});
+
+// Init on load
+renderPlatformList();
+buildTabs();
+buildPreview();
+renderRecentTable(recentData);
+validateForm();
+  </script>
+ </body>
+</html>

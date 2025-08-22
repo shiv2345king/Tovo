@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Account Settings • Business Console
+  </title>
+  <!-- Brand font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+   <!-- Global theme -->
+   <link href="style.css" rel="stylesheet">
+    <!-- Page-specific CSS -->
+    <link href="account_settings.css" rel="stylesheet"/>
+   </link>
+  </link>
+ </head>
+ <body class="view-grid">
+  <!-- Header (Top Nav) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000080;">
+   <div class="container-fluid">
+    <button aria-controls="offcanvasSidebarManager" class="btn btn-outline-info d-lg-none me-2" data-bs-target="#offcanvasSidebarManager" data-bs-toggle="offcanvas" style="border-color:#00FFFF;color:#00FFFF;" type="button">
+     <i class="fa-solid fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./dashboard_page.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandlogo/28/28'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:28px;"/>
+     <span>
+      Business Console
+     </span>
+    </a>
+    <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
+     <div class="input-group">
+      <span class="input-group-text" style="background:#fff;border-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-magnifying-glass">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" placeholder="Search campaigns, posts..." style="border-color:#00FFFF;" type="search"/>
+     </div>
+    </form>
+    <ul class="navbar-nav ms-auto align-items-center">
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+       <i class="fa-solid fa-file-export me-1">
+       </i>
+       Export Report
+      </a>
+     </li>
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-calendar-plus me-1">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button" style="color:#00FFFF;">
+       <img alt="Avatar" class="rounded-circle me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user28/28/28'" src="https://via.placeholder.com/28"/>
+       @brand_account
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./account_settings.html">
+         <i class="fa-solid fa-gear me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./analytics_page.html">
+         <i class="fa-solid fa-chart-line me-2">
+         </i>
+         Analytics
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item text-danger" href="./login_page.html">
+         <i class="fa-solid fa-right-from-bracket me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <!-- Offcanvas Sidebar for mobile (Manager) -->
+  <div aria-labelledby="offcanvasSidebarManagerLabel" class="offcanvas offcanvas-start" id="offcanvasSidebarManager" style="background-color:#000080;color:#fff;" tabindex="-1">
+   <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasSidebarManagerLabel">
+     Navigation
+    </h5>
+    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body">
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./content_library.html">
+       <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+       </i>
+       Assets
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./ai_lab.html">
+       <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+       </i>
+       AI Ideas
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./analytics_page.html">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="d-flex" style="min-height:100vh;">
+   <!-- Desktop Sidebar -->
+   <aside class="d-none d-lg-flex flex-column flex-shrink-0 p-3 text-white" style="width:280px;background-color:#000080;min-height:100vh;">
+    <div class="d-flex align-items-center mb-3">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo36/36/36'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:36px;width:auto;"/>
+     <span class="fs-6 fw-semibold" style="color:#00FFFF;">
+      Business Console
+     </span>
+    </div>
+    <div class="d-flex align-items-center mb-3 p-2 rounded" style="background-color:rgba(0,255,255,.08);">
+     <img alt="Avatar" class="rounded-circle me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/u40/40/40'" src="https://via.placeholder.com/40"/>
+     <div>
+      <div class="small">
+       Signed in as
+      </div>
+      <div class="fw-semibold">
+       @brand_account
+      </div>
+      <span class="badge" style="background-color:#00FFFF;color:#000080;">
+       Manager
+      </span>
+     </div>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./content_library.html">
+       <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+       </i>
+       Assets
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./ai_lab.html">
+       <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+       </i>
+       AI Ideas
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a aria-controls="analyticsMenu" aria-expanded="true" class="nav-link text-white" data-bs-toggle="collapse" href="#analyticsMenu" role="button">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics &amp; Reports
+       <i class="fa-solid fa-chevron-down float-end">
+       </i>
+      </a>
+      <div class="collapse show ps-4" id="analyticsMenu">
+       <ul class="list-unstyled">
+        <li class="my-1">
+         <a class="nav-link text-white" href="./analytics_page.html">
+          <i class="fa-solid fa-chart-simple me-2" style="color:#00FFFF;">
+          </i>
+          Dashboard
+         </a>
+        </li>
+        <li class="my-1">
+         <a class="nav-link text-white" href="./analytics_page.html#top-content">
+          <i class="fa-regular fa-star me-2" style="color:#00FFFF;">
+          </i>
+          Top Content
+         </a>
+        </li>
+       </ul>
+      </div>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+    <hr class="border-light opacity-25"/>
+    <div>
+     <a class="btn w-100 mb-2" href="./analytics_page.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-arrow-trend-up me-2">
+      </i>
+      View Analytics
+     </a>
+     <a class="btn btn-outline-info w-100" href="./post_creator.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-calendar-check me-2">
+      </i>
+      Schedule Now
+     </a>
+    </div>
+    <style>
+     aside a.nav-link{border-radius:.5rem;}
+        aside a.nav-link:hover{background-color:rgba(0,255,255,.15);} 
+        aside .collapse .nav-link{font-size:.95rem;}
+    </style>
+   </aside>
+   <!-- Main Content -->
+   <main class="flex-grow-1 main-panel">
+    <div class="container-fluid container-max">
+     <!-- Breadcrumb and Title -->
+     <nav aria-label="breadcrumb" class="breadcrumb">
+      <ol class="breadcrumb mb-2">
+       <li class="breadcrumb-item">
+        <a href="./dashboard_page.html">
+         Dashboard
+        </a>
+       </li>
+       <li aria-current="page" class="breadcrumb-item active">
+        Account Settings
+       </li>
+      </ol>
+     </nav>
+     <div class="page-header">
+      <div class="d-flex align-items-center gap-2">
+       <h1 class="page-title m-0">
+        Account Settings
+       </h1>
+       <span class="badge-soft info">
+        Manage profile, security, and connections
+       </span>
+      </div>
+      <div aria-label="View options" class="view-switcher">
+       <div class="option active">
+        <i class="fa-solid fa-sliders">
+        </i>
+       </div>
+       <div class="option">
+        <i class="fa-solid fa-table">
+        </i>
+       </div>
+       <div class="option">
+        <i class="fa-solid fa-grip">
+        </i>
+       </div>
+      </div>
+     </div>
+     <!-- System feedback area -->
+     <div aria-live="polite" class="mb-3" id="alertArea" role="alert">
+     </div>
+     <div class="row g-4">
+      <!-- Profile Information -->
+      <div class="col-12">
+       <div class="card app-card" id="profileCard">
+        <div class="card-header">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-user-pen text-info">
+          </i>
+          <span class="widget-title">
+           Profile Information
+          </span>
+         </div>
+         <div>
+          <button class="btn btn-info btn-sm" id="editProfileBtn">
+           <i class="fa-solid fa-pen me-1">
+           </i>
+           Edit Profile
+          </button>
+          <div class="d-none d-inline-flex gap-2" id="editActions">
+           <button class="btn btn-success btn-sm" id="saveProfileBtn">
+            <i class="fa-solid fa-floppy-disk me-1">
+            </i>
+            Save Changes
+           </button>
+           <button class="btn btn-light btn-sm" id="cancelEditBtn">
+            <i class="fa-solid fa-xmark me-1">
+            </i>
+            Cancel
+           </button>
+          </div>
+         </div>
+        </div>
+        <div class="card-body">
+         <form id="profileForm" novalidate="">
+          <div class="row g-3">
+           <div class="col-md-6">
+            <label class="form-label" for="fullName">
+             Full Name
+            </label>
+            <input class="form-control" disabled="" id="fullName" name="fullName" placeholder="Enter your full name" required="" type="text"/>
+            <div class="invalid-feedback">
+             Full name must not be empty.
+            </div>
+           </div>
+           <div class="col-md-6">
+            <label class="form-label" for="email">
+             Email Address
+            </label>
+            <input class="form-control" disabled="" id="email" name="email" type="email"/>
+            <div class="form-text">
+             Primary identifier. Contact support to change email.
+            </div>
+           </div>
+           <div class="col-12">
+            <label class="form-label" for="niche">
+             AI Personalization Niche
+            </label>
+            <input class="form-control" disabled="" id="niche" name="niche" placeholder="e.g., Tech Reviews, Lifestyle &amp; Wellness" required="" type="text"/>
+            <div class="invalid-feedback">
+             Please provide your niche.
+            </div>
+            <div class="form-text">
+             Used to tailor AI ideas and content suggestions.
+            </div>
+           </div>
+          </div>
+         </form>
+         <div class="alert alert-success mt-3 d-none" id="profileSuccess">
+          <i class="fa-solid fa-circle-check me-1">
+          </i>
+          Profile updated successfully.
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Password Change -->
+      <div class="col-12">
+       <div class="card app-card" id="passwordCard">
+        <div class="card-header">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-lock text-warning">
+          </i>
+          <span class="widget-title">
+           Change Password
+          </span>
+         </div>
+        </div>
+        <div class="card-body">
+         <form id="passwordForm" novalidate="">
+          <div class="row g-3">
+           <div class="col-md-4">
+            <label class="form-label" for="currentPassword">
+             Current Password
+            </label>
+            <div class="input-group">
+             <input class="form-control password-field" id="currentPassword" placeholder="••••••••" required="" type="password"/>
+             <button aria-label="Toggle visibility" class="btn btn-light toggle-visibility-icon" data-target="currentPassword" type="button">
+              <i class="fa-regular fa-eye">
+              </i>
+             </button>
+             <div class="invalid-feedback">
+              Current password is required.
+             </div>
+            </div>
+           </div>
+           <div class="col-md-4">
+            <label class="form-label" for="newPassword">
+             New Password
+            </label>
+            <div class="input-group">
+             <input class="form-control password-field" id="newPassword" placeholder="At least 8 characters" required="" type="password"/>
+             <button aria-label="Toggle visibility" class="btn btn-light toggle-visibility-icon" data-target="newPassword" type="button">
+              <i class="fa-regular fa-eye">
+              </i>
+             </button>
+             <div class="invalid-feedback">
+              Please meet the password requirements.
+             </div>
+            </div>
+            <div class="progress mt-2" style="height:6px;">
+             <div class="progress-bar" id="pwdStrengthBar" role="progressbar" style="width:0%">
+             </div>
+            </div>
+            <small class="text-muted">
+             Use at least 8 characters, including uppercase, number, and symbol.
+            </small>
+           </div>
+           <div class="col-md-4">
+            <label class="form-label" for="confirmPassword">
+             Confirm New Password
+            </label>
+            <div class="input-group">
+             <input class="form-control password-field" id="confirmPassword" placeholder="Re-enter new password" required="" type="password"/>
+             <button aria-label="Toggle visibility" class="btn btn-light toggle-visibility-icon" data-target="confirmPassword" type="button">
+              <i class="fa-regular fa-eye">
+              </i>
+             </button>
+             <div class="invalid-feedback">
+              Passwords must match.
+             </div>
+            </div>
+           </div>
+          </div>
+          <div class="mt-3 d-flex gap-2">
+           <button class="btn btn-warning" id="changePasswordBtn" type="submit">
+            <i class="fa-solid fa-key me-1">
+            </i>
+            Change Password
+           </button>
+           <button class="btn btn-light" type="reset">
+            Clear
+           </button>
+          </div>
+         </form>
+        </div>
+       </div>
+      </div>
+      <!-- Connected Accounts -->
+      <div class="col-12">
+       <div class="card app-card" id="connectionsCard">
+        <div class="card-header">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-plug-circle-bolt text-success">
+          </i>
+          <span class="widget-title">
+           Connected Accounts
+          </span>
+         </div>
+         <div class="d-flex gap-2">
+          <button class="btn btn-primary btn-sm" id="addAccountBtn">
+           <i class="fa-solid fa-plus me-1">
+           </i>
+           Connect New Account
+          </button>
+          <button class="btn btn-light btn-sm" id="refreshAccountsBtn">
+           <i class="fa-solid fa-rotate">
+           </i>
+          </button>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="row g-3" id="connectedAccountsGrid">
+          <!-- Connected account cards will be rendered here by JS -->
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Activity Log (table with filters) -->
+      <div class="col-12">
+       <div class="card app-card">
+        <div class="card-header">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-regular fa-clock text-secondary">
+          </i>
+          <span class="widget-title">
+           Recent Integration Activity
+          </span>
+         </div>
+         <div class="d-flex gap-2 align-items-center">
+          <select class="form-select form-select-sm" id="activityFilterPlatform" style="min-width:180px;">
+           <option value="">
+            All Platforms
+           </option>
+           <option>
+            Twitter
+           </option>
+           <option>
+            Instagram
+           </option>
+           <option>
+            Facebook
+           </option>
+           <option>
+            LinkedIn
+           </option>
+           <option>
+            YouTube
+           </option>
+           <option>
+            TikTok
+           </option>
+          </select>
+          <div class="input-group input-group-sm" style="width:260px;">
+           <span class="input-group-text">
+            <i class="fa-solid fa-magnifying-glass">
+            </i>
+           </span>
+           <input class="form-control" id="activitySearch" placeholder="Search by handle or action" type="text"/>
+          </div>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="table-responsive">
+          <table class="table table-theme align-middle" id="activityTable">
+           <thead>
+            <tr>
+             <th data-sort-key="date" role="button">
+              Date
+              <i class="fa-solid fa-sort ms-1 text-muted">
+              </i>
+             </th>
+             <th data-sort-key="platform" role="button">
+              Platform
+              <i class="fa-solid fa-sort ms-1 text-muted">
+              </i>
+             </th>
+             <th>
+              Handle
+             </th>
+             <th data-sort-key="action" role="button">
+              Action
+              <i class="fa-solid fa-sort ms-1 text-muted">
+              </i>
+             </th>
+             <th>
+              Status
+             </th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr data-platform="Twitter">
+             <td data-value="2025-01-28">
+              Jan 28, 2025
+             </td>
+             <td>
+              <span class="platform-badge twitter">
+               <i class="fa-brands fa-x-twitter me-1">
+               </i>
+               Twitter
+              </span>
+             </td>
+             <td>
+              @brand_news
+             </td>
+             <td data-value="Connected">
+              <span class="badge-soft success">
+               <i class="fa-solid fa-link">
+               </i>
+               Connected
+              </span>
+             </td>
+             <td>
+              <span class="text-success">
+               OK
+              </span>
+             </td>
+            </tr>
+            <tr data-platform="Instagram">
+             <td data-value="2025-01-26">
+              Jan 26, 2025
+             </td>
+             <td>
+              <span class="platform-badge instagram">
+               <i class="fa-brands fa-instagram me-1">
+               </i>
+               Instagram
+              </span>
+             </td>
+             <td>
+              @brand.official
+             </td>
+             <td data-value="Refreshed Token">
+              <span class="badge-soft info">
+               <i class="fa-solid fa-rotate">
+               </i>
+               Refreshed Token
+              </span>
+             </td>
+             <td>
+              <span class="text-success">
+               OK
+              </span>
+             </td>
+            </tr>
+            <tr data-platform="Facebook">
+             <td data-value="2025-01-25">
+              Jan 25, 2025
+             </td>
+             <td>
+              <span class="platform-badge facebook">
+               <i class="fa-brands fa-facebook me-1">
+               </i>
+               Facebook
+              </span>
+             </td>
+             <td>
+              @brandFB
+             </td>
+             <td data-value="Disconnected">
+              <span class="badge-soft error">
+               <i class="fa-solid fa-link-slash">
+               </i>
+               Disconnected
+              </span>
+             </td>
+             <td>
+              <span class="text-error">
+               Error
+              </span>
+             </td>
+            </tr>
+            <tr data-platform="LinkedIn">
+             <td data-value="2025-01-22">
+              Jan 22, 2025
+             </td>
+             <td>
+              <span class="platform-badge linkedin">
+               <i class="fa-brands fa-linkedin me-1">
+               </i>
+               LinkedIn
+              </span>
+             </td>
+             <td>
+              /company/brand-inc
+             </td>
+             <td data-value="Connected">
+              <span class="badge-soft success">
+               <i class="fa-solid fa-link">
+               </i>
+               Connected
+              </span>
+             </td>
+             <td>
+              <span class="text-success">
+               OK
+              </span>
+             </td>
+            </tr>
+            <tr data-platform="YouTube">
+             <td data-value="2025-01-21">
+              Jan 21, 2025
+             </td>
+             <td>
+              <span class="platform-badge youtube">
+               <i class="fa-brands fa-youtube me-1">
+               </i>
+               YouTube
+              </span>
+             </td>
+             <td>
+              @brandTV
+             </td>
+             <td data-value="Rate Limit">
+              <span class="badge-soft warning">
+               <i class="fa-solid fa-triangle-exclamation">
+               </i>
+               Rate Limit
+              </span>
+             </td>
+             <td>
+              <span class="text-warning">
+               Warn
+              </span>
+             </td>
+            </tr>
+            <tr data-platform="TikTok">
+             <td data-value="2025-01-18">
+              Jan 18, 2025
+             </td>
+             <td>
+              <span class="platform-badge tiktok">
+               <i class="fa-brands fa-tiktok me-1">
+               </i>
+               TikTok
+              </span>
+             </td>
+             <td>
+              @brandtok
+             </td>
+             <td data-value="Connected">
+              <span class="badge-soft success">
+               <i class="fa-solid fa-link">
+               </i>
+               Connected
+              </span>
+             </td>
+             <td>
+              <span class="text-success">
+               OK
+              </span>
+             </td>
+            </tr>
+           </tbody>
+          </table>
+         </div>
+         <div class="d-flex justify-content-between align-items-center mt-2">
+          <small class="text-muted" id="activityPagingInfo">
+           Showing 1–6 of 6
+          </small>
+          <div aria-label="Pagination" class="btn-group btn-group-sm" role="group">
+           <button class="btn btn-light" disabled="">
+            <i class="fa-solid fa-chevron-left">
+            </i>
+           </button>
+           <button class="btn btn-light active">
+            1
+           </button>
+           <button class="btn btn-light" disabled="">
+            2
+           </button>
+           <button class="btn btn-light" disabled="">
+            <i class="fa-solid fa-chevron-right">
+            </i>
+           </button>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+  </div>
+  <!-- Footer -->
+  <footer class="mt-auto py-3 border-top" style="border-top-color:#000080 !important;">
+   <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logomini/20/20'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:20px;"/>
+     <span class="text-muted small">
+      © 2025 AI Social Manager
+     </span>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+     <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-file-export me-1">
+      </i>
+      Export
+     </a>
+     <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-calendar-plus me-1">
+      </i>
+      Schedule
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Terms
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Privacy
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- Toasts container -->
+  <div class="position-fixed top-0 end-0 p-3" style="z-index: 1080;">
+   <div class="toast-container" id="toastStack">
+   </div>
+  </div>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js">
+  </script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // Utility: Bootstrap Toast
+function showToast(message, type = 'success') {
+    const bgClasses = {
+        success: 'text-bg-success',
+        info: 'text-bg-info',
+        warning: 'text-bg-warning',
+        error: 'text-bg-danger'
+    };
+    const toastContainer = document.getElementById('toastStack');
+    const wrapper = document.createElement('div');
+    wrapper.className = `toast align-items-center ${bgClasses[type] || 'text-bg-primary'}`;
+    wrapper.setAttribute('role', 'status');
+    wrapper.setAttribute('aria-live', 'polite');
+    wrapper.setAttribute('aria-atomic', 'true');
+    wrapper.innerHTML = `
+        <div class="d-flex">
+          <div class="toast-body">${message}</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>`;
+    toastContainer.appendChild(wrapper);
+    const t = new bootstrap.Toast(wrapper, {
+        delay: 3000
+    });
+    t.show();
+}
+
+// Password strength checker
+function passwordStrength(pw) {
+    let score = 0;
+    if (!pw) return {
+        score: 0
+    };
+    if (pw.length >= 8) score += 25;
+    if (/[A-Z]/.test(pw)) score += 20;
+    if (/[0-9]/.test(pw)) score += 20;
+    if (/[^\w\s]/.test(pw)) score += 20;
+    if (pw.length >= 12) score += 15;
+    return {
+        score: Math.min(score, 100)
+    };
+}
+
+// Connected Accounts mock data
+const initialConnected = [{
+    platform: 'Twitter',
+    username: '@brand_news',
+    avatar: 'https://via.placeholder.com/48',
+    since: 'Jan 28, 2025'
+}, {
+    platform: 'Instagram',
+    username: '@brand.official',
+    avatar: 'https://via.placeholder.com/48',
+    since: 'Jan 26, 2025'
+}, {
+    platform: 'LinkedIn',
+    username: '/company/brand-inc',
+    avatar: 'https://via.placeholder.com/48',
+    since: 'Jan 22, 2025'
+}, ];
+const platformIcons = {
+    Twitter: '<i class="fa-brands fa-x-twitter"></i>',
+    Instagram: '<i class="fa-brands fa-instagram"></i>',
+    Facebook: '<i class="fa-brands fa-facebook"></i>',
+    LinkedIn: '<i class="fa-brands fa-linkedin"></i>',
+    YouTube: '<i class="fa-brands fa-youtube"></i>',
+    TikTok: '<i class="fa-brands fa-tiktok"></i>'
+};
+
+let connectedAccounts = [...initialConnected];
+
+function renderConnectedAccounts() {
+    const grid = document.getElementById('connectedAccountsGrid');
+    grid.innerHTML = '';
+    connectedAccounts.forEach(acc => {
+        const col = document.createElement('div');
+        col.className = 'col-12 col-md-6 col-lg-4';
+        col.innerHTML = `
+          <div class="card h-100 connected-account-item" data-platform="${acc.platform}" data-username="${acc.username}">
+            <div class="card-body d-flex align-items-center gap-3">
+              <div class="platform-icon ${acc.platform.toLowerCase()}">${platformIcons[acc.platform] || ''}</div>
+              <img src="${acc.avatar}" class="rounded-circle" alt="${acc.username}" width="48" height="48" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${encodeURIComponent(acc.username)}/48/48'" />
+              <div class="flex-grow-1">
+                <div class="fw-semibold">${acc.username}</div>
+                <small class="text-muted d-flex align-items-center gap-1"><span class="platform-badge ${acc.platform.toLowerCase()}">${platformIcons[acc.platform] || ''} ${acc.platform}</span> • Connected ${acc.since}</small>
+              </div>
+              <button class="btn btn-outline-danger btn-sm disconnect-btn"><i class="fa-solid fa-link-slash me-1"></i> Disconnect</button>
+            </div>
+          </div>`;
+        grid.appendChild(col);
+    });
+
+    // Add account card
+    const addCol = document.createElement('div');
+    addCol.className = 'col-12 col-md-6 col-lg-4';
+    addCol.innerHTML = `
+        <button class="add-account-tile w-100 h-100 p-4" id="addAccountTile" type="button">
+          <div class="d-flex flex-column align-items-center justify-content-center">
+            <i class="fa-solid fa-circle-plus fa-2xl mb-2 text-primary"></i>
+            <div class="fw-semibold">Connect New Account</div>
+            <small class="text-muted">Twitter, Instagram, Facebook, LinkedIn, YouTube, TikTok</small>
+          </div>
+        </button>`;
+    grid.appendChild(addCol);
+
+    // Bind events
+    grid.querySelectorAll('.disconnect-btn').forEach(btn => {
+        btn.addEventListener('click', onDisconnectClick);
+    });
+    const addTile = document.getElementById('addAccountTile');
+    if (addTile) addTile.addEventListener('click', showPlatformSelect);
+}
+
+function onDisconnectClick(e) {
+    const card = e.currentTarget.closest('.connected-account-item');
+    const platform = card.getAttribute('data-platform');
+    const username = card.getAttribute('data-username');
+    Swal.fire({
+        icon: 'warning',
+        title: 'Disconnect Account?',
+        html: `Are you sure you want to disconnect <b>${username}</b> from <b>${platform}</b>?<br/><small>All scheduled posts for this account will be paused.</small>`,
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Disconnect',
+        confirmButtonColor: '#CD2026',
+        cancelButtonText: 'Cancel'
+    }).then(result => {
+        if (result.isConfirmed) {
+            Swal.showLoading();
+            setTimeout(() => {
+                // Remove from connected list
+                connectedAccounts = connectedAccounts.filter(a => !(a.platform === platform && a.username === username));
+                renderConnectedAccounts();
+                addActivityRow(new Date(), platform, username, 'Disconnected', 'OK');
+                Swal.close();
+                showToast('Account disconnected', 'info');
+            }, 700);
+        }
+    });
+}
+
+function getAvailablePlatforms() {
+    const all = ['Twitter', 'Instagram', 'Facebook', 'LinkedIn', 'YouTube', 'TikTok'];
+    const connected = new Set(connectedAccounts.map(a => a.platform));
+    return all.filter(p => !connected.has(p));
+}
+
+function showPlatformSelect() {
+    const options = getAvailablePlatforms();
+    if (options.length === 0) {
+        Swal.fire({
+            icon: 'info',
+            title: 'All Set!',
+            text: 'All supported platforms are already connected.'
+        });
+        return;
+    }
+    const inputOptions = {};
+    options.forEach(p => inputOptions[p] = p);
+    Swal.fire({
+        title: 'Connect a Platform',
+        input: 'select',
+        inputOptions,
+        inputPlaceholder: 'Select platform',
+        showCancelButton: true
+    }).then(result => {
+        if (result.isConfirmed && result.value) {
+            const platform = result.value;
+            Swal.fire({
+                title: `Connecting to ${platform}...`,
+                text: 'Redirecting to OAuth provider',
+                icon: 'info',
+                timer: 1200,
+                showConfirmButton: false,
+                willOpen: () => Swal.showLoading()
+            }).then(() => {
+                // Simulate a connected account
+                const username = platform === 'LinkedIn' ? '/company/brand-inc' : '@brand_' + platform.toLowerCase();
+                connectedAccounts.push({
+                    platform,
+                    username,
+                    avatar: 'https://via.placeholder.com/48',
+                    since: new Date().toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: '2-digit',
+                        year: 'numeric'
+                    })
+                });
+                renderConnectedAccounts();
+                addActivityRow(new Date(), platform, username, 'Connected', 'OK');
+                showToast(`${platform} account connected`, 'success');
+            });
+        }
+    });
+}
+
+function addActivityRow(date, platform, handle, action, status) {
+    const tbody = document.querySelector('#activityTable tbody');
+    const tr = document.createElement('tr');
+    const iso = typeof date === 'string' ? date : date.toISOString().slice(0, 10);
+    const human = new Date(date).toLocaleDateString('en-US', {
+        month: 'short',
+        day: '2-digit',
+        year: 'numeric'
+    });
+    tr.setAttribute('data-platform', platform);
+    tr.innerHTML = `
+        <td data-value="${iso}">${human}</td>
+        <td><span class="platform-badge ${platform.toLowerCase()}">${platformIcons[platform] || ''} ${platform}</span></td>
+        <td>${handle}</td>
+        <td data-value="${action}"><span class="badge-soft ${action === 'Disconnected' ? 'error' : (action === 'Connected' ? 'success':'info')}"><i class="fa-solid ${action === 'Disconnected' ? 'fa-link-slash' : (action === 'Connected' ? 'fa-link' : 'fa-rotate')}"></i> ${action}</span></td>
+        <td><span class="${status==='OK'?'text-success': status==='Warn'?'text-warning':'text-error'}">${status}</span></td>
+      `;
+    tbody.prepend(tr);
+    updatePagingInfo();
+    applyActivityFilters();
+}
+
+function updatePagingInfo() {
+    const total = document.querySelectorAll('#activityTable tbody tr').length;
+    const visible = Array.from(document.querySelectorAll('#activityTable tbody tr')).filter(r => r.offsetParent !== null).length;
+    document.getElementById('activityPagingInfo').textContent = `Showing ${visible} of ${total}`;
+}
+
+function applyActivityFilters() {
+    const platform = document.getElementById('activityFilterPlatform').value;
+    const q = document.getElementById('activitySearch').value.trim().toLowerCase();
+    const rows = document.querySelectorAll('#activityTable tbody tr');
+    rows.forEach(r => {
+        const matchPlatform = !platform || r.getAttribute('data-platform') === platform;
+        const text = r.textContent.toLowerCase();
+        const matchText = !q || text.includes(q);
+        r.style.display = (matchPlatform && matchText) ? '' : 'none';
+    });
+    updatePagingInfo();
+}
+
+function sortActivityBy(key) {
+    const tbody = document.querySelector('#activityTable tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const th = document.querySelector(`#activityTable thead th[data-sort-key="${key}"]`);
+    const current = th.getAttribute('data-sort') || 'none';
+    const next = current === 'asc' ? 'desc' : 'asc';
+    document.querySelectorAll('#activityTable thead th[data-sort-key]').forEach(h => h.removeAttribute('data-sort'));
+    th.setAttribute('data-sort', next);
+    rows.sort((a, b) => {
+        const aVal = a.querySelector(`[data-value]${key==='platform'?' + td':''}[data-value], td[data-value]`) || a.children[0];
+        const aCell = key === 'date' ? a.children[0] : key === 'platform' ? a.children[1] : a.children[3];
+        const bCell = key === 'date' ? b.children[0] : key === 'platform' ? b.children[1] : b.children[3];
+        const av = key === 'date' ? aCell.getAttribute('data-value') : (key === 'platform' ? a.getAttribute('data-platform') : aCell.getAttribute('data-value'));
+        const bv = key === 'date' ? bCell.getAttribute('data-value') : (key === 'platform' ? b.getAttribute('data-platform') : bCell.getAttribute('data-value'));
+        if (key === 'date') return next === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+        return next === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+    rows.forEach(r => tbody.appendChild(r));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Prefill Profile form (simulate fetch)
+    const nameInput = document.getElementById('fullName');
+    const emailInput = document.getElementById('email');
+    const nicheInput = document.getElementById('niche');
+    setTimeout(() => {
+        nameInput.value = 'Alex Morgan';
+        emailInput.value = 'alex.morgan@brandco.com';
+        nicheInput.value = 'Tech Reviews & Product Launches';
+    }, 300);
+
+    // Edit Profile toggle
+    const editBtn = document.getElementById('editProfileBtn');
+    const editActions = document.getElementById('editActions');
+    const saveBtn = document.getElementById('saveProfileBtn');
+    const cancelBtn = document.getElementById('cancelEditBtn');
+    const successAlert = document.getElementById('profileSuccess');
+    let cachedValues = {};
+
+    function setEditing(isEditing) {
+        [nameInput, nicheInput].forEach(el => el.disabled = !isEditing);
+        editBtn.classList.toggle('d-none', isEditing);
+        editActions.classList.toggle('d-none', !isEditing);
+        if (isEditing) {
+            cachedValues = {
+                name: nameInput.value,
+                niche: nicheInput.value
+            };
+        }
+    }
+
+    editBtn.addEventListener('click', () => setEditing(true));
+    cancelBtn.addEventListener('click', () => {
+        nameInput.value = cachedValues.name || nameInput.value;
+        nicheInput.value = cachedValues.niche || nicheInput.value;
+        setEditing(false);
+    });
+    saveBtn.addEventListener('click', () => {
+        // Validate
+        let valid = true;
+        if (!nameInput.value.trim()) {
+            nameInput.classList.add('is-invalid');
+            valid = false;
+        } else {
+            nameInput.classList.remove('is-invalid');
+        }
+        if (!nicheInput.value.trim()) {
+            nicheInput.classList.add('is-invalid');
+            valid = false;
+        } else {
+            nicheInput.classList.remove('is-invalid');
+        }
+        if (!valid) {
+            showToast('Please correct the highlighted fields', 'warning');
+            return;
+        }
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Saving';
+        setTimeout(() => {
+            saveBtn.disabled = false;
+            saveBtn.innerHTML = '<i class="fa-solid fa-floppy-disk me-1"></i> Save Changes';
+            setEditing(false);
+            successAlert.classList.remove('d-none');
+            showToast('Profile updated successfully', 'success');
+            setTimeout(() => successAlert.classList.add('d-none'), 2500);
+        }, 800);
+    });
+
+    // Password strength meter
+    const newPwd = document.getElementById('newPassword');
+    const pwdBar = document.getElementById('pwdStrengthBar');
+    newPwd.addEventListener('input', () => {
+        const s = passwordStrength(newPwd.value).score;
+        pwdBar.style.width = s + '%';
+        pwdBar.classList.remove('bg-danger', 'bg-warning', 'bg-success');
+        pwdBar.classList.add(s < 40 ? 'bg-danger' : s < 80 ? 'bg-warning' : 'bg-success');
+    });
+
+    // Toggle visibility buttons
+    document.querySelectorAll('.toggle-visibility-icon').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const targetId = e.currentTarget.getAttribute('data-target');
+            const field = document.getElementById(targetId);
+            const icon = e.currentTarget.querySelector('i');
+            if (field.type === 'password') {
+                field.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                field.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        });
+    });
+
+    // Change password submit
+    document.getElementById('passwordForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const current = document.getElementById('currentPassword');
+        const newPw = document.getElementById('newPassword');
+        const confirm = document.getElementById('confirmPassword');
+
+        let valid = true;
+        [current, newPw, confirm].forEach(f => f.classList.remove('is-invalid'));
+        if (!current.value.trim()) {
+            current.classList.add('is-invalid');
+            valid = false;
+        }
+        const s = passwordStrength(newPw.value).score;
+        if (s < 60) {
+            newPw.classList.add('is-invalid');
+            valid = false;
+        }
+        if (confirm.value !== newPw.value) {
+            confirm.classList.add('is-invalid');
+            valid = false;
+        }
+        if (!valid) {
+            showToast('Please fix password requirements', 'warning');
+            return;
+        }
+
+        const btn = document.getElementById('changePasswordBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Updating';
+        setTimeout(() => {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-key me-1"></i> Change Password';
+            document.getElementById('passwordForm').reset();
+            pwdBar.style.width = '0%';
+            Swal.fire({
+                icon: 'success',
+                title: 'Password Updated',
+                text: 'Your password has been changed successfully.'
+            });
+        }, 1000);
+    });
+
+    // Connected accounts rendering and events
+    renderConnectedAccounts();
+    document.getElementById('addAccountBtn').addEventListener('click', showPlatformSelect);
+    document.getElementById('refreshAccountsBtn').addEventListener('click', () => {
+        showToast('Connections refreshed', 'info');
+    });
+
+    // Activity filters and sorting
+    document.getElementById('activityFilterPlatform').addEventListener('change', applyActivityFilters);
+    document.getElementById('activitySearch').addEventListener('input', applyActivityFilters);
+    document.querySelectorAll('#activityTable thead th[data-sort-key]').forEach(th => {
+        th.addEventListener('click', () => sortActivityBy(th.getAttribute('data-sort-key')));
+    });
+
+    // Enable tooltips where needed
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+
+    updatePagingInfo();
+});
+  </script>
+ </body>
+</html>

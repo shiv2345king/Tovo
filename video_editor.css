@@ -1,0 +1,208 @@
+/* Video Editor Page Specific Styles (video_editor.css) */
+:root {
+    /* Use brand font */
+    }
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Editor header */
+.editor-header .card-body {
+    padding: 10px 12px
+    }
+.editor-header input#projectTitleInput {
+    max-width: 360px
+    }
+/* Media Bin */
+.media-bin .asset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-2)
+    }
+.asset-thumb {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-1);
+    overflow: hidden;
+    background: var(--surface-0);
+    cursor: grab;
+    box-shadow: var(--shadow-0);
+    transition: box-shadow 0.15s ease, transform 0.1s ease
+    }
+.asset-thumb:active {
+    cursor: grabbing;
+    transform: translatey(1px)
+    }
+.asset-thumb:hover {
+    box-shadow: var(--shadow-1)
+    }
+.asset-thumb .thumb {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    background: var(--neutral-soft)
+    }
+.asset-thumb .meta {
+    padding: 6px 8px
+    }
+.asset-thumb .name {
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+    }
+/* Preview */
+.preview-panel .preview-stage {
+    background: #000
+    }
+.preview-panel video {
+    width: 100%;
+    height: 100%
+    }
+.preview-panel input[type="range"] {
+    width: 120px
+    }
+/* Toolbar */
+.toolbar .btn {
+    min-width: 36px
+    }
+.toolbar .btn-check:checked + .btn {
+    box-shadow: var(--shadow-1)
+    }
+/* Timeline */
+.timeline-panel .timeline-scroller {
+    position: relative;
+    overflow: auto;
+    white-space: nowrap;
+    background: var(--surface-0);
+    height: 260px
+    }
+.timeline-panel .timeline-ruler {
+    position: relative;
+    height: 28px;
+    background: var(--surface-muted);
+    border-bottom: 1px solid var(--border-color)
+    }
+.timeline-panel .tick {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.08)
+    }
+.timeline-panel .tick .tick-label {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    font-size: var(--font-size-xs);
+    color: var(--text-muted)
+    }
+.track {
+    position: relative;
+    height: 90px;
+    border-bottom: 1px dashed var(--border-color);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.02) 0, transparent 20px) repeat-x;
+    background-size: 120px 100%
+    }
+.track:last-child {
+    border-bottom: none
+    }
+.track .track-label {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    top: 0;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface-muted);
+    color: var(--text);
+    padding: 2px 8px;
+    border-right: 1px solid var(--border-color)
+    }
+/* Playhead */
+.playhead {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-primary);
+    pointer-events: none
+    }
+/* Clip element */
+.clip {
+    position: absolute;
+    top: 34px;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    user-select: none;
+    background: var(--surface-0);
+    box-shadow: var(--shadow-0);
+    transition: box-shadow 0.15s ease
+    }
+.clip:hover {
+    box-shadow: var(--shadow-1)
+    }
+.clip .clip-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--neutral-soft);
+    opacity: 0.6
+    }
+.clip .clip-label {
+    position: relative;
+    z-index: 1;
+    font-size: var(--font-size-sm);
+    padding: 6px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--text-strong)
+    }
+.clip::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--clip-color, var(--primary-soft));
+    opacity: 0.6
+    }
+.clip.clip-text::before {
+    background: var(--warning-soft)
+    }
+/* Trim handles */
+.clip .handle {
+    position: absolute;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.08);
+    cursor: ew-resize;
+    z-index: 2
+    }
+.clip .handle-left {
+    left: 0;
+    border-right: 1px solid var(--border-color)
+    }
+.clip .handle-right {
+    right: 0;
+    border-left: 1px solid var(--border-color)
+    }
+/* Inspector */
+.inspector-panel .empty-state {
+    background: var(--surface-0);
+    border-style: dashed
+    }
+/* Modal tables */
+.table-theme tbody tr:hover {
+    background: rgba(0, 0, 0, 0.03)
+    }
+/* Responsive tweaks */
+@media (max-width: 991.98px) {
+    .editor-header input#projectTitleInput {
+        max-width: 100%
+        }
+    .timeline-panel .timeline-scroller {
+        height: 240px
+        }
+    }

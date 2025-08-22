@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Login | AI Social Manager
+  </title>
+  <!-- Brand Typography: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet">
+   <!-- Global Theme Styles -->
+   <link href="style.css" rel="stylesheet"/>
+   <!-- Page-specific Styles -->
+   <link href="login_page.html.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body>
+  <!-- Common Auth (Login/Registration) Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000080;">
+   <div class="container-fluid">
+    <button aria-controls="offcanvasSidebarAuth" class="btn btn-outline-info d-md-none me-2" data-bs-target="#offcanvasSidebarAuth" data-bs-toggle="offcanvas" style="border-color:#00FFFF;color:#00FFFF;" type="button">
+     <i class="fa-solid fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./login_page.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/aisocial/56/28'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:28px;"/>
+     <span>
+      AI Social Manager
+     </span>
+    </a>
+    <div class="ms-auto d-flex align-items-center gap-2">
+     <a class="btn btn-sm" href="#help" style="color:#00FFFF;">
+      <i class="fa-solid fa-circle-question me-1">
+      </i>
+      Help
+     </a>
+     <a class="btn btn-sm btn-outline-info" href="./login_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+      Login
+     </a>
+     <a class="btn btn-sm" href="./registration_page.html" style="background-color:#00FFFF;color:#000080;">
+      Sign Up
+     </a>
+    </div>
+   </div>
+  </nav>
+  <!-- Offcanvas Sidebar for mobile auth -->
+  <div aria-labelledby="offcanvasSidebarAuthLabel" class="offcanvas offcanvas-start" id="offcanvasSidebarAuth" style="background-color:#000080;color:#fff;" tabindex="-1">
+   <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasSidebarAuthLabel">
+     Menu
+    </h5>
+    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body">
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item">
+      <a class="nav-link text-white" href="./login_page.html">
+       <i class="fa-solid fa-right-to-bracket me-2" style="color:#00FFFF;">
+       </i>
+       Login
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link text-white" href="./registration_page.html">
+       <i class="fa-solid fa-user-plus me-2" style="color:#00FFFF;">
+       </i>
+       Sign Up
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link text-white" href="#help">
+       <i class="fa-solid fa-circle-question me-2" style="color:#00FFFF;">
+       </i>
+       Help Center
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <main class="container d-flex align-items-center justify-content-center py-5" style="min-height: 78vh;">
+   <div class="login-form-container w-100" style="max-width:480px;">
+    <!-- LoginHeader -->
+    <div class="text-center mb-3">
+     <img alt="AI Social Manager Logo" class="rounded" height="56" onerror="this.onerror=null;this.src='https://picsum.photos/seed/asm/56/56'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" width="56"/>
+     <h1 class="mt-3 page-title" style="font-size:1.5rem;">
+      Welcome Back
+     </h1>
+     <p class="text-muted mb-0">
+      Log in to your account to continue
+     </p>
+    </div>
+    <!-- System feedback -->
+    <div class="alert alert-danger d-none" id="loginError" role="alert">
+     <i class="fa-solid fa-triangle-exclamation me-2">
+     </i>
+     <span id="loginErrorText">
+      Invalid credentials. Please try again.
+     </span>
+    </div>
+    <!-- LoginForm -->
+    <form id="loginForm" novalidate="">
+     <!-- Email -->
+     <div class="mb-3">
+      <label class="form-label" for="email">
+       Email address
+      </label>
+      <div class="input-group">
+       <span class="input-group-text" id="email-addon">
+        <i class="fa-regular fa-envelope">
+        </i>
+       </span>
+       <input aria-describedby="email-addon" class="form-control" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+       <div class="invalid-feedback">
+        Please enter a valid email address.
+       </div>
+      </div>
+     </div>
+     <!-- Password -->
+     <div class="mb-2">
+      <label class="form-label" for="password">
+       Password
+      </label>
+      <div class="input-group">
+       <span class="input-group-text" id="password-addon">
+        <i class="fa-solid fa-key">
+        </i>
+       </span>
+       <input aria-describedby="password-addon password-toggle" class="form-control" id="password" name="password" placeholder="Enter your password" required="" type="password"/>
+       <button aria-label="Toggle password visibility" class="input-group-text bg-white border-start toggle-visibility-icon" id="password-toggle" type="button">
+        <i class="fa-regular fa-eye" id="passwordToggleIcon">
+        </i>
+       </button>
+       <div class="invalid-feedback">
+        Password is required.
+       </div>
+      </div>
+     </div>
+     <!-- Helper actions -->
+     <div class="d-flex justify-content-between align-items-center mb-3 small">
+      <a class="text-decoration-none" href="#" id="forgotPasswordLink">
+       Forgot password?
+      </a>
+      <a class="text-decoration-none" href="./registration_page.html">
+       Don't have an account? Sign Up
+      </a>
+     </div>
+     <!-- Submit -->
+     <button class="btn btn-primary w-100 mb-3" id="submitBtn" type="submit">
+      <span class="btn-text">
+       Log In
+      </span>
+      <span aria-hidden="true" class="spinner-border spinner-border-sm ms-2 d-none" role="status">
+      </span>
+     </button>
+     <!-- SocialLoginDivider -->
+     <div class="or-divider my-3">
+      <span>
+       OR
+      </span>
+     </div>
+     <!-- GoogleLoginButton -->
+     <button class="btn btn-light w-100 border" id="googleLoginBtn" type="button">
+      <i class="fa-brands fa-google me-2 text-danger">
+      </i>
+      Continue with Google
+     </button>
+    </form>
+    <!-- Demo accounts block -->
+    <div class="mt-4">
+     <div class="card">
+      <div class="card-header d-flex align-items-center justify-content-between">
+       <div class="fw-semibold">
+        Demo Accounts for Testing
+       </div>
+       <span class="badge-soft info">
+        <i class="fa-solid fa-flask me-1">
+        </i>
+        Demo
+       </span>
+      </div>
+      <div class="card-body">
+       <p class="text-muted small mb-3">
+        Use any of the following credentials to test role-based redirection.
+       </p>
+       <div class="table-responsive">
+        <table class="table table-sm table-theme align-middle mb-0">
+         <thead>
+          <tr>
+           <th>
+            Role
+           </th>
+           <th>
+            Email
+           </th>
+           <th>
+            Password
+           </th>
+           <th>
+            Redirects To
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <span class="badge-soft primary">
+             Admin
+            </span>
+           </td>
+           <td>
+            <code>
+             admin@aisocial.com
+            </code>
+           </td>
+           <td>
+            <code>
+             Admin@123
+            </code>
+           </td>
+           <td>
+            <i class="fa-solid fa-gauge-high me-1 text-info">
+            </i>
+            dashboard_page.html
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <span class="badge-soft success">
+             Manager
+            </span>
+           </td>
+           <td>
+            <code>
+             manager@aisocial.com
+            </code>
+           </td>
+           <td>
+            <code>
+             Manager@123
+            </code>
+           </td>
+           <td>
+            <i class="fa-solid fa-chart-line me-1 text-success">
+            </i>
+            analytics_page.html
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <span class="badge-soft warning">
+             Creator
+            </span>
+           </td>
+           <td>
+            <code>
+             creator@aisocial.com
+            </code>
+           </td>
+           <td>
+            <code>
+             Creator@123
+            </code>
+           </td>
+           <td>
+            <i class="fa-solid fa-pen-to-square me-1 text-warning">
+            </i>
+            post_creator.html
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <span class="badge-soft info">
+             Analyst
+            </span>
+           </td>
+           <td>
+            <code>
+             analyst@aisocial.com
+            </code>
+           </td>
+           <td>
+            <code>
+             Analyst@123
+            </code>
+           </td>
+           <td>
+            <i class="fa-solid fa-chart-pie me-1 text-info">
+            </i>
+            analytics_page.html
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <span class="badge-soft secondary">
+             Editor
+            </span>
+           </td>
+           <td>
+            <code>
+             editor@aisocial.com
+            </code>
+           </td>
+           <td>
+            <code>
+             Editor@123
+            </code>
+           </td>
+           <td>
+            <i class="fa-solid fa-video me-1 text-secondary">
+            </i>
+            video_editor.html
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <span class="badge-soft primary">
+             User
+            </span>
+           </td>
+           <td>
+            <code>
+             user@aisocial.com
+            </code>
+           </td>
+           <td>
+            <code>
+             User@123
+            </code>
+           </td>
+           <td>
+            <i class="fa-solid fa-gauge me-1 text-primary">
+            </i>
+            dashboard_page.html
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <span class="badge-soft success">
+             Scheduler
+            </span>
+           </td>
+           <td>
+            <code>
+             scheduler@aisocial.com
+            </code>
+           </td>
+           <td>
+            <code>
+             Scheduler@123
+            </code>
+           </td>
+           <td>
+            <i class="fa-solid fa-calendar-day me-1 text-success">
+            </i>
+            calendar_page.html
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <div class="card-footer small text-muted">
+       Tip: Invalid credentials will show an inline error and a SweetAlert notification.
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <!-- Common Auth (Login/Registration) Footer -->
+  <footer class="mt-auto py-3 border-top" style="border-top-color:#000080 !important;">
+   <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/asmfooter/40/20'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:20px;"/>
+     <span class="text-muted small">
+      © 2025 AI Social Manager
+     </span>
+    </div>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 small text-muted" href="#">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 small text-muted" href="#">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 small text-muted" href="#help">
+       Support
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <!-- Bootstrap 5 JS -->
+  <script crossorigin="anonymous" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // Demo user directory for role-based redirection
+const users = {
+    'admin@aisocial.com': {
+        password: 'Admin@123',
+        role: 'Admin',
+        redirect: './dashboard_page.html'
+    },
+    'manager@aisocial.com': {
+        password: 'Manager@123',
+        role: 'Manager',
+        redirect: './analytics_page.html'
+    },
+    'creator@aisocial.com': {
+        password: 'Creator@123',
+        role: 'Creator',
+        redirect: './post_creator.html'
+    },
+    'analyst@aisocial.com': {
+        password: 'Analyst@123',
+        role: 'Analyst',
+        redirect: './analytics_page.html'
+    },
+    'editor@aisocial.com': {
+        password: 'Editor@123',
+        role: 'Editor',
+        redirect: './video_editor.html'
+    },
+    'user@aisocial.com': {
+        password: 'User@123',
+        role: 'User',
+        redirect: './dashboard_page.html'
+    },
+    'scheduler@aisocial.com': {
+        password: 'Scheduler@123',
+        role: 'Scheduler',
+        redirect: './calendar_page.html'
+    }
+};
+
+const loginForm = document.getElementById('loginForm');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const submitBtn = document.getElementById('submitBtn');
+const spinner = submitBtn.querySelector('.spinner-border');
+const loginError = document.getElementById('loginError');
+const loginErrorText = document.getElementById('loginErrorText');
+const passwordToggle = document.getElementById('password-toggle');
+const passwordToggleIcon = document.getElementById('passwordToggleIcon');
+
+const showError = (msg) => {
+    loginErrorText.textContent = msg || 'Invalid credentials. Please try again.';
+    loginError.classList.remove('d-none');
+    // SweetAlert beautiful alert
+    Swal.fire({
+        icon: 'error',
+        title: 'Login failed',
+        text: loginErrorText.textContent,
+        confirmButtonColor: getComputedStyle(document.documentElement).getPropertyValue('--color-primary')?.trim() || '#0FF'
+    });
+};
+
+const clearError = () => {
+    loginError.classList.add('d-none');
+};
+
+const setLoading = (isLoading) => {
+    if (isLoading) {
+        submitBtn.setAttribute('disabled', 'disabled');
+        spinner.classList.remove('d-none');
+    } else {
+        submitBtn.removeAttribute('disabled');
+        spinner.classList.add('d-none');
+    }
+};
+
+const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+};
+
+// Toggle password visibility
+passwordToggle.addEventListener('click', () => {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    passwordToggleIcon.classList.toggle('fa-eye');
+    passwordToggleIcon.classList.toggle('fa-eye-slash');
+});
+
+// Clear errors on input
+emailInput.addEventListener('input', () => {
+    clearError();
+    emailInput.classList.remove('is-invalid');
+});
+passwordInput.addEventListener('input', () => {
+    clearError();
+    passwordInput.classList.remove('is-invalid');
+});
+
+// Forgot Password flow (demo)
+document.getElementById('forgotPasswordLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    Swal.fire({
+        icon: 'info',
+        title: 'Password reset',
+        text: 'A password reset link would be sent to your email in a real application.',
+        confirmButtonColor: getComputedStyle(document.documentElement).getPropertyValue('--color-primary')?.trim() || '#0FF'
+    });
+});
+
+// Social Login (demo)
+document.getElementById('googleLoginBtn').addEventListener('click', async () => {
+    await Swal.fire({
+        icon: 'info',
+        title: 'Redirecting to Google',
+        text: 'Starting Google OAuth flow...',
+        showConfirmButton: false,
+        timer: 1400
+    });
+    // Demo: after OAuth success, go to dashboard
+    window.location.href = './dashboard_page.html';
+});
+
+// Form submit handler
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearError();
+
+    const email = emailInput.value.trim().toLowerCase();
+    const password = passwordInput.value;
+
+    let valid = true;
+    if (!validateEmail(email)) {
+        emailInput.classList.add('is-invalid');
+        valid = false;
+    }
+    if (!password) {
+        passwordInput.classList.add('is-invalid');
+        valid = false;
+    }
+    if (!valid) return;
+
+    setLoading(true);
+    // Simulate network latency
+    await new Promise(r => setTimeout(r, 900));
+
+    const user = users[email];
+    if (!user || user.password !== password) {
+        setLoading(false);
+        showError('Invalid email or password.');
+        return;
+    }
+
+    // Success
+    await Swal.fire({
+        icon: 'success',
+        title: `Welcome, ${user.role}!`,
+        text: 'Login successful. Redirecting...',
+        timer: 1200,
+        showConfirmButton: false
+    });
+
+    window.location.href = user.redirect;
+});
+  </script>
+ </body>
+</html>

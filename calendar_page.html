@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Content Calendar | Business Console
+  </title>
+  <!-- Poppins Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Font Awesome 6 -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+   <!-- FullCalendar 6 -->
+   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet"/>
+   <!-- SweetAlert2 -->
+   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- Global Theme Stylesheet -->
+    <link href="style.css" rel="stylesheet"/>
+    <!-- Page-specific CSS -->
+    <link href="calendar_page.css" rel="stylesheet"/>
+    <style>
+     body { font-family: 'Poppins', var(--font-sans); }
+    </style>
+   </link>
+  </link>
+ </head>
+ <body>
+  <!-- Header (Common Component) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000080;">
+   <div class="container-fluid">
+    <button aria-controls="offcanvasSidebarManager" class="btn btn-outline-info d-lg-none me-2" data-bs-target="#offcanvasSidebarManager" data-bs-toggle="offcanvas" style="border-color:#00FFFF;color:#00FFFF;" type="button">
+     <i class="fa-solid fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./dashboard_page.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandlogo/80/28'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:28px;"/>
+     <span>
+      Business Console
+     </span>
+    </a>
+    <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
+     <div class="input-group">
+      <span class="input-group-text" style="background:#fff;border-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-magnifying-glass">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" placeholder="Search campaigns, posts..." style="border-color:#00FFFF;" type="search"/>
+     </div>
+    </form>
+    <ul class="navbar-nav ms-auto align-items-center">
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+       <i class="fa-solid fa-file-export me-1">
+       </i>
+       Export Report
+      </a>
+     </li>
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-calendar-plus me-1">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button" style="color:#00FFFF;">
+       <img alt="Avatar" class="rounded-circle me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user/28/28'" src="https://via.placeholder.com/28"/>
+       @brand_account
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./account_settings.html">
+         <i class="fa-solid fa-gear me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./analytics_page.html">
+         <i class="fa-solid fa-chart-line me-2">
+         </i>
+         Analytics
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item text-danger" href="./login_page.html">
+         <i class="fa-solid fa-right-from-bracket me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <!-- Offcanvas Sidebar for mobile (Manager) -->
+  <div aria-labelledby="offcanvasSidebarManagerLabel" class="offcanvas offcanvas-start" id="offcanvasSidebarManager" style="background-color:#000080;color:#fff;" tabindex="-1">
+   <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasSidebarManagerLabel">
+     Navigation
+    </h5>
+    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body">
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./content_library.html">
+       <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+       </i>
+       Assets
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./ai_lab.html">
+       <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+       </i>
+       AI Ideas
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./analytics_page.html">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="d-flex">
+   <!-- Sidebar (Common Component) -->
+   <aside class="d-none d-lg-flex flex-column flex-shrink-0 p-3 text-white" style="width:280px;background-color:#000080;min-height:100vh;">
+    <div class="d-flex align-items-center mb-3">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandlogo2/120/36'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:36px;width:auto;"/>
+     <span class="fs-6 fw-semibold" style="color:#00FFFF;">
+      Business Console
+     </span>
+    </div>
+    <div class="d-flex align-items-center mb-3 p-2 rounded" style="background-color:rgba(0,255,255,.08);">
+     <img alt="Avatar" class="rounded-circle me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/manager/40/40'" src="https://via.placeholder.com/40"/>
+     <div>
+      <div class="small">
+       Signed in as
+      </div>
+      <div class="fw-semibold">
+       @brand_account
+      </div>
+      <span class="badge" style="background-color:#00FFFF;color:#000080;">
+       Manager
+      </span>
+     </div>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a aria-current="page" class="nav-link text-white active" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./content_library.html">
+       <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+       </i>
+       Assets
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./ai_lab.html">
+       <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+       </i>
+       AI Ideas
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a aria-controls="analyticsMenu" aria-expanded="true" class="nav-link text-white" data-bs-toggle="collapse" href="#analyticsMenu" role="button">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics &amp; Reports
+       <i class="fa-solid fa-chevron-down float-end">
+       </i>
+      </a>
+      <div class="collapse show ps-4" id="analyticsMenu">
+       <ul class="list-unstyled">
+        <li class="my-1">
+         <a class="nav-link text-white" href="./analytics_page.html">
+          <i class="fa-solid fa-chart-simple me-2" style="color:#00FFFF;">
+          </i>
+          Dashboard
+         </a>
+        </li>
+        <li class="my-1">
+         <a class="nav-link text-white" href="./analytics_page.html#top-content">
+          <i class="fa-regular fa-star me-2" style="color:#00FFFF;">
+          </i>
+          Top Content
+         </a>
+        </li>
+       </ul>
+      </div>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+    <hr class="border-light opacity-25"/>
+    <div>
+     <a class="btn w-100 mb-2" href="./analytics_page.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-arrow-trend-up me-2">
+      </i>
+      View Analytics
+     </a>
+     <a class="btn btn-outline-info w-100" href="./post_creator.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-calendar-check me-2">
+      </i>
+      Schedule Now
+     </a>
+    </div>
+    <style>
+     aside a.nav-link{border-radius:.5rem;}
+        aside a.nav-link:hover{background-color:rgba(0,255,255,.15);} 
+        aside .collapse .nav-link{font-size:.95rem;}
+    </style>
+   </aside>
+   <!-- Main Content -->
+   <main class="flex-grow-1">
+    <section class="container-fluid py-3 py-lg-4">
+     <!-- Breadcrumb and Title -->
+     <nav class="breadcrumb small mb-2">
+      <span class="breadcrumb-item">
+       <a href="./dashboard_page.html">
+        Home
+       </a>
+      </span>
+      <span aria-current="page" class="breadcrumb-item active">
+       Content Calendar
+      </span>
+     </nav>
+     <div class="page-header">
+      <h1 class="page-title mb-0">
+       Content Calendar
+      </h1>
+      <div class="d-flex gap-2">
+       <a class="btn btn-info" href="./post_creator.html">
+        <i class="fa-solid fa-plus me-2">
+        </i>
+        Create Post
+       </a>
+       <button class="btn btn-light" id="btnExportCalendar">
+        <i class="fa-solid fa-file-export me-2">
+        </i>
+        Export
+       </button>
+      </div>
+     </div>
+     <!-- Info Alert -->
+     <div class="alert alert-info d-flex align-items-center" role="alert">
+      <i class="fa-solid fa-circle-info me-2">
+      </i>
+      Drag and drop posts to reschedule. Click a post to view details, edit, or delete.
+     </div>
+     <!-- Calendar Card -->
+     <div class="card mb-4">
+      <div class="card-header">
+       <div class="d-flex justify-content-between align-items-center w-100 flex-wrap gap-2">
+        <!-- Date Navigation Controls -->
+        <div aria-label="Calendar navigation" class="btn-group" role="group">
+         <button class="btn btn-light" id="btnPrev" title="Previous">
+          <i class="fa-solid fa-chevron-left">
+          </i>
+         </button>
+         <button class="btn btn-light" id="btnToday" title="Today">
+          <i class="fa-solid fa-calendar-day me-1">
+          </i>
+          Today
+         </button>
+         <button class="btn btn-light" id="btnNext" title="Next">
+          <i class="fa-solid fa-chevron-right">
+          </i>
+         </button>
+        </div>
+        <!-- Current Date Display -->
+        <div class="fs-5 fw-semibold" id="currentDateLabel">
+         Loading…
+        </div>
+        <!-- View Switcher -->
+        <div class="view-switcher">
+         <div class="option active" data-view="dayGridMonth">
+          Month
+         </div>
+         <div class="option" data-view="timeGridWeek">
+          Week
+         </div>
+         <div class="option" data-view="timeGridDay">
+          Day
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card-body p-0">
+       <!-- Loading state overlay -->
+       <div class="position-relative" id="calendarLoading" style="min-height:320px;">
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-white" id="calendarLoadingOverlay">
+         <div class="text-center">
+          <div class="spinner-border text-info mb-2" role="status">
+          </div>
+          <div class="text-muted">
+           Loading calendar…
+          </div>
+         </div>
+        </div>
+        <div class="p-3" id="calendar">
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Upcoming Posts Table -->
+     <div class="card">
+      <div class="card-header">
+       <div class="d-flex justify-content-between align-items-center w-100 flex-wrap gap-2">
+        <div class="d-flex align-items-center gap-2">
+         <span class="fw-semibold">
+          Upcoming Posts
+         </span>
+         <span class="badge-soft info">
+          <i class="fa-regular fa-calendar-check">
+          </i>
+          Next 30 days
+         </span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+         <input class="form-control form-control-sm" id="searchText" placeholder="Search caption…" style="min-width:200px;" type="text"/>
+         <select class="form-select form-select-sm" id="filterPlatform" style="min-width:160px;">
+          <option value="">
+           All Platforms
+          </option>
+          <option value="instagram">
+           Instagram
+          </option>
+          <option value="facebook">
+           Facebook
+          </option>
+          <option value="twitter">
+           Twitter/X
+          </option>
+          <option value="linkedin">
+           LinkedIn
+          </option>
+          <option value="tiktok">
+           TikTok
+          </option>
+         </select>
+         <select class="form-select form-select-sm" id="filterStatus" style="min-width:160px;">
+          <option value="">
+           All Status
+          </option>
+          <option value="Scheduled">
+           Scheduled
+          </option>
+          <option value="Published">
+           Published
+          </option>
+          <option value="Error">
+           Error
+          </option>
+         </select>
+        </div>
+       </div>
+      </div>
+      <div class="card-body p-0">
+       <div class="table-responsive">
+        <table class="table-theme table-hover-reveal mb-0" id="upcomingTable">
+         <thead>
+          <tr>
+           <th class="sortable" data-key="date">
+            Date/Time
+            <i class="fa-solid fa-sort ms-1">
+            </i>
+           </th>
+           <th>
+            Preview
+           </th>
+           <th>
+            Caption
+           </th>
+           <th>
+            Platforms
+           </th>
+           <th class="sortable" data-key="status">
+            Status
+            <i class="fa-solid fa-sort ms-1">
+            </i>
+           </th>
+           <th>
+            Actions
+           </th>
+          </tr>
+         </thead>
+         <tbody id="upcomingTbody">
+          <!-- Rows injected by JS -->
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <div class="card-footer d-flex justify-content-between align-items-center">
+       <div class="small text-muted" id="paginationInfo">
+        Showing 1–6 of 6
+       </div>
+       <div class="btn-group btn-group-sm">
+        <button class="btn btn-light" id="btnPrevPage">
+         <i class="fa-solid fa-angle-left">
+         </i>
+        </button>
+        <button class="btn btn-light" id="btnNextPage">
+         <i class="fa-solid fa-angle-right">
+         </i>
+        </button>
+       </div>
+      </div>
+     </div>
+     <!-- Bootstrap Toast container for subtle notifications -->
+     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: var(--z-toast);">
+      <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-light border" id="liveToast" role="alert">
+       <div class="d-flex">
+        <div class="toast-body">
+         <span id="toastMsg">
+          Action completed.
+         </span>
+        </div>
+        <button aria-label="Close" class="btn-close me-2 m-auto" data-bs-dismiss="toast" type="button">
+        </button>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main>
+  </div>
+  <!-- Footer (Common Component) -->
+  <footer class="mt-auto py-3 border-top" style="border-top-color:#000080 !important;">
+   <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandlogo3/60/20'" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:20px;"/>
+     <span class="text-muted small">
+      © 2025 AI Social Manager
+     </span>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+     <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-file-export me-1">
+      </i>
+      Export
+     </a>
+     <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-calendar-plus me-1">
+      </i>
+      Schedule
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Terms
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Privacy
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js">
+  </script>
+  <script>
+   // Utilities
+const toastEl = document.getElementById('liveToast');
+const toast = toastEl ? new bootstrap.Toast(toastEl) : null;
+
+function showToast(message) {
+    if (!toastEl) return;
+    document.getElementById('toastMsg').textContent = message;
+    toast.show();
+}
+
+// Sample Events (mock data)
+const sampleEvents = [{
+    id: 'p1',
+    title: 'IG Reels: Summer Launch',
+    start: new Date(new Date().getFullYear(), new Date().getMonth(), 5, 10, 0),
+    end: new Date(new Date().getFullYear(), new Date().getMonth(), 5, 10, 30),
+    classNames: ['status-scheduled'],
+    extendedProps: {
+        thumbnail: 'https://picsum.photos/seed/post1/160/100',
+        platforms: ['instagram', 'facebook'],
+        status: 'Scheduled',
+        caption: 'Unveiling our Summer Collection ☀️👗 #launch #summer'
+    }
+}, {
+    id: 'p2',
+    title: 'Blog Share: SEO Tips',
+    start: new Date(new Date().getFullYear(), new Date().getMonth(), 12, 14, 0),
+    classNames: ['status-published'],
+    extendedProps: {
+        thumbnail: 'https://picsum.photos/seed/post2/160/100',
+        platforms: ['linkedin', 'twitter'],
+        status: 'Published',
+        caption: 'New blog: 5 SEO growth tips you can apply today.'
+    }
+}, {
+    id: 'p3',
+    title: 'TikTok Teaser',
+    start: new Date(new Date().getFullYear(), new Date().getMonth(), 19, 18, 30),
+    classNames: ['status-error'],
+    extendedProps: {
+        thumbnail: 'https://picsum.photos/seed/post3/160/100',
+        platforms: ['tiktok'],
+        status: 'Error',
+        caption: 'Quick teaser of behind-the-scenes 🎬 (Upload failed)'
+    }
+}, {
+    id: 'p4',
+    title: 'Giveaway Announcement',
+    start: new Date(new Date().getFullYear(), new Date().getMonth(), 22, 9, 0),
+    classNames: ['status-scheduled'],
+    extendedProps: {
+        thumbnail: 'https://picsum.photos/seed/post4/160/100',
+        platforms: ['instagram', 'tiktok'],
+        status: 'Scheduled',
+        caption: 'Win a summer kit! 🎁 Rules in caption.'
+    }
+}, {
+    id: 'p5',
+    title: 'Customer Story',
+    start: new Date(new Date().getFullYear(), new Date().getMonth(), 25, 11, 15),
+    classNames: ['status-scheduled'],
+    extendedProps: {
+        thumbnail: 'https://picsum.photos/seed/post5/160/100',
+        platforms: ['facebook'],
+        status: 'Scheduled',
+        caption: 'How Anna grew engagement by 60% using our tips.'
+    }
+}, {
+    id: 'p6',
+    title: 'Webinar Invite',
+    start: new Date(new Date().getFullYear(), new Date().getMonth(), 28, 16, 0),
+    classNames: ['status-scheduled'],
+    extendedProps: {
+        thumbnail: 'https://picsum.photos/seed/post6/160/100',
+        platforms: ['linkedin'],
+        status: 'Scheduled',
+        caption: 'Join our webinar on content planning next Thu.'
+    }
+}];
+
+// Upcoming table mock data (can mirror calendar events or extend)
+const tableData = [{
+    id: 'p1',
+    date: new Date(new Date().getFullYear(), new Date().getMonth(), 5, 10, 0),
+    caption: 'Unveiling our Summer Collection ☀️👗',
+    platforms: ['instagram', 'facebook'],
+    status: 'Scheduled',
+    thumbnail: 'https://picsum.photos/seed/post1/80/50'
+}, {
+    id: 'p7',
+    date: new Date(new Date().getFullYear(), new Date().getMonth(), 7, 13, 30),
+    caption: 'Weekly tips roundup',
+    platforms: ['twitter'],
+    status: 'Scheduled',
+    thumbnail: 'https://picsum.photos/seed/post7/80/50'
+}, {
+    id: 'p2',
+    date: new Date(new Date().getFullYear(), new Date().getMonth(), 12, 14, 0),
+    caption: '5 SEO growth tips blog',
+    platforms: ['linkedin', 'twitter'],
+    status: 'Published',
+    thumbnail: 'https://picsum.photos/seed/post2/80/50'
+}, {
+    id: 'p3',
+    date: new Date(new Date().getFullYear(), new Date().getMonth(), 19, 18, 30),
+    caption: 'Behind-the-scenes teaser',
+    platforms: ['tiktok'],
+    status: 'Error',
+    thumbnail: 'https://picsum.photos/seed/post3/80/50'
+}, {
+    id: 'p4',
+    date: new Date(new Date().getFullYear(), new Date().getMonth(), 22, 9, 0),
+    caption: 'Giveaway announcement',
+    platforms: ['instagram', 'tiktok'],
+    status: 'Scheduled',
+    thumbnail: 'https://picsum.photos/seed/post4/80/50'
+}, {
+    id: 'p6',
+    date: new Date(new Date().getFullYear(), new Date().getMonth(), 28, 16, 0),
+    caption: 'Webinar invite',
+    platforms: ['linkedin'],
+    status: 'Scheduled',
+    thumbnail: 'https://picsum.photos/seed/post6/80/50'
+}];
+
+let calendar; // FullCalendar instance
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize filters table
+    initUpcomingTable();
+
+    // Initialize FullCalendar after a simulated loading
+    setTimeout(() => {
+        initCalendar();
+        document.getElementById('calendarLoadingOverlay')?.classList.add('d-none');
+    }, 700);
+
+    // Toolbar controls
+    document.getElementById('btnPrev').addEventListener('click', () => {
+        calendar.prev();
+        updateDateLabel();
+        fetchRangeEventsFeedback('Previous');
+    });
+    document.getElementById('btnNext').addEventListener('click', () => {
+        calendar.next();
+        updateDateLabel();
+        fetchRangeEventsFeedback('Next');
+    });
+    document.getElementById('btnToday').addEventListener('click', () => {
+        calendar.today();
+        updateDateLabel();
+        fetchRangeEventsFeedback('Today');
+    });
+
+    // View switcher
+    document.querySelectorAll('.view-switcher .option').forEach(opt => {
+        opt.addEventListener('click', () => {
+            document.querySelectorAll('.view-switcher .option').forEach(o => o.classList.remove('active'));
+            opt.classList.add('active');
+            const viewName = opt.getAttribute('data-view');
+            calendar.changeView(viewName);
+            updateDateLabel();
+        });
+    });
+
+    document.getElementById('btnExportCalendar').addEventListener('click', () => {
+        Swal.fire({
+            icon: 'info',
+            title: 'Export Calendar',
+            text: 'Export of calendar events (CSV/ICS) will be available soon.',
+            confirmButtonColor: '#00FFFF',
+            confirmButtonText: 'Okay'
+        });
+    });
+});
+
+function initCalendar() {
+    const calendarEl = document.getElementById('calendar');
+    const now = new Date();
+    calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        initialDate: new Date(now.getFullYear(), now.getMonth(), 1),
+        height: 'auto',
+        selectable: true,
+        editable: true,
+        droppable: false,
+        eventStartEditable: true,
+        eventDurationEditable: false,
+        dayMaxEventRows: 3,
+        headerToolbar: false,
+        views: {
+            dayGridMonth: {
+                dayMaxEventRows: 3
+            },
+            timeGridWeek: {
+                slotMinTime: '06:00:00',
+                slotMaxTime: '22:00:00'
+            },
+            timeGridDay: {
+                slotMinTime: '06:00:00',
+                slotMaxTime: '22:00:00'
+            }
+        },
+        events: sampleEvents,
+        dateClick: function(info) {
+            // Create Post from empty slot
+            Swal.fire({
+                title: 'Create a post on ' + info.dateStr + '?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, start',
+                cancelButtonText: 'Cancel',
+                confirmButtonColor: '#00FFFF',
+                color: '#1c2430'
+            }).then(res => {
+                if (res.isConfirmed) {
+                    // Navigate to Post Creator with date param
+                    const dt = encodeURIComponent(info.dateStr);
+                    window.location.href = './post_creator.html?date=' + dt;
+                }
+            });
+        },
+        eventClick: function(info) {
+            const e = info.event;
+            const props = e.extendedProps || {};
+            const platforms = (props.platforms || []).map(p => platformIconHTML(p)).join(' ');
+            const isPublished = (props.status === 'Published');
+            const html = `
+            <div class="text-start">
+              <div class="mb-2">
+                <img src="${props.thumbnail}" alt="preview" class="img-fluid rounded" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fallback/320/180'">
+              </div>
+              <div class="mb-2"><span class="badge-soft ${statusClass(props.status)}">${props.status}</span></div>
+              <div class="mb-2">${platforms}</div>
+              <div class="small text-muted">${formatDateTime(e.start)}</div>
+              <p class="mt-2">${escapeHTML(props.caption || e.title)}</p>
+            </div>`;
+            Swal.fire({
+                title: e.title,
+                html: html,
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: isPublished ? 'Edit (Disabled)' : 'Edit',
+                denyButtonText: 'Delete',
+                cancelButtonText: 'Close',
+                reverseButtons: true,
+                confirmButtonColor: '#00FFFF',
+                denyButtonColor: '#CD2026',
+                allowOutsideClick: true,
+                didOpen: () => {
+                    if (isPublished) {
+                        const confirmBtn = Swal.getConfirmButton();
+                        confirmBtn.disabled = true;
+                    }
+                }
+            }).then(result => {
+                if (result.isConfirmed && !isPublished) {
+                    window.location.href = './post_creator.html?postId=' + encodeURIComponent(e.id);
+                } else if (result.isDenied) {
+                    // Confirm deletion
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Delete this post?',
+                        text: 'This action cannot be undone.',
+                        showCancelButton: true,
+                        confirmButtonText: 'Delete',
+                        confirmButtonColor: '#CD2026',
+                        cancelButtonText: 'Cancel'
+                    }).then(rm => {
+                        if (rm.isConfirmed) {
+                            e.remove();
+                            showToast('Post deleted');
+                        }
+                    });
+                }
+            });
+        },
+        eventDrop: function(info) {
+            // On drag-drop reschedule
+            showToast('Post rescheduled to ' + formatDateTime(info.event.start));
+        },
+        eventContent: function(arg) {
+            // Custom render with thumbnail & platforms
+            const props = arg.event.extendedProps || {};
+            const status = props.status || 'Scheduled';
+            const icons = (props.platforms || []).map(p => platformIconHTML(p)).join(' ');
+            const outer = document.createElement('div');
+            outer.className = 'fc-post-item ' + 'status-' + status.toLowerCase();
+            outer.innerHTML = `
+            <div class="d-flex align-items-center gap-2">
+              <img src="${props.thumbnail}" alt="thumb" class="rounded" width="24" height="24" onerror="this.onerror=null;this.src='https://picsum.photos/seed/thumb/24/24'">
+              <div class="flex-grow-1">
+                <div class="small fw-semibold text-truncate">${escapeHTML(arg.event.title)}</div>
+                <div class="small text-muted">${icons}</div>
+              </div>
+            </div>`;
+            return {
+                domNodes: [outer]
+            };
+        }
+    });
+    calendar.render();
+    updateDateLabel();
+}
+
+function updateDateLabel() {
+    const label = document.getElementById('currentDateLabel');
+    if (!label || !calendar) return;
+    label.textContent = calendar.view?.title || '';
+}
+
+function fetchRangeEventsFeedback(action) {
+    // Simulate loading feedback for range change (in real app, fetch API)
+    showToast(action + ' range loaded');
+}
+
+function platformIconHTML(p) {
+    const map = {
+        instagram: '<i class="fa-brands fa-instagram text-danger"></i>',
+        facebook: '<i class="fa-brands fa-facebook text-primary"></i>',
+        twitter: '<i class="fa-brands fa-x-twitter"></i>',
+        linkedin: '<i class="fa-brands fa-linkedin text-info"></i>',
+        tiktok: '<i class="fa-brands fa-tiktok"></i>'
+    };
+    return map[p] || '';
+}
+
+function statusClass(status) {
+    const s = (status || '').toLowerCase();
+    if (s === 'published') return 'success';
+    if (s === 'error') return 'error';
+    return 'info';
+}
+
+function escapeHTML(str) {
+    return String(str || '').replace(/[&<>'"]/g, t => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '\'': '&#39;',
+        '"': '&quot;'
+    } [t]));
+}
+
+function pad(n) {
+    return n < 10 ? '0' + n : n;
+}
+
+function formatDateTime(d) {
+    if (!d) return '';
+    const yyyy = d.getFullYear();
+    const mm = pad(d.getMonth() + 1);
+    const dd = pad(d.getDate());
+    const hh = pad(d.getHours());
+    const mi = pad(d.getMinutes());
+    return `${yyyy}-${mm}-${dd} ${hh}:${mi}`;
+}
+
+// Upcoming table rendering, sorting, filtering, pagination
+let currentSort = {
+    key: 'date',
+    dir: 'asc'
+};
+let currentPage = 1;
+const pageSize = 6;
+
+function initUpcomingTable() {
+    document.getElementById('filterPlatform').addEventListener('change', renderTable);
+    document.getElementById('filterStatus').addEventListener('change', renderTable);
+    document.getElementById('searchText').addEventListener('input', renderTable);
+    document.getElementById('btnPrevPage').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderTable();
+        }
+    });
+    document.getElementById('btnNextPage').addEventListener('click', () => {
+        const maxPage = Math.ceil(filterAndSort(tableData).length / pageSize);
+        if (currentPage < maxPage) {
+            currentPage++;
+            renderTable();
+        }
+    });
+    document.querySelectorAll('#upcomingTable thead th.sortable').forEach(th => {
+        th.style.cursor = 'pointer';
+        th.addEventListener('click', () => {
+            const key = th.getAttribute('data-key');
+            if (currentSort.key === key) {
+                currentSort.dir = (currentSort.dir === 'asc') ? 'desc' : 'asc';
+            } else {
+                currentSort.key = key;
+                currentSort.dir = 'asc';
+            }
+            renderTable();
+        });
+    });
+    renderTable();
+}
+
+function filterAndSort(rows) {
+    const pf = document.getElementById('filterPlatform').value;
+    const st = document.getElementById('filterStatus').value;
+    const q = (document.getElementById('searchText').value || '').toLowerCase();
+    let out = rows.filter(r =>
+        (!pf || r.platforms.includes(pf)) &&
+        (!st || r.status === st) &&
+        (!q || (r.caption || '').toLowerCase().includes(q))
+    );
+    // sort
+    out.sort((a, b) => {
+        let va, vb;
+        if (currentSort.key === 'date') {
+            va = a.date;
+            vb = b.date;
+        } else if (currentSort.key === 'status') {
+            va = a.status;
+            vb = b.status;
+        } else {
+            va = a.date;
+            vb = b.date;
+        }
+        if (va < vb) return currentSort.dir === 'asc' ? -1 : 1;
+        if (va > vb) return currentSort.dir === 'asc' ? 1 : -1;
+        return 0;
+    });
+    return out;
+}
+
+function renderTable() {
+    const tbody = document.getElementById('upcomingTbody');
+    tbody.innerHTML = '';
+    const rows = filterAndSort(tableData);
+    const total = rows.length;
+    const maxPage = Math.max(1, Math.ceil(total / pageSize));
+    if (currentPage > maxPage) currentPage = maxPage;
+    const start = (currentPage - 1) * pageSize;
+    const slice = rows.slice(start, start + pageSize);
+
+    for (const r of slice) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${formatDateTime(r.date)}</td>
+          <td><img src="${r.thumbnail}" class="rounded" width="60" height="38" alt="thumb" onerror="this.onerror=null;this.src='https://picsum.photos/seed/thumbrow/60/38'"></td>
+          <td>${escapeHTML(r.caption)}</td>
+          <td>${r.platforms.map(p => platformIconHTML(p)).join(' ')}</td>
+          <td><span class="badge-soft ${statusClass(r.status)}">${r.status}</span></td>
+          <td>
+            <div class="d-flex gap-2">
+              <a class="btn btn-sm btn-light" href="./post_creator.html?postId=${encodeURIComponent(r.id)}" ${r.status==='Published' ? 'disabled' : ''} title="Edit"><i class="fa-regular fa-pen-to-square"></i></a>
+              <button class="btn btn-sm btn-danger" data-id="${r.id}" onclick="deleteRow('${r.id}')" title="Delete"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+          </td>`;
+        tbody.appendChild(tr);
+    }
+
+    const info = document.getElementById('paginationInfo');
+    const end = Math.min(total, start + slice.length);
+    info.textContent = `Showing ${total ? (start+1) : 0}–${end} of ${total}`;
+}
+
+function deleteRow(id) {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Delete this scheduled post?',
+        text: 'This will remove it from the queue.',
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        confirmButtonColor: '#CD2026',
+        cancelButtonText: 'Cancel'
+    }).then(res => {
+        if (res.isConfirmed) {
+            const idx = tableData.findIndex(x => x.id === id);
+            if (idx >= 0) {
+                tableData.splice(idx, 1);
+                renderTable();
+                showToast('Removed from upcoming posts');
+            }
+        }
+    });
+}
+  </script>
+ </body>
+</html>

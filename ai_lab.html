@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   AI Lab | Business Console
+  </title>
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfAm9P1hQZ1ZdHfM7cGJ7ad9hNBbX6Q7k3B8Wr1ZP+6Hj6x1Q8Vd8QJQ==" referrerpolicy="no-referrer" rel="stylesheet">
+   <!-- App Theme CSS -->
+   <link href="style.css" rel="stylesheet">
+    <!-- Page-specific CSS -->
+    <link href="ai_lab.css" rel="stylesheet"/>
+   </link>
+  </link>
+ </head>
+ <body>
+  <!-- Header (Manager/Business Role Header) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000080;">
+   <div class="container-fluid">
+    <button aria-controls="offcanvasSidebarManager" class="btn btn-outline-info d-lg-none me-2" data-bs-target="#offcanvasSidebarManager" data-bs-toggle="offcanvas" style="border-color:#00FFFF;color:#00FFFF;" type="button">
+     <i class="fa-solid fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./dashboard_page.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brandlogo/80/28';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:28px;"/>
+     <span>
+      Business Console
+     </span>
+    </a>
+    <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
+     <div class="input-group">
+      <span class="input-group-text" style="background:#fff;border-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-magnifying-glass">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" placeholder="Search campaigns, posts..." style="border-color:#00FFFF;" type="search"/>
+     </div>
+    </form>
+    <ul class="navbar-nav ms-auto align-items-center">
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+       <i class="fa-solid fa-file-export me-1">
+       </i>
+       Export Report
+      </a>
+     </li>
+     <li class="nav-item me-2 d-none d-md-block">
+      <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+       <i class="fa-solid fa-calendar-plus me-1">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" style="color:#00FFFF;">
+       <i class="fa-regular fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button" style="color:#00FFFF;">
+       <img alt="Avatar" class="rounded-circle me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user28/28/28';" src="https://via.placeholder.com/28"/>
+       @brand_account
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./account_settings.html">
+         <i class="fa-solid fa-gear me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./analytics_page.html">
+         <i class="fa-solid fa-chart-line me-2">
+         </i>
+         Analytics
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item text-danger" href="./login_page.html">
+         <i class="fa-solid fa-right-from-bracket me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <!-- Offcanvas Sidebar for mobile (Manager) -->
+  <div aria-labelledby="offcanvasSidebarManagerLabel" class="offcanvas offcanvas-start" id="offcanvasSidebarManager" style="background-color:#000080;color:#fff;" tabindex="-1">
+   <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasSidebarManagerLabel">
+     Navigation
+    </h5>
+    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body">
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./content_library.html">
+       <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+       </i>
+       Assets
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./ai_lab.html">
+       <i class="fa-solid fa-lightbulb me-2" style="color:#00FFFF;">
+       </i>
+       AI Ideas
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./analytics_page.html">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="d-flex">
+   <!-- Sidebar (visible on lg+) -->
+   <aside class="d-none d-lg-flex flex-column flex-shrink-0 p-3 text-white" style="width:280px;background-color:#000080;min-height:100vh;">
+    <div class="d-flex align-items-center mb-3">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/brand36/36/36';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:36px;width:auto;"/>
+     <span class="fs-6 fw-semibold" style="color:#00FFFF;">
+      Business Console
+     </span>
+    </div>
+    <div class="d-flex align-items-center mb-3 p-2 rounded" style="background-color:rgba(0,255,255,.08);">
+     <img alt="Avatar" class="rounded-circle me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user40/40/40';" src="https://via.placeholder.com/40"/>
+     <div>
+      <div class="small">
+       Signed in as
+      </div>
+      <div class="fw-semibold">
+       @brand_account
+      </div>
+      <span class="badge" style="background-color:#00FFFF;color:#000080;">
+       Manager
+      </span>
+     </div>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./dashboard_page.html">
+       <i class="fa-solid fa-chart-pie me-2" style="color:#00FFFF;">
+       </i>
+       Overview
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./calendar_page.html">
+       <i class="fa-solid fa-calendar-days me-2" style="color:#00FFFF;">
+       </i>
+       Planner
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./post_creator.html">
+       <i class="fa-solid fa-paper-plane me-2" style="color:#00FFFF;">
+       </i>
+       Schedule Post
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./content_library.html">
+       <i class="fa-solid fa-folder-open me-2" style="color:#00FFFF;">
+       </i>
+       Assets
+      </a>
+     </li>
+     <li class="nav-item mb-1">
+      <a aria-controls="analyticsMenu" aria-expanded="true" class="nav-link text-white" data-bs-toggle="collapse" href="#analyticsMenu" role="button">
+       <i class="fa-solid fa-chart-line me-2" style="color:#00FFFF;">
+       </i>
+       Analytics &amp; Reports
+       <i class="fa-solid fa-chevron-down float-end">
+       </i>
+      </a>
+      <div class="collapse show ps-4" id="analyticsMenu">
+       <ul class="list-unstyled">
+        <li class="my-1">
+         <a class="nav-link text-white" href="./analytics_page.html">
+          <i class="fa-solid fa-chart-simple me-2" style="color:#00FFFF;">
+          </i>
+          Dashboard
+         </a>
+        </li>
+        <li class="my-1">
+         <a class="nav-link text-white" href="./analytics_page.html#top-content">
+          <i class="fa-regular fa-star me-2" style="color:#00FFFF;">
+          </i>
+          Top Content
+         </a>
+        </li>
+       </ul>
+      </div>
+     </li>
+     <li class="nav-item mb-1">
+      <a class="nav-link text-white" href="./account_settings.html">
+       <i class="fa-solid fa-user-gear me-2" style="color:#00FFFF;">
+       </i>
+       Account Settings
+      </a>
+     </li>
+    </ul>
+    <hr class="border-light opacity-25"/>
+    <div>
+     <a class="btn w-100 mb-2" href="./analytics_page.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-arrow-trend-up me-2">
+      </i>
+      View Analytics
+     </a>
+     <a class="btn btn-outline-info w-100" href="./post_creator.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-calendar-check me-2">
+      </i>
+      Schedule Now
+     </a>
+    </div>
+    <style>
+     aside a.nav-link{border-radius:.5rem;}
+        aside a.nav-link:hover{background-color:rgba(0,255,255,.15);} 
+        aside .collapse .nav-link{font-size:.95rem;}
+    </style>
+   </aside>
+   <!-- Main Content -->
+   <main class="flex-grow-1 main-panel">
+    <div class="container-fluid container-max">
+     <!-- Breadcrumbs -->
+     <nav aria-label="breadcrumb" class="breadcrumb">
+      <ol class="breadcrumb mb-2">
+       <li class="breadcrumb-item">
+        <a href="./dashboard_page.html">
+         Dashboard
+        </a>
+       </li>
+       <li aria-current="page" class="breadcrumb-item active">
+        AI Lab
+       </li>
+      </ol>
+     </nav>
+     <!-- Page Header -->
+     <div class="page-header">
+      <div class="d-flex align-items-center gap-3">
+       <h1 class="page-title mb-0">
+        <i class="fa-solid fa-flask me-2 text-info">
+        </i>
+        AI Lab
+       </h1>
+       <span class="badge-soft info">
+        Creative Workspace
+       </span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+       <a class="btn btn-light" href="./analytics_page.html">
+        <i class="fa-solid fa-chart-simple me-2">
+        </i>
+        Insights
+       </a>
+       <a class="btn btn-primary" href="./post_creator.html">
+        <i class="fa-regular fa-calendar-plus me-2">
+        </i>
+        Schedule
+       </a>
+      </div>
+     </div>
+     <!-- AILabWorkspace -->
+     <div class="app-card mb-4" id="aiLabWorkspace">
+      <div class="card-header align-items-center">
+       <div class="title d-flex align-items-center gap-2">
+        <i class="fa-solid fa-robot text-info">
+        </i>
+        <span class="widget-title">
+         AI Tools
+        </span>
+       </div>
+       <div class="small text-muted">
+        Boost creativity with AI-powered generators
+       </div>
+      </div>
+      <div class="card-body">
+       <!-- Tool Selector (Tabs) -->
+       <ul class="nav nav-tabs" id="toolTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+         <button aria-controls="ideasPane" aria-selected="true" class="nav-link active" data-bs-target="#ideasPane" data-bs-toggle="tab" id="ideas-tab" role="tab" type="button">
+          <i class="fa-regular fa-lightbulb me-1">
+          </i>
+          Content Ideas
+         </button>
+        </li>
+        <li class="nav-item" role="presentation">
+         <button aria-controls="scriptsPane" aria-selected="false" class="nav-link" data-bs-target="#scriptsPane" data-bs-toggle="tab" id="scripts-tab" role="tab" type="button">
+          <i class="fa-solid fa-clapperboard me-1">
+          </i>
+          Video Scripts
+         </button>
+        </li>
+       </ul>
+       <div class="tab-content pt-3" id="toolTabsContent">
+        <!-- Idea Generator Panel -->
+        <div aria-labelledby="ideas-tab" class="tab-pane fade show active" id="ideasPane" role="tabpanel">
+         <form class="mb-3" id="ideaForm">
+          <div class="row g-3 align-items-end">
+           <div class="col-12 col-lg-4">
+            <label class="form-label" for="nicheSelect">
+             Your Niche
+            </label>
+            <select class="form-select" id="nicheSelect">
+             <option selected="" value="SaaS Marketing">
+              SaaS Marketing
+             </option>
+             <option value="Fitness Coaching">
+              Fitness Coaching
+             </option>
+             <option value="E-commerce">
+              E-commerce
+             </option>
+             <option value="Personal Finance">
+              Personal Finance
+             </option>
+             <option value="Real Estate">
+              Real Estate
+             </option>
+            </select>
+           </div>
+           <div class="col-12 col-lg-8">
+            <label class="form-label" for="topicInput">
+             What do you want to brainstorm?
+            </label>
+            <textarea class="form-control" id="topicInput" placeholder="Enter a topic, keyword, or a brief description to brainstorm ideas..." rows="3"></textarea>
+            <div class="form-text">
+             Tip: Add your audience and platform for better results. Example: "Short tips for SMB founders on LinkedIn about improving landing page conversions"
+            </div>
+           </div>
+           <div class="col-12 d-flex justify-content-end gap-2">
+            <button class="btn btn-light" id="clearIdeasBtn" type="button">
+             <i class="fa-regular fa-trash-can me-1">
+             </i>
+             Clear
+            </button>
+            <button class="btn btn-primary" id="generateIdeasBtn" type="submit">
+             <span class="btn-label">
+              <i class="fa-solid fa-wand-magic-sparkles me-2">
+              </i>
+              Generate Ideas
+             </span>
+             <span aria-hidden="true" class="btn-spinner spinner-border spinner-border-sm d-none" role="status">
+             </span>
+            </button>
+           </div>
+          </div>
+         </form>
+         <div aria-live="polite" id="ideasResults">
+          <div class="empty-state" id="ideasPlaceholder">
+           <i class="fa-regular fa-lightbulb fa-2x text-info">
+           </i>
+           <div class="empty-state-text">
+            No ideas yet. Describe what you need and click "Generate Ideas".
+           </div>
+          </div>
+          <div class="row g-3 d-none" id="ideasLoading">
+           <div class="col-12 col-md-6 col-xl-4">
+            <div class="skeleton" style="height:120px;">
+            </div>
+           </div>
+           <div class="col-12 col-md-6 col-xl-4">
+            <div class="skeleton" style="height:120px;">
+            </div>
+           </div>
+           <div class="col-12 col-md-6 col-xl-4">
+            <div class="skeleton" style="height:120px;">
+            </div>
+           </div>
+          </div>
+          <div class="row g-3" id="ideasGrid">
+          </div>
+         </div>
+        </div>
+        <!-- Script Generator Panel -->
+        <div aria-labelledby="scripts-tab" class="tab-pane fade" id="scriptsPane" role="tabpanel">
+         <form class="mb-3" id="scriptForm">
+          <div class="row g-3 align-items-end">
+           <div class="col-12 col-lg-6">
+            <label class="form-label" for="scriptTopic">
+             Video title or main idea
+            </label>
+            <input class="form-control" id="scriptTopic" placeholder="Enter the video title or a clear idea..." type="text"/>
+           </div>
+           <div class="col-12 col-lg-3">
+            <label class="form-label" for="toneSelect">
+             Tone
+            </label>
+            <select class="form-select" id="toneSelect">
+             <option selected="" value="Professional">
+              Professional
+             </option>
+             <option value="Casual">
+              Casual
+             </option>
+             <option value="Humorous">
+              Humorous
+             </option>
+             <option value="Informative">
+              Informative
+             </option>
+            </select>
+           </div>
+           <div class="col-12 col-lg-3 d-flex justify-content-end gap-2">
+            <button class="btn btn-light" id="clearScriptBtn" type="button">
+             <i class="fa-regular fa-trash-can me-1">
+             </i>
+             Clear
+            </button>
+            <button class="btn btn-primary" id="generateScriptBtn" type="submit">
+             <span class="btn-label">
+              <i class="fa-solid fa-wand-magic-sparkles me-2">
+              </i>
+              Generate Script
+             </span>
+             <span aria-hidden="true" class="btn-spinner spinner-border spinner-border-sm d-none" role="status">
+             </span>
+            </button>
+           </div>
+          </div>
+         </form>
+         <div class="card bg-surface border" id="scriptDisplay">
+          <div class="card-header">
+           <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-scroll text-secondary">
+            </i>
+            <span class="widget-title">
+             Generated Script
+            </span>
+           </div>
+           <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-sm btn-light" disabled="" id="copyScriptBtn" type="button">
+             <i class="fa-regular fa-copy me-1">
+             </i>
+             Copy
+            </button>
+           </div>
+          </div>
+          <div class="card-body">
+           <div class="empty-state" id="scriptPlaceholder">
+            <i class="fa-solid fa-clapperboard fa-2x text-secondary">
+            </i>
+            <div class="empty-state-text">
+             Your script will appear here after generation.
+            </div>
+           </div>
+           <div class="d-none" id="scriptLoading">
+            <div class="skeleton mb-2" style="height:16px;">
+            </div>
+            <div class="skeleton mb-2" style="height:16px;">
+            </div>
+            <div class="skeleton mb-2" style="height:16px;">
+            </div>
+            <div class="skeleton mb-2" style="height:16px;">
+            </div>
+           </div>
+           <div class="rich-output d-none" id="scriptContent">
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Insight & Recent Generations -->
+     <div class="row g-4 mb-5">
+      <div class="col-12 col-xl-5">
+       <div class="app-card">
+        <div class="card-header">
+         <div class="d-flex align-items-center gap-2">
+          <i class="fa-solid fa-chart-line text-info">
+          </i>
+          <span class="widget-title">
+           Weekly Idea Volume
+          </span>
+         </div>
+        </div>
+        <div class="card-body">
+         <canvas aria-label="Ideas generated per day" height="140" id="ideasChart" role="img">
+         </canvas>
+         <div class="text-muted small mt-2">
+          Hover to see details. Data shown is sample.
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="col-12 col-xl-7">
+       <div class="app-card">
+        <div class="card-header">
+         <div class="d-flex align-items-center gap-2">
+          <i class="fa-regular fa-clock text-secondary">
+          </i>
+          <span class="widget-title">
+           Recent Generations
+          </span>
+         </div>
+         <div class="d-flex gap-2">
+          <input class="form-control form-control-sm" id="tableFilter" placeholder="Filter by type or topic..." style="max-width:240px;" type="search"/>
+         </div>
+        </div>
+        <div class="card-body p-0">
+         <div class="table-responsive">
+          <table class="table-theme mb-0" id="recentTable">
+           <thead>
+            <tr>
+             <th data-sort="type" role="button">
+              Type
+              <i class="fa-solid fa-sort text-muted">
+              </i>
+             </th>
+             <th data-sort="topic" role="button">
+              Topic
+              <i class="fa-solid fa-sort text-muted">
+              </i>
+             </th>
+             <th data-sort="date" role="button">
+              Date
+              <i class="fa-solid fa-sort text-muted">
+              </i>
+             </th>
+             <th class="text-end">
+              Actions
+             </th>
+            </tr>
+           </thead>
+           <tbody id="recentTableBody">
+            <!-- rows injected by JS -->
+           </tbody>
+          </table>
+         </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+         <div class="small text-muted" id="paginationInfo">
+          Showing 1-5 of 0
+         </div>
+         <div class="btn-group">
+          <button class="btn btn-light btn-sm" id="prevPage" type="button">
+           <i class="fa-solid fa-chevron-left">
+           </i>
+          </button>
+          <button class="btn btn-light btn-sm" id="nextPage" type="button">
+           <i class="fa-solid fa-chevron-right">
+           </i>
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Notifications area -->
+     <div aria-live="polite" class="visually-hidden" id="notifyArea">
+     </div>
+    </div>
+   </main>
+  </div>
+  <!-- Footer -->
+  <footer class="mt-auto py-3 border-top" style="border-top-color:#000080 !important;">
+   <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo20/20/20';" src="https://dsaishared.blob.core.windows.net/uxcceleratecontainer/projects/68a898ab3010074de4818d8a/logos/logo_0016abf3-e30f-416e-8013-ef057ce9df8f.png" style="height:20px;"/>
+     <span class="text-muted small">
+      © 2025 AI Social Manager
+     </span>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+     <a class="btn btn-sm btn-outline-info" href="./analytics_page.html" style="border-color:#00FFFF;color:#00FFFF;">
+      <i class="fa-solid fa-file-export me-1">
+      </i>
+      Export
+     </a>
+     <a class="btn btn-sm" href="./post_creator.html" style="background-color:#00FFFF;color:#000080;">
+      <i class="fa-solid fa-calendar-plus me-1">
+      </i>
+      Schedule
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Terms
+     </a>
+     <a class="small text-muted ms-2" href="#">
+      Privacy
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- SweetAlert2 -->
+  <script crossorigin="anonymous" integrity="sha256-3c7C15HPbC1sQHL3lQZ/vqhaBKLBzc8TOomMl1vQHqo=" src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js">
+  </script>
+  <!-- Chart.js -->
+  <script crossorigin="anonymous" integrity="sha256-kdTXh5vM1gl3rE14pYW6VKBXjW/LaLTq+Q6z0I1AnA4=" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js">
+  </script>
+  <!-- Bootstrap Bundle with Popper -->
+  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   (function() {
+    const selectedTool = {
+        value: 'ideaGenerator'
+    };
+
+    // Elements - Ideas
+    const ideaForm = document.getElementById('ideaForm');
+    const topicInput = document.getElementById('topicInput');
+    const nicheSelect = document.getElementById('nicheSelect');
+    const generateIdeasBtn = document.getElementById('generateIdeasBtn');
+    const clearIdeasBtn = document.getElementById('clearIdeasBtn');
+    const ideasPlaceholder = document.getElementById('ideasPlaceholder');
+    const ideasLoading = document.getElementById('ideasLoading');
+    const ideasGrid = document.getElementById('ideasGrid');
+
+    // Elements - Script
+    const scriptForm = document.getElementById('scriptForm');
+    const scriptTopic = document.getElementById('scriptTopic');
+    const toneSelect = document.getElementById('toneSelect');
+    const generateScriptBtn = document.getElementById('generateScriptBtn');
+    const clearScriptBtn = document.getElementById('clearScriptBtn');
+    const scriptPlaceholder = document.getElementById('scriptPlaceholder');
+    const scriptLoading = document.getElementById('scriptLoading');
+    const scriptContent = document.getElementById('scriptContent');
+    const copyScriptBtn = document.getElementById('copyScriptBtn');
+
+    // Tabs state sync
+    const ideasTab = document.getElementById('ideas-tab');
+    const scriptsTab = document.getElementById('scripts-tab');
+    ideasTab.addEventListener('shown.bs.tab', () => selectedTool.value = 'ideaGenerator');
+    scriptsTab.addEventListener('shown.bs.tab', () => selectedTool.value = 'scriptGenerator');
+
+    // Helpers
+    function setLoading(btn, loading) {
+        const spinner = btn.querySelector('.btn-spinner');
+        const label = btn.querySelector('.btn-label');
+        if (loading) {
+            btn.setAttribute('disabled', 'disabled');
+            spinner.classList.remove('d-none');
+            label.classList.add('d-none');
+        } else {
+            btn.removeAttribute('disabled');
+            spinner.classList.add('d-none');
+            label.classList.remove('d-none');
+        }
+    }
+
+    function sweetError(message) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops!',
+            text: message,
+            confirmButtonColor: '#00FFFF',
+            background: '#fff'
+        });
+    }
+
+    function sweetSuccess(message) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Done',
+            text: message,
+            timer: 1400,
+            showConfirmButton: false
+        });
+    }
+
+    // Idea Generator Submit
+    ideaForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const topic = topicInput.value.trim();
+        if (!topic) {
+            topicInput.classList.add('is-invalid');
+            sweetError('Please enter a topic or description to get ideas.');
+            return;
+        }
+        topicInput.classList.remove('is-invalid');
+        setLoading(generateIdeasBtn, true);
+        ideasPlaceholder.classList.add('d-none');
+        ideasGrid.innerHTML = '';
+        ideasLoading.classList.remove('d-none');
+
+        const payload = {
+            topicInput: topic,
+            userNiche: nicheSelect.value
+        };
+        try {
+            // Attempt API call (may be mocked in demo)
+            const resp = await fetch('/api/ai/generate-ideas', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+            // If backend not available, create mock
+            let ideas;
+            if (!resp.ok) throw new Error('Service unavailable, using mock data');
+            const data = await resp.json();
+            ideas = Array.isArray(data.ideas) ? data.ideas : [];
+            if (ideas.length === 0) throw new Error('No ideas returned.');
+            renderIdeas(ideas);
+        } catch (err) {
+            // Mock data fallback
+            const mock = mockIdeas(topic, nicheSelect.value);
+            renderIdeas(mock);
+        } finally {
+            ideasLoading.classList.add('d-none');
+            setLoading(generateIdeasBtn, false);
+        }
+    });
+
+    clearIdeasBtn.addEventListener('click', () => {
+        topicInput.value = '';
+        ideasGrid.innerHTML = '';
+        ideasPlaceholder.classList.remove('d-none');
+    });
+
+    function renderIdeas(ideas) {
+        if (!ideas || ideas.length === 0) {
+            ideasPlaceholder.classList.remove('d-none');
+            return;
+        }
+        const frag = document.createDocumentFragment();
+        ideas.forEach((idea, idx) => {
+            const col = document.createElement('div');
+            col.className = 'col-12 col-md-6 col-xl-4';
+            col.innerHTML = `
+            <div class="idea-card app-card h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h5 class="mb-0 text-strong">${escapeHtml(idea.title)}</h5>
+                  <span class="badge-soft info">${escapeHtml(idea.format || 'Post')}</span>
+                </div>
+                <p class="text-muted mb-2">${escapeHtml(idea.angle)}</p>
+                <div class="d-flex flex-wrap gap-1 mb-3">
+                  ${(idea.tags||[]).map(t=>`<span class="badge rounded-pill bg-info-soft text-info">#${escapeHtml(t)}</span>`).join('')}
+                </div>
+                <div class="d-flex justify-content-end gap-2">
+                  <button class="btn btn-light btn-sm" data-action="copy-idea" data-idx="${idx}"><i class="fa-regular fa-copy me-1"></i> Copy</button>
+                  <a href="./post_creator.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-feather me-1"></i> Use</a>
+                </div>
+              </div>
+            </div>`;
+            frag.appendChild(col);
+        });
+        ideasGrid.innerHTML = '';
+        ideasGrid.appendChild(frag);
+
+        // Wire copy buttons
+        ideasGrid.querySelectorAll('[data-action="copy-idea"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const i = parseInt(btn.getAttribute('data-idx'), 10);
+                const id = ideas[i];
+                const text = `${id.title}\n\n${id.angle}\n\nTags: ${id.tags.map(t=>'#'+t).join(' ')}`;
+                navigator.clipboard.writeText(text).then(() => sweetSuccess('Idea copied to clipboard')).catch(() => sweetError('Unable to copy'));
+            });
+        });
+    }
+
+    function mockIdeas(topic, niche) {
+        const baseTags = ['marketing', 'tips', 'growth', 'brand', 'audience'];
+        const formats = ['Carousel', 'Short Video', 'Thread', 'How-to', 'Checklist'];
+        const samples = [{
+            title: `3 ${niche} pitfalls hurting your ${topic}`,
+            angle: 'Show quick fixes with before/after examples.',
+            format: 'Carousel',
+            tags: ['conversion', 'ux', 'quickwins']
+        }, {
+            title: `A 30-day plan to master ${topic}`,
+            angle: 'Daily micro-actions that compound over time.',
+            format: 'Thread',
+            tags: ['habits', 'systems', 'execution']
+        }, {
+            title: `Stop doing this in ${niche}`,
+            angle: 'Common mistakes and what to do instead.',
+            format: 'Short Video',
+            tags: ['dosanddonts', 'optimize', 'learn']
+        }, {
+            title: `The one metric to track for ${topic}`,
+            angle: 'Explain why this metric predicts success with real numbers.',
+            format: 'How-to',
+            tags: ['kpi', 'northstar', 'analytics']
+        }, {
+            title: `${topic} in 5 quick wins`,
+            angle: 'Actionable checklist viewers can save and apply.',
+            format: 'Checklist',
+            tags: ['playbook', 'growth', 'tactics']
+        }, {
+            title: `From 0 to 1 in ${topic}`,
+            angle: 'Beginner guide with pitfalls to avoid.',
+            format: 'Carousel',
+            tags: baseTags.slice(0, 3)
+        }];
+        return samples;
+    }
+
+    // Script Generator
+    scriptForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const topic = scriptTopic.value.trim();
+        if (!topic) {
+            scriptTopic.classList.add('is-invalid');
+            sweetError('Enter a clear topic/title for the script.');
+            return;
+        }
+        scriptTopic.classList.remove('is-invalid');
+        setLoading(generateScriptBtn, true);
+        scriptPlaceholder.classList.add('d-none');
+        scriptContent.classList.add('d-none');
+        scriptLoading.classList.remove('d-none');
+        copyScriptBtn.setAttribute('disabled', 'disabled');
+
+        const payload = {
+            scriptTopicInput: topic,
+            tone: toneSelect.value,
+            userNiche: nicheSelect.value
+        };
+        try {
+            const resp = await fetch('/api/ai/generate-script', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+            let scriptText;
+            if (!resp.ok) throw new Error('Service unavailable, using mock script');
+            const data = await resp.json();
+            scriptText = data.script || '';
+            if (!scriptText) throw new Error('Empty response');
+            renderScript(scriptText);
+        } catch (err) {
+            const mock = mockScript(topic, toneSelect.value);
+            renderScript(mock);
+        } finally {
+            setLoading(generateScriptBtn, false);
+            scriptLoading.classList.add('d-none');
+        }
+    });
+
+    clearScriptBtn.addEventListener('click', () => {
+        scriptTopic.value = '';
+        scriptContent.innerHTML = '';
+        scriptContent.classList.add('d-none');
+        scriptPlaceholder.classList.remove('d-none');
+        copyScriptBtn.setAttribute('disabled', 'disabled');
+    });
+
+    function renderScript(text) {
+        scriptContent.innerHTML = formatScript(text);
+        scriptContent.classList.remove('d-none');
+        copyScriptBtn.removeAttribute('disabled');
+    }
+
+    function mockScript(topic, tone) {
+        return `Title: ${topic}\n\nHook (0-5s):\nAsk a bold question to pull the viewer in.\n\nIntro (5-15s):\nState the promise in a ${tone.toLowerCase()} tone.\n\nMain Points (15-50s):\n1) Define the problem with a quick example.\n2) Show the framework in 3 steps.\n3) Share a real metric to build trust.\n\nCTA (50-60s):\nSave for later and follow for more ${tone.toLowerCase()} tips about ${topic}.`;
+    }
+
+    function formatScript(text) {
+        const safe = escapeHtml(text);
+        return safe.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>').replace(/^/, '<p>').concat('</p>');
+    }
+
+    copyScriptBtn.addEventListener('click', () => {
+        const html = scriptContent.innerText.trim();
+        if (!html) return;
+        navigator.clipboard.writeText(html).then(() => sweetSuccess('Script copied!')).catch(() => sweetError('Unable to copy'));
+    });
+
+    function escapeHtml(str) {
+        return (str + "").replace(/[&<>"']/g, function(m) {
+            return ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                '\'': '&#39;'
+            } [m]);
+        });
+    }
+
+    // Recent Generations Table
+    const tableData = [{
+        type: 'Idea',
+        topic: 'Landing page conversion tips',
+        date: '2025-02-01',
+        action: 'copy'
+    }, {
+        type: 'Script',
+        topic: 'Hook ideas for SaaS onboarding',
+        date: '2025-02-02',
+        action: 'open'
+    }, {
+        type: 'Idea',
+        topic: 'UGC prompts for fitness reels',
+        date: '2025-02-03',
+        action: 'copy'
+    }, {
+        type: 'Script',
+        topic: '60s explainer: churn reduction',
+        date: '2025-02-04',
+        action: 'open'
+    }, {
+        type: 'Idea',
+        topic: 'Email subject lines that convert',
+        date: '2025-02-04',
+        action: 'copy'
+    }, {
+        type: 'Idea',
+        topic: 'Content calendar for March',
+        date: '2025-02-05',
+        action: 'copy'
+    }, {
+        type: 'Script',
+        topic: 'Testimonial video outline',
+        date: '2025-02-06',
+        action: 'open'
+    }, {
+        type: 'Idea',
+        topic: 'Twitter thread on product roadmap',
+        date: '2025-02-06',
+        action: 'copy'
+    }];
+    const recentTableBody = document.getElementById('recentTableBody');
+    const tableFilter = document.getElementById('tableFilter');
+    const paginationInfo = document.getElementById('paginationInfo');
+    const prevPageBtn = document.getElementById('prevPage');
+    const nextPageBtn = document.getElementById('nextPage');
+    const ths = document.querySelectorAll('#recentTable thead th[role="button"]');
+
+    let state = {
+        page: 1,
+        perPage: 5,
+        sortKey: 'date',
+        sortDir: 'desc',
+        filter: ''
+    };
+
+    function applyFilterSort(data) {
+        let arr = data.filter(r => (r.type + " " + r.topic).toLowerCase().includes(state.filter.toLowerCase()))
+        arr.sort((a, b) => {
+            const k = state.sortKey;
+            const av = a[k];
+            const bv = b[k];
+            if (k === 'date') return state.sortDir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+            return state.sortDir === 'asc' ? ('' + av).localeCompare('' + bv) : ('' + bv).localeCompare('' + av);
+        });
+        return arr;
+    }
+
+    function renderTable() {
+        const filtered = applyFilterSort(tableData);
+        const total = filtered.length;
+        const startIdx = (state.page - 1) * state.perPage;
+        const pageItems = filtered.slice(startIdx, startIdx + state.perPage);
+        recentTableBody.innerHTML = pageItems.map(r => `
+          <tr>
+            <td><span class="badge-soft ${r.type==='Idea'?'info':'secondary'}">${r.type}</span></td>
+            <td>${escapeHtml(r.topic)}</td>
+            <td>${formatDate(r.date)}</td>
+            <td class="text-end">
+              ${r.type==='Idea' ? `<button class="btn btn-sm btn-light" data-rowaction="copy" data-topic="${escapeHtml(r.topic)}"><i class='fa-regular fa-copy me-1'></i>Copy</button>` : `<a href="#scriptsPane" class="btn btn-sm btn-primary" data-rowaction="open"><i class='fa-solid fa-arrow-up-right-from-square me-1'></i>Open</a>`}
+            </td>
+          </tr>`).join('');
+        const to = Math.min(startIdx + pageItems.length, total);
+        paginationInfo.textContent = total ? `Showing ${startIdx+1}-${to} of ${total}` : 'No results';
+        prevPageBtn.disabled = state.page === 1;
+        nextPageBtn.disabled = startIdx + state.perPage >= total;
+
+        // Wire actions
+        recentTableBody.querySelectorAll('[data-rowaction="copy"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const t = btn.getAttribute('data-topic');
+                navigator.clipboard.writeText(t).then(() => sweetSuccess('Topic copied')).catch(() => sweetError('Copy failed'));
+            });
+        });
+        recentTableBody.querySelectorAll('[data-rowaction="open"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Switch to Scripts tab
+                const tab = new bootstrap.Tab(document.querySelector('#scripts-tab'));
+                tab.show();
+            });
+        });
+    }
+
+    function formatDate(d) {
+        const date = new Date(d + 'T00:00:00');
+        return date.toLocaleDateString(undefined, {
+            year: 'numeric',
+            month: 'short',
+            day: '2-digit'
+        });
+    }
+
+    tableFilter.addEventListener('input', () => {
+        state.filter = tableFilter.value;
+        state.page = 1;
+        renderTable();
+    });
+    prevPageBtn.addEventListener('click', () => {
+        if (state.page > 1) {
+            state.page--;
+            renderTable();
+        }
+    });
+    nextPageBtn.addEventListener('click', () => {
+        state.page++;
+        renderTable();
+    });
+    ths.forEach(th => th.addEventListener('click', () => {
+        const key = th.getAttribute('data-sort');
+        if (state.sortKey === key) {
+            state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+        } else {
+            state.sortKey = key;
+            state.sortDir = 'asc';
+        }
+        state.page = 1;
+        renderTable();
+    }));
+
+    renderTable();
+
+    // Chart.js - Ideas per day
+    const ctx = document.getElementById('ideasChart');
+    if (ctx && 'Chart' in window) {
+        const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        const data = [6, 9, 7, 11, 13, 6, 5];
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Ideas',
+                    data,
+                    borderColor: '#00FFFF',
+                    backgroundColor: 'rgba(0,255,255,0.15)',
+                    tension: 0.35,
+                    pointRadius: 3,
+                    pointBackgroundColor: '#000080',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 2
+                        }
+                    }
+                }
+            }
+        });
+    }
+})();
+  </script>
+ </body>
+</html>

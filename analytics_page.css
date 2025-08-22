@@ -1,0 +1,67 @@
+/* analytics_page.css – page-specific styles for Analytics Dashboard */
+/* Sticky global filters bar positioning under the navbar */
+#globalFilters.filters-bar {
+    position: sticky;
+    top: 56px;
+    /* approximate navbar height */
+    z-index: 100;
+    background: var(--surface-0);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2);
+    padding: 12px 16px
+    }
+#globalFilters .input-group-text {
+    background: var(--surface-muted)
+    }
+.platform-dropdown {
+    min-width: 260px
+    }
+/* Chart cards loading overlay */
+.loading-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(1px);
+    border-radius: var(--radius-2)
+    }
+.card .card-body {
+    position: relative
+    }
+/* Table: sortable header visual tweaks */
+#topContentTable thead th.sortable {
+    user-select: none
+    }
+#topContentTable tbody tr:hover {
+    background: rgba(0, 0, 0, 0.02)
+    }
+/* AI insight cards */
+.ai-insight-card {
+    border: 1px solid var(--border-color)
+    }
+.ai-insight-card .btn-icon {
+    width: 32px;
+    height: 32px
+    }
+.ai-insight-card .btn-icon i {
+    color: var(--text-muted)
+    }
+.ai-insight-card .btn-icon:hover i {
+    color: var(--text)
+    }
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    #globalFilters.filters-bar {
+        top: 56px
+        }
+    }
+@media (max-width: 575.98px) {
+    #globalFilters .btn, #globalFilters .form-control {
+        font-size: 0.95rem
+        }
+    }
+/* Fine-tune metric card spacing */
+.metric-card {
+    min-height: 110px
+    }

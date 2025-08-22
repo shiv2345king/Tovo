@@ -1,0 +1,134 @@
+/* Account Settings page-specific styles */
+/* Typography override for this page */
+body {
+    font-family: "Poppins", var(--font-sans) !important
+    }
+/* Keep main panel spacing consistent on this page */
+main.main-panel {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6)
+    }
+/* Connected accounts */
+.platform-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex: 0 0 auto;
+    font-size: 1rem;
+    box-shadow: var(--shadow-0)
+    }
+.platform-icon.twitter {
+    background: #0f1419
+    }
+.platform-icon.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%)
+    }
+.platform-icon.facebook {
+    background: #1877f2
+    }
+.platform-icon.linkedin {
+    background: #0a66c2
+    }
+.platform-icon.youtube {
+    background: #f00
+    }
+.platform-icon.tiktok {
+    background: #000
+    }
+.platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    background: var(--neutral-soft);
+    color: var(--text)
+    }
+.platform-badge.twitter {
+    background: #e6f7ff;
+    color: #0f1419
+    }
+.platform-badge.instagram {
+    background: #ffe9f3;
+    color: #c13584
+    }
+.platform-badge.facebook {
+    background: #e7f0ff;
+    color: #1877f2
+    }
+.platform-badge.linkedin {
+    background: #e6f3fb;
+    color: #0a66c2
+    }
+.platform-badge.youtube {
+    background: #ffecec;
+    color: #c00
+    }
+.platform-badge.tiktok {
+    background: #f1f2f6;
+    color: #111
+    }
+.connected-account-item {
+    transition: transform 0.15s ease, box-shadow 0.15s ease
+    }
+.connected-account-item:hover {
+    transform: translatey(-2px);
+    box-shadow: var(--shadow-2)
+    }
+/* Add account tile */
+.add-account-tile {
+    border: 2px dashed var(--border-color);
+    background: var(--surface-0);
+    border-radius: var(--radius-2);
+    color: var(--text);
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease
+    }
+.add-account-tile:hover {
+    background: var(--neutral-soft);
+    border-color: var(--color-info);
+    transform: translatey(-1px)
+    }
+/* Activity table sorting state */
+#activityTable thead th[data-sort-key] {
+    cursor: pointer;
+    user-select: none
+    }
+#activityTable thead th[data-sort="asc"] i {
+    color: var(--color-info);
+    transform: rotate(180deg)
+    }
+#activityTable thead th[data-sort="desc"] i {
+    color: var(--color-info)
+    }
+/* Toast positioning so it doesn't hide under header */
+.toast-container {
+    margin-top: 64px
+    }
+/* Form states */
+#profileCard .is-invalid {
+    border-color: var(--color-error) !important
+    }
+/* Password strength */
+#pwdStrengthBar.bg-danger {
+    background-color: var(--color-error) !important
+    }
+#pwdStrengthBar.bg-warning {
+    background-color: var(--color-warning) !important
+    }
+#pwdStrengthBar.bg-success {
+    background-color: var(--color-success) !important
+    }
+/* Responsive tweaks */
+@media (max-width: 991.98px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px
+        }
+    }
